@@ -16,7 +16,7 @@ import { PageToDoListComponent } from './pages/page-to-do-list/page-to-do-list.c
 import { PageUpdateMemberComponent } from './pages/page-update-member/page-update-member.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   { path: 'compte', component: PageAccountComponent },
   { path: 'accueil', component: PageAccueilComponent },
   { path: 'ajout-membre', component: PageAddMemberComponent },
