@@ -31,6 +31,8 @@ import { CardMenuComponent } from './components/card-menu/card-menu.component';
 import { FicheContactComponent } from './components/fiche-contact/fiche-contact.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CreneauComponent } from './components/creneau/creneau.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,13 @@ import { CreneauComponent } from './components/creneau/creneau.component';
     PaginationComponent,
     CreneauComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
