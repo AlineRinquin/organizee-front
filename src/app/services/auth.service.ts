@@ -20,7 +20,7 @@ export class AuthService {
   signup(membre: Membre): Observable<any> {
     console.log(membre);
 
-    return this.http.post(`${this.apiUrl}/creation-compte`, membre);
+    return this.http.post(`${this.apiUrl}/membres/sign-up`, membre);
   }
 
   signin(email: string, password: string): Observable<any> {
@@ -35,7 +35,7 @@ export class AuthService {
     // - pour pouvoir stocker dans le localstorage notre accesstoken
     // - Sous la clé "TOKEN-LBP"
 
-    return this.http.post(`${this.apiUrl}/login`, body).pipe(
+    return this.http.post(`${this.apiUrl}/membres/sign-in`, body).pipe(
       map((x: any) => {
         console.log('Service : ', x.accessToken);
         // Modification à faire ici
@@ -45,14 +45,10 @@ export class AuthService {
     );
   }
 
-  forgotPassword(email: string, password: string): Observable<any> {
+  forgotPassword(email: string): Observable<any> {
     const body = {
       email: email,
-      password: password,
     };
-
-    console.log('Mon body : ', body);
-
-    return this.http.post(`${this.apiUrl}/forgot-psw`, body);
+    return this.http.post(`${this.apiUrl}/membres/forgot-password`, body);
   }
 }

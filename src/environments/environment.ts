@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3306',
+  apiUrl: 'http://localhost:8088',
   tokenKey: 'TOKEN-ORGANIZEE',
 };
 
