@@ -55,4 +55,11 @@ export class AuthService {
 
     return this.http.post(`${this.apiUrl}/forgot-psw`, body);
   }
+
+  addMember(membre: Membre): Observable<any> {
+    console.log(membre);
+
+    return this.http.post(`${this.apiUrl}/tableau-de-bord`, membre);
+  }
+
 }
