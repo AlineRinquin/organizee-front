@@ -67,7 +67,6 @@ export class PageAddMemberComponent implements OnInit {
       email: emailValue,
       password: passwordValue,
       dateNaissance: dateNaissanceValue,
-      profil: profilValue,
       passwordConfirm: passwordConfirmValue,
       roleList: ["ROLE_PARENT"]
     };
