@@ -1,1 +1,18 @@
-<p>fiche-contact works!</p>
+<div>
+    <button class="w-100 btn btn-lg btn-rounded btn-secondary">
+        Modifier
+    </button>
+    <button class="w-100 btn btn-lg btn-rounded btn-secondary">
+        Supprimer
+    </button>
+    <img style="max-height: 12% ; max-width: 12%" src="../../../assets/images/contact-1.png"/>
+    <p class="fiche-contact" >{{ personne.prenom }} {{ personne.nom }}</p>
+    <p class="fiche-contact" ><img style="max-height: 12% ; max-width: 12%" src="../../../assets/images/phone.png"/>
+        {{ personne.telephone }}</p>
+    <p class="fiche-contact" ><img style="max-height: 12% ; max-width: 12%" src="../../../assets/images/logo-gmail.png"/>
+        {{ personne.email }}</p>
+    <p class="fiche-contact" ><img style="max-height: 12% ; max-width: 12%" src="../../../assets/images/gateau.png"/>
+        {{ personne.dateNaissance }}</p>
+        <p class="fiche-contact" >
+            {{ personne.adresse }}</p>
+</div>
