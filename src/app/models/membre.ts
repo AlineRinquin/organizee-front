@@ -6,5 +6,7 @@ export interface Membre {
   dateNaissance: Date;
   profil: boolean;
   roleList: string[];
+
   passwordConfirm: string;
+  roleList: string[];
 }

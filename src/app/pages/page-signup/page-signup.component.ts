@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Membre } from '../../models/membre';
 import { AuthService } from '../../services/auth.service';
 
@@ -31,8 +31,7 @@ export class PageSignupComponent implements OnInit {
         firstNameFc: new FormControl('', [Validators.required]),
         lastNameFc: new FormControl('', [Validators.required]),
         dateNaissanceFc: new FormControl('', [Validators.required]),
-        teamNameFc: new FormControl('', [Validators.required]),
-        profilFc: new FormControl('', [Validators.required]),
+        roleFc: new FormControl(''),
         emailFc: new FormControl('', [
           Validators.email,
           Validators.required,
@@ -56,14 +55,24 @@ export class PageSignupComponent implements OnInit {
   public onSubmit(): void {
     console.log('value : ', this.signupForm.value);
     console.log('form : ', this.signupForm);
-    const firstNameValue = this.signupForm.value['firstNameFc'];
-    const lastNameValue = this.signupForm.value['lastNameFc'];
+    const prenomValue = this.signupForm.value['firstNameFc'];
+    const nomValue = this.signupForm.value['lastNameFc'];
     const emailValue = this.signupForm.value['emailFc'];
     const passwordValue = this.signupForm.value['passwordFc'];
     const dateNaissanceValue = this.signupForm.value['dateNaissanceFc'];
-    const teamNameValue = this.signupForm.value['teamNameFc'];
-    const profilValue = this.signupForm.value['profilFc'];
     const passwordConfirmValue = this.signupForm.value['passwordConfirmFc'];
+
+    const roleValue = ['ROLE_PARENT'];
+
+    const membre: Membre = {
+      prenom: prenomValue,
+      nom: nomValue,
+      email: emailValue,
+      password: passwordValue,
+      dateNaissance: dateNaissanceValue,
+      passwordConfirm: passwordConfirmValue,
+      roleList: roleValue,
+
     const teamValue = '';
 
     const membre: Membre = {
@@ -75,6 +84,7 @@ export class PageSignupComponent implements OnInit {
       profil: profilValue,
       passwordConfirm: passwordConfirmValue,
       roleList: ["ROLE_PARENT"]
+
     };
 
     if (membre.email !== '' && membre.password !== '') {
