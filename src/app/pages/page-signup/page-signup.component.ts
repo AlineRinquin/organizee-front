@@ -25,7 +25,7 @@ export class PageSignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // *********************************penser a changer group car déprécié********************************
+    // *********************************pensser a changer group car déprécié********************************
     this.signupForm = this.fb.group(
       {
         firstNameFc: new FormControl('', [Validators.required]),
@@ -61,30 +61,16 @@ export class PageSignupComponent implements OnInit {
     const passwordValue = this.signupForm.value['passwordFc'];
     const dateNaissanceValue = this.signupForm.value['dateNaissanceFc'];
     const passwordConfirmValue = this.signupForm.value['passwordConfirmFc'];
-
     const roleValue = ['ROLE_PARENT'];
 
     const membre: Membre = {
-      prenom: prenomValue,
       nom: nomValue,
+      prenom: prenomValue,
       email: emailValue,
       password: passwordValue,
       dateNaissance: dateNaissanceValue,
       passwordConfirm: passwordConfirmValue,
       roleList: roleValue,
-
-    const teamValue = '';
-
-    const membre: Membre = {
-      nom: firstNameValue,
-      prenom: lastNameValue,
-      email: emailValue,
-      password: passwordValue,
-      dateNaissance: dateNaissanceValue,
-      profil: profilValue,
-      passwordConfirm: passwordConfirmValue,
-      roleList: ["ROLE_PARENT"]
-
     };
 
     if (membre.email !== '' && membre.password !== '') {

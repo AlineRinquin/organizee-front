@@ -33,6 +33,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { CreneauComponent } from './components/creneau/creneau.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
+import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { PageTestFormComponent } from './pages/page-test-form/page-test-form.component';
 
@@ -67,6 +69,8 @@ import { PageTestFormComponent } from './pages/page-test-form/page-test-form.com
     FicheContactComponent,
     PaginationComponent,
     CreneauComponent,
+    PageAjoutContactComponent,
+    PageModifierContactComponent,
     PageCreationTeamComponent,
     PageTestFormComponent,
   ],

@@ -21,8 +21,17 @@ export class RepertoireService {
     return this.http.get(`${this.apiUrl}/contacts/team/1`);
   }
 
-  //sur le component fiche contact de la page repertoire
-  // sur clic de btn modifier ou supproimer ca renvois vers page modifier contact
-  //page modifier contact faire un get by id du contact en question
-  // appeler methode/ update /delette/ add et contact by id
+  addContact(contact: Contact): Observable<any> {
+    console.log(contact);
+
+    return this.http.post(`${this.apiUrl}/contacts/add`, contact);
+  }
+
+  deleteContact() {
+    return this.http.delete(`${this.apiUrl}/contacts/delete`);
+  }
+
+  // updateContact(){
+  //   return this.http.put(`${this.apiUrl}/contacts/update/1`);
+  // }
 }
