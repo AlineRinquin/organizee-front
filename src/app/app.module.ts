@@ -35,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
+import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { PageModifierContactComponent } from './pages/page-modifier-contact/page
     CreneauComponent,
     PageAjoutContactComponent,
     PageModifierContactComponent,
+    PageCreationTeamComponent,
   ],
   imports: [
     BrowserModule,

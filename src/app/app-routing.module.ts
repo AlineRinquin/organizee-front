@@ -5,6 +5,7 @@ import { PageAccueilComponent } from './pages/page-accueil/page-accueil.componen
 import { PageAddMemberComponent } from './pages/page-add-member/page-add-member.component';
 import { PageAgendaComponent } from './pages/page-agenda/page-agenda.component';
 import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
+import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
 import { PageDeleteMemberComponent } from './pages/page-delete-member/page-delete-member.component';
 import { PageForgotPasswordComponent } from './pages/page-forgot-password/page-forgot-password.component';
@@ -27,12 +28,13 @@ const routes: Routes = [
   { path: 'password-oublie', component: PageForgotPasswordComponent },
   { path: 'menu', component: PageMenuSemaineComponent },
   { path: 'repertoire', component: PageRepertoireComponent },
-  { path: 'reinitialisation-password', component: PageResetPasswordComponent },
+  { path: 'reset-password', component: PageResetPasswordComponent },
   { path: 'creation-compte', component: PageSignupComponent },
   { path: 'to-do-list', component: PageToDoListComponent },
   { path: 'modifier-membre', component: PageUpdateMemberComponent },
   { path: 'ajouter-contact', component: PageAjoutContactComponent },
   { path: 'modifier-contact', component: PageAjoutContactComponent },
+  { path: 'creation-team', component : PageCreationTeamComponent},
   { path: '**', component: PageNotFoundComponent },
 ];
 
