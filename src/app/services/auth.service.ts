@@ -23,6 +23,7 @@ export class AuthService {
     console.log(membre);
 
     return this.http.post(`${this.apiUrl}/membres/sign-up`, membre);
+
   }
 
 
