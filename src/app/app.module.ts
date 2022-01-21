@@ -33,6 +33,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { CreneauComponent } from './components/creneau/creneau.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
+import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { HttpClientModule } from '@angular/common/http';
     FicheContactComponent,
     PaginationComponent,
     CreneauComponent,
+    PageAjoutContactComponent,
+    PageModifierContactComponent,
   ],
   imports: [
     BrowserModule,
