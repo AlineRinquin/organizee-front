@@ -34,6 +34,7 @@ import { CreneauComponent } from './components/creneau/creneau.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
+import { PageTestFormComponent } from './pages/page-test-form/page-test-form.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { PageCreationTeamComponent } from './pages/page-creation-team/page-creat
     PaginationComponent,
     CreneauComponent,
     PageCreationTeamComponent,
+    PageTestFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PageRepertoireComponent } from './pages/page-repertoire/page-repertoire.component';
 import { PageResetPasswordComponent } from './pages/page-reset-password/page-reset-password.component';
 import { PageSignupComponent } from './pages/page-signup/page-signup.component';
+import { PageTestFormComponent } from './pages/page-test-form/page-test-form.component';
 import { PageToDoListComponent } from './pages/page-to-do-list/page-to-do-list.component';
 import { PageUpdateMemberComponent } from './pages/page-update-member/page-update-member.component';
 
@@ -32,7 +33,9 @@ const routes: Routes = [
   { path: 'to-do-list', component: PageToDoListComponent },
   { path: 'modifier-membre', component: PageUpdateMemberComponent },
   { path: 'creation-team', component : PageCreationTeamComponent},
-  { path: '**', component: PageNotFoundComponent },
+  { path: 'test', component : PageTestFormComponent},
+  { path: '**', component: PageNotFoundComponent }
+
 ];
 
 @NgModule({
