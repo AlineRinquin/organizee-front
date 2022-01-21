@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Membre } from '../models/membre';
+import { Team } from '../models/team';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +24,7 @@ export class AuthService {
 
     return this.http.post(`${this.apiUrl}/membres/sign-up`, membre);
   }
+
 
   signin(email: string, password: string): Observable<any> {
     const body = {
@@ -58,4 +60,19 @@ export class AuthService {
      console.log(password);
    return this.http.post(`${this.apiUrl}/membres/reset-password/${email}`, body);
   }
+
+  creationTeam(team: Team): Observable<any> {
+    console.log(team);
+
+    return this.http.post(`${this.apiUrl}/creation-compte`, team);
+  }
+
+
+
+  addMember(membre: Membre): Observable<any> {
+    console.log(membre);
+
+    return this.http.post(`${this.apiUrl}/tableau-de-bord`, membre);
+  }
+
 }
