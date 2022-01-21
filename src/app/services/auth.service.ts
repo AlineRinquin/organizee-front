@@ -64,7 +64,7 @@ export class AuthService {
   creationTeam(team: Team): Observable<any> {
     console.log(team);
 
-    return this.http.post(`${this.apiUrl}/creation-compte`, team);
+    return this.http.post(`${this.apiUrl}/teams/add`, team);
   }
 
 
