@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { identifierModuleUrl } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -50,5 +51,11 @@ export class AuthService {
       email: email,
     };
     return this.http.post(`${this.apiUrl}/membres/forgot-password`, body);
+  }
+
+    resetPassword(email: string, password: string): Observable<any> {
+    const body = password;
+     console.log(password);
+   return this.http.post(`${this.apiUrl}/membres/reset-password/${email}`, body);
   }
 }

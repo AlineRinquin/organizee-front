@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'password-oublie', component: PageForgotPasswordComponent },
   { path: 'menu', component: PageMenuSemaineComponent },
   { path: 'repertoire', component: PageRepertoireComponent },
-  { path: 'reset-password', component: PageResetPasswordComponent },
+  { path: 'reinitialisation-password', component: PageResetPasswordComponent },
   { path: 'creation-compte', component: PageSignupComponent },
   { path: 'to-do-list', component: PageToDoListComponent },
   { path: 'modifier-membre', component: PageUpdateMemberComponent },
