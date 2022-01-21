@@ -20,7 +20,7 @@ export class AuthService {
   signup(membre: Membre): Observable<any> {
     console.log(membre);
 
-    return this.http.post(`${this.apiUrl}/creation-compte`, membre);
+    return this.http.post(`${this.apiUrl}/membres/signup`, membre);
   }
 
   signin(email: string, password: string): Observable<any> {

@@ -1,0 +1,22 @@
+
+
+a.hover {
+    color :rgb(219, 200, 28)
+}
+
+a {
+    color: rgb(32, 114, 45);
+}
+
+div { 
+    text-align: center;
+    font-weight: bold;
+
+// si on préfère une image en fond
+// background-image: url("../../../assets/images/404.jpg");
+// background-size: cover;
+
+background-image: linear-gradient(to left top, #051937, #004d7a, #008793, #e2ebe7, #f8faf5);
+
+}
+
