@@ -4,6 +4,7 @@ import { PageAccountComponent } from './pages/page-account/page-account.componen
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { PageAddMemberComponent } from './pages/page-add-member/page-add-member.component';
 import { PageAgendaComponent } from './pages/page-agenda/page-agenda.component';
+import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
 import { PageDeleteMemberComponent } from './pages/page-delete-member/page-delete-member.component';
 import { PageForgotPasswordComponent } from './pages/page-forgot-password/page-forgot-password.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'creation-compte', component: PageSignupComponent },
   { path: 'to-do-list', component: PageToDoListComponent },
   { path: 'modifier-membre', component: PageUpdateMemberComponent },
+  { path: 'creation-team', component : PageCreationTeamComponent},
   { path: '**', component: PageNotFoundComponent },
 ];
 
