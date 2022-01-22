@@ -10,6 +10,7 @@ import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.co
 import { PageDeleteMemberComponent } from './pages/page-delete-member/page-delete-member.component';
 import { PageForgotPasswordComponent } from './pages/page-forgot-password/page-forgot-password.component';
 import { PageMenuSemaineComponent } from './pages/page-menu-semaine/page-menu-semaine.component';
+import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageRepertoireComponent } from './pages/page-repertoire/page-repertoire.component';
 import { PageResetPasswordComponent } from './pages/page-reset-password/page-reset-password.component';
@@ -33,8 +34,8 @@ const routes: Routes = [
   { path: 'to-do-list', component: PageToDoListComponent },
   { path: 'modifier-membre', component: PageUpdateMemberComponent },
   { path: 'ajouter-contact', component: PageAjoutContactComponent },
-  { path: 'modifier-contact', component: PageAjoutContactComponent },
-  { path: 'creation-team', component : PageCreationTeamComponent},
+  { path: 'creation-team', component: PageCreationTeamComponent },
+  { path: 'modifier-contact', component: PageModifierContactComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
