@@ -27,7 +27,7 @@ export class PageAddMemberComponent implements OnInit {
         firstNameFc: new FormControl('', [Validators.required]),
         lastNameFc: new FormControl('', [Validators.required]),
         dateNaissanceFc: new FormControl('', [Validators.required]),
-        profilFc: new FormControl('', [Validators.required]),
+        couleurFc: new FormControl('', [Validators.required]),
         emailFc: new FormControl('', [
           Validators.email,
           Validators.required,
@@ -56,16 +56,16 @@ export class PageAddMemberComponent implements OnInit {
     const emailValue = this.addMemberForm.value['emailFc'];
     const passwordValue = this.addMemberForm.value['passwordFc'];
     const dateNaissanceValue = this.addMemberForm.value['dateNaissanceFc'];
-    const teamNameValue = this.addMemberForm.value['teamNameFc'];
-    const profilValue = this.addMemberForm.value['profilFc'];
+    const couleurValue = this.addMemberForm.value['couleurFc'];
     const passwordConfirmValue = this.addMemberForm.value['passwordConfirmFc'];
-    const teamValue = [''];
+
 
     const membre: Membre = {
       nom: firstNameValue,
       prenom: lastNameValue,
       email: emailValue,
       password: passwordValue,
+      couleur: couleurValue,
       dateNaissance: dateNaissanceValue,
       passwordConfirm: passwordConfirmValue,
       roleList: ["ROLE_PARENT"]

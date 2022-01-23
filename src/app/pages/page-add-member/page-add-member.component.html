@@ -5,6 +5,11 @@
       <form  (ngSubmit)="onSubmit()" [formGroup]="addMemberForm">
           <h1>J'inscris un nouveau membre</h1>
           <div class="form-floating">
+            <input type="color" class="form-control" id="floatingInputcouleur" placeholder="" name="couleur"
+                    formControlName="couleurFc">
+                  <label for="floatingInputcouleur">Choisissez une couleur !</label>
+                  </div>
+          <!-- <div class="form-floating">
             <input type="text"
                     class="form-control"
                     id="floatingInputlastName"
@@ -14,7 +19,7 @@
                     [ngClass]="{'is-valid' : addMemberForm.controls['lastNameFc'].touched && addMemberForm.controls['lastNameFc'].valid,
                                 'is-invalid':  addMemberForm.controls['lastNameFc'].touched && !addMemberForm.controls['lastNameFc'].valid}">
             <label for="floatingInputlastName">Avatar</label>
-        </div>
+        </div> -->
           <div class="form-floating">
               <input type="text"
                       class="form-control"
@@ -48,20 +53,7 @@
                                   'is-invalid':  addMemberForm.controls['dateNaissanceFc'].touched && !addMemberForm.controls['dateNaissanceFc'].valid}">
               <label for="floatingInputfirstName">Date de naissance</label>
           </div>
-          <div class="form-floating">
-              <select type="text"
-                      class="form-control"
-                      id="floatingInputprofil"
-                      name="profil"
-                      formControlName="profilFc"
-                      [ngClass]="{'is-valid' : addMemberForm.controls['profilFc'].touched && addMemberForm.controls['profilFc'].valid,
-                                  'is-invalid':  addMemberForm.controls['profilFc'].touched && !addMemberForm.controls['profilFc'].valid}">
-                              <option>Adulte</option>
-                              <option>Enfant</option>
-              </select>
-              <label for="floatingInputfirstName">Profil</label>
-          </div>
-          <div class="form-floating">
+             <div class="form-floating">
               <input type="email"
                       class="form-control"
                       id="floatingInput"

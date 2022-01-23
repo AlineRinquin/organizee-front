@@ -3,6 +3,11 @@
   <main class="form-signup">
     <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
       <h1>Inscrivez-vous !</h1>
+          <div class="form-floating">
+            <input type="color" class="form-control" id="floatingInputcouleur" placeholder="" name="couleur"
+              formControlName="couleurFc" >
+            <label for="floatingInputcouleur">Choisissez une couleur !</label>
+          </div>
       <div class="form-floating">
         <input
           type="text"
