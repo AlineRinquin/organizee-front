@@ -37,6 +37,7 @@ import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +72,7 @@ import { PageCreationTeamComponent } from './pages/page-creation-team/page-creat
     PageAjoutContactComponent,
     PageModifierContactComponent,
     PageCreationTeamComponent,
+
   ],
   imports: [
     BrowserModule,
