@@ -1,12 +1,12 @@
 <app-header></app-header>
 <div class="signup-form text-center">
+    <h1>Inscrivez-vous !</h1>
   <main class="form-signup">
     <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
-      <h1>Inscrivez-vous !</h1>
           <div class="form-floating">
             <input type="color" class="form-control" id="floatingInputcouleur" placeholder="" name="couleur"
-              formControlName="couleurFc" >
-            <label for="floatingInputcouleur">Choisissez une couleur !</label>
+              formControlName="couleurFc">
+
           </div>
       <div class="form-floating">
         <input
@@ -25,7 +25,7 @@
               !signupForm.controls['lastNameFc'].valid
           }"
         />
-        <label for="floatingInputlastName">Nom</label>
+        <label for="floatingInputlastName">VOTRE NOM</label>
       </div>
       <div class="form-floating">
         <input
@@ -44,7 +44,7 @@
               !signupForm.controls['firstNameFc'].valid
           }"
         />
-        <label for="floatingInputfirstName">Prénom</label>
+        <label for="floatingInputfirstName">VOTRE PRENOM</label>
       </div>
       <div class="form-floating">
         <input
@@ -63,13 +63,13 @@
               !signupForm.controls['dateNaissanceFc'].valid
           }"
         />
-        <label for="floatingInputfirstName">Date de naissance</label>
+        <label for="floatingInputdateNaissance">VOTRE DATE DE NAISSANCE</label>
       </div>
       <div class="form-floating">
         <input
           type="email"
           class="form-control"
-          id="floatingInput"
+          id="floatingInputemail"
           placeholder=""
           name="email"
           formControlName="emailFc"
@@ -82,7 +82,7 @@
               !signupForm.controls['emailFc'].valid
           }"
         />
-        <label for="floatingInput">Adresse email</label>
+        <label for="floatingInputemail">VOTRE EMAIL</label>
       </div>
       <div class="form-floating">
         <input
@@ -101,11 +101,11 @@
               !signupForm.controls['passwordFc'].valid
           }"
         />
-        <label for="floatingPassword">Mot de passe</label>
+        <label for="floatingPassword">MOT DE PASSE</label>
       </div>
       <div class="form-floating">
         <input
-          type="passwordConfirm"
+          type="password"
           class="form-control"
           id="floatingpasswordConfirm"
           placeholder=""
@@ -120,15 +120,15 @@
               !signupForm.controls['passwordConfirmFc'].valid
           }"
         />
-        <label for="floatingPassword">Confirmer mot de passe</label>
+        <label for="floatingPasswordConfirm">CONFIRMEZ VOTRE MOT DE PASSE</label>
       </div>
 
       <button
-        class="w-100 btn btn-lg btn-success"
+        class="w-100 btn btn-lg btn-outline-success"
         type="submit"
         [disabled]="signupForm.invalid"
       >
-        Je m'inscris !
+        CREER MON COMPTE
       </button>
     </form>
   </main>
