@@ -27,6 +27,7 @@ export class PageRepertoireComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //récupère tout les contact et leurs info
     this.repertoireService.getContact().subscribe((listContact: any[]) => {
       console.log(listContact);
       this.listContact = listContact;
@@ -62,6 +63,7 @@ export class PageRepertoireComponent implements OnInit {
     this.listContact = prenom;
   }
 
+  // Méthode qui au click va ouvrir les détails d'un contat
   onClick(personne: any) {
     console.log(personne);
     this.openDetails = personne;
