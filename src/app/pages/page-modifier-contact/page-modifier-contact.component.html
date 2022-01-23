@@ -2,6 +2,7 @@
     <app-header></app-header>
     <app-side-bar></app-side-bar>
 </div>
+
 <div class="modifContact-form text-center">
     <main class="form-modifContact">
         <form  (ngSubmit)="onSubmit()" [formGroup]="modifContactForm">
@@ -14,7 +15,7 @@
                         id="floatingInputlastName" 
                         placeholder="" 
                         name="lastName" 
-                        formControlName="lastNameFc">
+                        formControlName="lastNameFc" value= "{{ listContactInfo.nom }}">
                 <label for="floatingInputlastName">Nom</label>
 
 
@@ -25,7 +26,7 @@
                         id="floatingInputfirstName" 
                         placeholder="" 
                         name="firstName" 
-                        formControlName="firstNameFc">
+                        formControlName="firstNameFc" value= "{{ listContactInfo.prenom }}">
                 <label for="floatingInputfirstName">Prénom</label>
 
 
@@ -36,7 +37,7 @@
                         id="floatingInputTelephone" 
                         placeholder="" 
                         name="telephone" 
-                        formControlName="telephoneFc">
+                        formControlName="telephoneFc" value= "{{ listContactInfo.telephone }}">
                 <label for="floatingInputfirstName">Téléphone</label>
 
 
@@ -47,7 +48,7 @@
                         id="floatingInput" 
                         placeholder="" 
                         name="email" 
-                        formControlName="emailFc">
+                        formControlName="emailFc" value= "{{ listContactInfo.email }}">
                 <label for="floatingInput">Adresse email</label>
             </div>
 
@@ -58,7 +59,7 @@
                         id="floatingInputdateNaissance" 
                         placeholder="" 
                         name="dateNaissance" 
-                        formControlName="dateNaissanceFc">
+                        formControlName="dateNaissanceFc" value= "{{ listContactInfo.dateNaissance }}">
                 <label for="floatingInputfirstName">Date de naissance</label>
             </div>
 
@@ -69,11 +70,11 @@
                         id="floatingInputAdresse" 
                         placeholder="" 
                         name="adresse" 
-                        formControlName="adresseFc">
+                        formControlName="adresseFc" value= "{{ listContactInfo.adresse }}">
                 <label for="floatingInputfirstName">Adresse</label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-success" 
+            <button class="w-100 btn btn-lg btn-secondary" 
                     type="submit" 
                     [disabled]="modifContactForm.invalid">Valider</button>
 

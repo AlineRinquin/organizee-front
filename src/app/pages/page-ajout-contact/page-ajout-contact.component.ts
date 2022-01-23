@@ -26,7 +26,7 @@ export class PageAjoutContactComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // *********************************pensser a changer group car déprécié********************************
+    // *********************************pensser à changer group car déprécié********************************
     this.ajoutContactForm = this.fb.group({
       lastNameFc: new FormControl('', [Validators.required]),
       firstNameFc: new FormControl('', [Validators.required]),
@@ -52,12 +52,14 @@ export class PageAjoutContactComponent implements OnInit {
     const adresseValue = this.ajoutContactForm.value['adresseFc'];
 
     const contact: Contact = {
+      id: '',
       nom: lastNameValue,
       prenom: firstNameValue,
       telephone: telephoneValue,
       email: emailValue,
       dateNaissance: dateNaissanceValue,
       adresse: adresseValue,
+      team: { id: '1' }, // changer l'id quand la personne est logé => recuperer l'id de la team du membre
     };
 
     if (contact.nom !== '') {

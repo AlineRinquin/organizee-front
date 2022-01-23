@@ -21,8 +21,8 @@ export class RepertoireService {
     return this.http.get(`${this.apiUrl}/contacts/team/1`);
   }
 
-  getContactById(contact: Contact): Observable<any> {
-    return this.http.get(`${this.apiUrl}/contacts/{id}`);
+  getContactById(id: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/contacts/` + id);
   }
 
   addContact(contact: Contact): Observable<any> {
@@ -31,8 +31,8 @@ export class RepertoireService {
     return this.http.post(`${this.apiUrl}/contacts/add`, contact);
   }
 
-  deleteContact() {
-    return this.http.delete(`${this.apiUrl}/contacts/delete`);
+  deleteContact(contact: Contact): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/contacts/delete/1`);
   }
 
   updateContact(contact: Contact): Observable<any> {

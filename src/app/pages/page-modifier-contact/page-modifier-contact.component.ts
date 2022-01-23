@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from '../../models/contact';
 import { RepertoireService } from '../../services/repertoire.service';
 
@@ -17,22 +17,32 @@ import { RepertoireService } from '../../services/repertoire.service';
 export class PageModifierContactComponent implements OnInit {
   public modifContactForm: FormGroup;
   public contactInfo: FormGroup;
+  public listContactInfo: any;
+  public personneid: any;
 
   constructor(
     private repertoireService: RepertoireService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private route: ActivatedRoute
   ) {
     this.modifContactForm = new FormGroup({});
     this.contactInfo = this.initForm();
-
-    // this.repertoireService.getContactById()?.subscribe((contact: Contact) => {
-    //   this.contactInfo = this.initForm(contact);
-    // });
+    this.listContactInfo = '';
   }
 
   ngOnInit(): void {
-    // *********************************pensser a changer group car déprécié********************************
+    this.personneid = this.route.snapshot.paramMap.get('id'); // récupère l'id du contact à modifier
+    console.log(this.personneid);
+
+    this.repertoireService
+      .getContactById(this.personneid)
+      .subscribe((listContactInfo: any) => {
+        console.log(listContactInfo);
+        this.listContactInfo = listContactInfo;
+      });
+
+    // *********************************pensser à changer group car déprécié********************************
     this.modifContactForm = this.fb.group({
       lastNameFc: new FormControl('', [Validators.required]),
       firstNameFc: new FormControl('', [Validators.required]),
@@ -47,6 +57,7 @@ export class PageModifierContactComponent implements OnInit {
     });
   }
 
+  //Méthode qui initialise les champs du formulaire avec les infos de la BDD
   private initForm(contact?: Contact): FormGroup {
     return this.fb.group({
       firstName: [contact ? contact.nom : ''],
@@ -58,6 +69,7 @@ export class PageModifierContactComponent implements OnInit {
     });
   }
 
+  //Méthode qui envoie les champs modifiés pour mise à jour
   public onSubmit(): void {
     console.log('value : ', this.modifContactForm.value);
     console.log('form : ', this.modifContactForm);
@@ -69,20 +81,18 @@ export class PageModifierContactComponent implements OnInit {
     const adresseValue = this.modifContactForm.value['adresseFc'];
 
     const contact: Contact = {
+      id: this.personneid,
       nom: lastNameValue,
       prenom: firstNameValue,
       telephone: telephoneValue,
       email: emailValue,
       dateNaissance: dateNaissanceValue,
       adresse: adresseValue,
+      team: { id: this.listContactInfo.team.id },
     };
 
-    if (contact.nom !== '') {
-      this.repertoireService.updateContact(contact).subscribe((resp) => {
-        this.router.navigate(['repertoire/']);
-      });
-    } else {
-      // affichage erreur
-    }
+    this.repertoireService.updateContact(contact).subscribe((resp) => {
+      this.router.navigate(['repertoire/']);
+    });
   }
 }

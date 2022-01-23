@@ -20,6 +20,7 @@ import { PageUpdateMemberComponent } from './pages/page-update-member/page-updat
 
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: 'modifier-contact/:id', component: PageModifierContactComponent },
   { path: 'compte', component: PageAccountComponent },
   { path: 'accueil', component: PageAccueilComponent },
   { path: 'ajout-membre', component: PageAddMemberComponent },
@@ -35,7 +36,6 @@ const routes: Routes = [
   { path: 'modifier-membre', component: PageUpdateMemberComponent },
   { path: 'ajouter-contact', component: PageAjoutContactComponent },
   { path: 'creation-team', component: PageCreationTeamComponent },
-  { path: 'modifier-contact', component: PageModifierContactComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
