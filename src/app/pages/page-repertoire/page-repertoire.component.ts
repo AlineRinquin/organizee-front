@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Contact } from 'src/app/models/contact';
 import { RepertoireService } from 'src/app/services/repertoire.service';
 
 @Component({
@@ -9,12 +11,19 @@ import { RepertoireService } from 'src/app/services/repertoire.service';
 export class PageRepertoireComponent implements OnInit {
   public listContact: any[];
   public listFull: any[];
+  public listContactInfo: any;
+  public personneid: any;
   keyword: any;
   openDetails: any;
 
-  constructor(private repertoireService: RepertoireService) {
+  constructor(
+    private repertoireService: RepertoireService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.listContact = [];
     this.listFull = [];
+    this.listContactInfo = '';
   }
 
   ngOnInit(): void {
@@ -23,6 +32,16 @@ export class PageRepertoireComponent implements OnInit {
       this.listContact = listContact;
       this.listFull = listContact;
     });
+
+    this.personneid = this.route.snapshot.paramMap.get('id');
+    console.log(this.personneid);
+
+    this.repertoireService
+      .getContactById(this.personneid)
+      .subscribe((listContactInfo: any) => {
+        console.log(listContactInfo);
+        this.listContactInfo = listContactInfo;
+      });
   }
 
   // Méthode pour récuper ce qui est saisi dans l'input
@@ -47,4 +66,8 @@ export class PageRepertoireComponent implements OnInit {
     console.log(personne);
     this.openDetails = personne;
   }
+
+  // this.repertoireService.deleteContact(contact).subscribe((resp) => {
+  //   this.router.navigate(['repertoire/']);
+  // });
 }

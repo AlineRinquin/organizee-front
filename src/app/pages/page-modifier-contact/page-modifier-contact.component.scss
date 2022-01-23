@@ -1,0 +1,31 @@
+.login-form {
+  height: 100vh;
+  padding-top: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-modifContact {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-modifContact .checkbox {
+  font-weight: 400;
+}
+
+.form-modifContact .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-modifContact input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #5a1e63 !important;
+}
