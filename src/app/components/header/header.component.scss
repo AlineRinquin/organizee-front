@@ -1,4 +1,33 @@
 .navbar-brand {
   position: absolute;
-  margin-left: 10%;
+  margin-left: 12%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  color: #5d5fef;
+}
+
+a:visited {
+  color: #5d5fef;
+}
+
+a:focus {
+  border-bottom: 1px solid;
+  background: #a5a6f6;
+}
+
+a:hover {
+  color: #7879f1;
+}
+
+a:active {
+  color: #5d5fef;
+}
+
+.navbar-nav {
+  height: 6rem;
+}
+
+#img {
+  margin-left: 50%;
 }
