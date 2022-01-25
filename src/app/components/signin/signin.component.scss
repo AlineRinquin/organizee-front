@@ -7,25 +7,34 @@
 .form-signin {
   width: 100%;
   max-width: 330px;
-  padding: 15px;
-  margin: auto;
-  .checkbox {
-    font-weight: 400;
-  }
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 1px;
+  border-radius: 10px;
+  background-color: #fcddec;
+  border-color: #ef5da8;
+}
 
-  .form-floating:focus-within {
-    z-index: 2;
-  }
+.form-floating:focus-within {
+  z-index: 2;
+}
 
-  input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
+input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
 
-  input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
+input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-outline-success {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-color: #ffff;
+  color: #ef5da8 !important;
+  border-color: #ef5da8 !important;
 }
