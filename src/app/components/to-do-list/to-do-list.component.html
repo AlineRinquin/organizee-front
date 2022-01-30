@@ -1,1 +1,72 @@
-<p>to-do-list works!</p>
+<input
+  type="text"
+  class="todo-input"
+  placeholder="Ajoute une nouvelle Tâche"
+  [(ngModel)]="todoTitle"
+  (keyup.enter)="addTitle()"
+/>
+
+<div class="element" *ngFor="let todo of todosFilter()">
+  <div class="element-gauche">
+    <input
+      type="checkbox"
+      [(ngModel)]="todo.completed"
+      (change)="doneEdit(todo)"
+    />
+    <div
+      *ngIf="!todo.editing; else editingTodo"
+      class="nomTache"
+      [ngClass]="{ completed: todo.completed }"
+      (dblclick)="modifier(todo)"
+    >
+      {{ todo.title }}
+    </div>
+    <ng-template #editingTodo>
+      <input
+        type="text"
+        class="modifier-element"
+        [(ngModel)]="todo.title"
+        (blur)="doneEdit(todo)"
+        (keyup.enter)="doneEdit(todo)"
+        (keyup.esc)="cancelEdit(todo)"
+        autofocus
+      />
+    </ng-template>
+  </div>
+  <div class="deleteTache" (click)="deleteTodo(todo.id)">&times;</div>
+</div>
+<div class="extra-container">
+  <div>
+    <label
+      ><input
+        type="checkbox"
+        (change)="cocherAllTodoList()"
+        [(ngModel)]="masterSelected"
+      />Selectionner toutes les tâches</label
+    >
+  </div>
+  <div>{{ toDoRest() }} tâches</div>
+</div>
+<div class="extra-container">
+  <div>
+    <button [ngClass]="{ active: filter === 'tous' }" (click)="filter = 'tous'">
+      Toutes la To Do List
+    </button>
+    <button
+      [ngClass]="{ active: filter === 'active' }"
+      (click)="filter = 'active'"
+    >
+      A Faire
+    </button>
+    <button
+      [ngClass]="{ active: filter === 'complete' }"
+      (click)="filter = 'complete'"
+    >
+      Terminées
+    </button>
+  </div>
+
+  <div>
+    <button (click)="effacerList()">Effacer la To Do List</button>
+  </div>
+</div>
