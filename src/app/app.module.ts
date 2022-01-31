@@ -36,6 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
+import { AutofocusFixModule  } from 'ngx-autofocus-fix';
+
+
 
 
 @NgModule({
@@ -80,6 +83,7 @@ import { PageCreationTeamComponent } from './pages/page-creation-team/page-creat
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    AutofocusFixModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
