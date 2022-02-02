@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HumeurComponent implements OnInit {
 
-  constructor() { }
+
+
+
+
+
+  constructor() {
+    
+   
+    
+
+   }
 
   ngOnInit(): void {
+
+
+
+
   }
 
 }
