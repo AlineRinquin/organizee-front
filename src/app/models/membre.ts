@@ -4,6 +4,7 @@ export interface Membre {
   email: string;
   password: string;
   dateNaissance: Date;
+  couleur: string;
   passwordConfirm: string;
   roleList: string[];
 }

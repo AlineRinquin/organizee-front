@@ -53,13 +53,13 @@ export class AuthService {
     const body = {
       email: email,
     };
-    return this.http.post(`${this.apiUrl}/membres/forgot-password`, body);
+    return this.http.get(`${this.apiUrl}/membres/forgot-password`);
   }
 
     resetPassword(email: string, password: string): Observable<any> {
     const body = password;
      console.log(password);
-   return this.http.post(`${this.apiUrl}/membres/reset-password/${email}`, body);
+   return this.http.put(`${this.apiUrl}/membres/reset-password/${email}`, body);
   }
 
   creationTeam(team: Team): Observable<any> {

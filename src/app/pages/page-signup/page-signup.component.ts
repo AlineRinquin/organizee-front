@@ -32,6 +32,7 @@ export class PageSignupComponent implements OnInit {
         lastNameFc: new FormControl('', [Validators.required]),
         dateNaissanceFc: new FormControl('', [Validators.required]),
         roleFc: new FormControl(''),
+        couleurFc: new FormControl('', Validators.required),
         emailFc: new FormControl('', [
           Validators.email,
           Validators.required,
@@ -61,6 +62,7 @@ export class PageSignupComponent implements OnInit {
     const passwordValue = this.signupForm.value['passwordFc'];
     const dateNaissanceValue = this.signupForm.value['dateNaissanceFc'];
     const passwordConfirmValue = this.signupForm.value['passwordConfirmFc'];
+    const couleurValue = this.signupForm.value['couleurFc'];
     const roleValue = ['ROLE_PARENT'];
 
     const membre: Membre = {
@@ -68,6 +70,7 @@ export class PageSignupComponent implements OnInit {
       prenom: prenomValue,
       email: emailValue,
       password: passwordValue,
+      couleur: couleurValue,
       dateNaissance: dateNaissanceValue,
       passwordConfirm: passwordConfirmValue,
       roleList: roleValue,

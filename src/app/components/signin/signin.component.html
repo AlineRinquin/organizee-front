@@ -1,45 +1,31 @@
-
 <div class="signin-form text-center">
-    <main class="form-signin">
-        <form (ngSubmit)="onSubmit(signinForm)" #signinForm="ngForm">
-            <div class="form-floating">
-                <input type="email" 
-                        class="form-control" 
-                        id="floatingInput" 
-                        placeholder="" 
-                        name="email" 
-                        ngModel
-                        required
-                        [ngClass]="{'is-valid': signinForm.form.touched && signinForm.form.value['email'] != '' , 
+  <main class="form-signin">
+    <form (ngSubmit)="onSubmit(signinForm)" #signinForm="ngForm">
+      <div class="connexion">
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" placeholder="" name="email" ngModel required
+          [ngClass]="{'is-valid': signinForm.form.touched && signinForm.form.value['email'] != '' ,
                                     'is-invalid': signinForm.form.touched && signinForm.form.value['email'] == ''}">
-                <label for="floatingInput">Adresse email</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" 
-                        class="form-control" 
-                        id="floatingPassword" 
-                        placeholder="" 
-                        name="password"
-                        ngModel
-                        required
-                        [ngClass]="{'is-valid': signinForm.form.touched && signinForm.form.value['password'] != '' , 
+        <label for="floatingInput">Adresse email</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="" name="password" ngModel
+          required [ngClass]="{'is-valid': signinForm.form.touched && signinForm.form.value['password'] != '' ,
                                     'is-invalid': signinForm.form.touched && signinForm.form.value['password'] == ''}">
-                <label for="floatingPassword">Mot de passe</label>
-            </div>
+        <label for="floatingPassword">Mot de passe</label>
+      </div>
 
-            <button class="w-100 btn btn-lg btn-success" 
-                    type="submit"
-                    [disabled]="signinForm.invalid">Se connecter</button>
+      <button class="w-100 btn btn-lg btn-outline-success" type="submit" [disabled]="signinForm.invalid">Se
+        connecter</button>
+</div>
 
+      <button class="w-100 btn btn-lg btn-outline-success" routerLink="../creation-compte"
+        routerLinkActive="active-custom">S'inscrire</button>
 
-            <button class="w-100 btn btn-lg btn-success" 
-            routerLink="../creation-compte" routerLinkActive="active-custom"
-            >S'inscrire</button>
+    </form>
 
-        </form>
-
-        <div *ngIf="errorForm">
-            <p class="text-danger">Il manque des informations dans le formulaire...</p>
-        </div>
-    </main>
+    <div *ngIf="errorForm">
+      <p class="text-danger">Il manque des informations dans le formulaire...</p>
+    </div>
+  </main>
 </div>
