@@ -40,7 +40,6 @@ import { AutofocusFixModule  } from 'ngx-autofocus-fix';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +74,6 @@ import { AutofocusFixModule  } from 'ngx-autofocus-fix';
     PageAjoutContactComponent,
     PageModifierContactComponent,
     PageCreationTeamComponent,
-
   ],
   imports: [
     BrowserModule,

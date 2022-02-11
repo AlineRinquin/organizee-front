@@ -1,25 +1,16 @@
-a.hover {
-  color: rgb(219, 200, 28);
+p{
+    color: black;
+    text-align: center;
 }
 
-a {
-  color: rgb(32, 114, 45);
+
+.ctn-link > div {
+    padding-top: 7em;
 }
 
-div {
-  text-align: center;
-  font-weight: bold;
 
-  // si on préfère une image en fond
-  // background-image: url("../../../assets/images/404.jpg");
-  // background-size: cover;
-
-  background-image: linear-gradient(
-    to left top,
-    #051937,
-    #004d7a,
-    #008793,
-    #e2ebe7,
-    #f8faf5
-  );
+.min-vh-100  {
+    font-weight: bold;
+    background-image: linear-gradient(to left top, #051937, #004d7a, #008793, #e2ebe7, #f8faf5);
+    //max-width: max-content;
 }
