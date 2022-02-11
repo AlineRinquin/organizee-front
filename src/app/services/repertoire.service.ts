@@ -21,17 +21,21 @@ export class RepertoireService {
     return this.http.get(`${this.apiUrl}/contacts/team/1`);
   }
 
+  getContactById(id: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/contacts/` + id);
+  }
+
   addContact(contact: Contact): Observable<any> {
     console.log(contact);
 
     return this.http.post(`${this.apiUrl}/contacts/add`, contact);
   }
 
-  deleteContact() {
-    return this.http.delete(`${this.apiUrl}/contacts/delete`);
+  deleteContact(contact: Contact): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/contacts/delete/1`);
   }
 
-  // updateContact(){
-  //   return this.http.put(`${this.apiUrl}/contacts/update/1`);
-  // }
+  updateContact(contact: Contact): Observable<any> {
+    return this.http.put(`${this.apiUrl}/contacts/update/1`, contact);
+  }
 }

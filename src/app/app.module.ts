@@ -36,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
-import { EmoticonComponent } from './emoticon/emoticon.component';
+import { AutofocusFixModule  } from 'ngx-autofocus-fix';
+
+
 
 @NgModule({
   declarations: [
@@ -72,7 +74,6 @@ import { EmoticonComponent } from './emoticon/emoticon.component';
     PageAjoutContactComponent,
     PageModifierContactComponent,
     PageCreationTeamComponent,
-    EmoticonComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +81,7 @@ import { EmoticonComponent } from './emoticon/emoticon.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    AutofocusFixModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
