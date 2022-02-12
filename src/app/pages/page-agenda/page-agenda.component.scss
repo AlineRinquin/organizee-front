@@ -1,0 +1,42 @@
+.wrap {
+    display: flex;
+  }
+  
+  .left {
+    margin-right: 10px;
+  }
+  
+  .main {
+    flex-grow: 1;
+  }
+  
+  .buttons {
+    margin-bottom: 10px;
+  }
+  
+  .buttons a {
+    display: inline-block;
+    text-align: center;
+    background-color: #3c78d8;
+    border: 1px solid #1155cc;
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 5px;
+    width: 80px;
+    text-decoration: none;
+  }
+
+  .main-body {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    overflow: hidden;
+  }
+
+  .fullscreen {
+    position: absolute; top:90px; left: 0px; right: 0px; bottom: 0px;
+  }

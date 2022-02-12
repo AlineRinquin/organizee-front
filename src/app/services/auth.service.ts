@@ -43,7 +43,7 @@ export class AuthService {
       map((x: any) => {
         console.log('Service : ', x.accessToken);
         // Modification à faire ici
-        localStorage.setItem(this.tokenKey, x.accessToken);
+        localStorage.setItem(this.tokenKey, x.token);
         return x; // permet de renvoyer la réponse à l'initiateur (page Signin) après le traitement du map
       })
     );

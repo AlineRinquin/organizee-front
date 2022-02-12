@@ -38,8 +38,7 @@ import { PageModifierContactComponent } from './pages/page-modifier-contact/page
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
 import { EmoticonComponent } from './emoticon/emoticon.component';
-
-
+import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
 
 @NgModule({
   declarations: [
@@ -84,6 +83,7 @@ import { EmoticonComponent } from './emoticon/emoticon.component';
     HttpClientModule,
     FormsModule,
     AutofocusFixModule.forRoot(),
+    DayPilotModule
   ],
   providers: [],
   bootstrap: [AppComponent],
