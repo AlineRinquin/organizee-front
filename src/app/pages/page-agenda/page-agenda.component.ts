@@ -13,14 +13,12 @@ export class PageAgendaComponent implements AfterViewInit {
 
   userId : any;
   teamId : any;
-  isShow: boolean;
   alert:any;
 
   @ViewChild("navigator") navigator!: DayPilotNavigatorComponent;
   @ViewChild("calendar") calendar!: DayPilotCalendarComponent;
 
   constructor(private evenementService:EvenementService) {
-    this.isShow = false;
     this.alert = "";
   }
 
@@ -45,9 +43,9 @@ export class PageAgendaComponent implements AfterViewInit {
 
   events: DayPilot.EventData[] = [];
 
-  onClickCloseAlert(){
-    console.log('fermeture');
-    this.isShow = ! this.isShow;
+  closeAlert(value:any){
+    //console.log('fermeture'+value);
+    this.alert="";
   }
 
   ngAfterViewInit(): void {
@@ -88,12 +86,10 @@ export class PageAgendaComponent implements AfterViewInit {
           next: result => {
             this.viewChange();
             this.alert={"type":"success", "content":"L'évènement à bien été modifié"};
-            this.isShow = true;
           },
           error: err => {
             this.viewChange();
             this.alert={"type":"danger", "content":"Problème lors de la modification de l'évenment"};
-            this.isShow = true;
           },
           complete: () => console.log('DONE!')
         }
@@ -130,13 +126,11 @@ export class PageAgendaComponent implements AfterViewInit {
       this.evenementService.addEvenements(event).subscribe({
         next: result => {
           this.viewChange();
-          this.alert={"type":"success", "content":"L'évènement à été correctement ajouté au calendrier"};
-          this.isShow = true;
+          this.alert={"type":"success", "content":"L'évènement à correctement été  ajouté au calendrier"};
         },
         error: err => {
           this.viewChange();
           this.alert={"type":"danger", "content":"Problème lors de l'ajout de l'évenment"};
-          this.isShow = true;
         },
         complete: () => console.log('DONE!')
       });
@@ -147,13 +141,11 @@ export class PageAgendaComponent implements AfterViewInit {
       this.evenementService.deleteEvenements(Number(args.e.id())).subscribe({
         next: result => {
           this.viewChange();
-          this.alert={"type":"success", "content":"L'évènement à été correctement supprimé du calendrier"};
-          this.isShow = true;
+          this.alert={"type":"success", "content":"L'évènement à correctement été supprimé du calendrier"};
         },
         error: err => {
           this.viewChange();
           this.alert={"type":"danger", "content":"Problème lors de la suppression de l'évenment"};
-          this.isShow = true;
         },
         complete: () => console.log('DONE!')
       })
@@ -175,12 +167,10 @@ export class PageAgendaComponent implements AfterViewInit {
           next: result => {
             this.viewChange();
             this.alert={"type":"success", "content":"L'évènement à bien été modifié"};
-            this.isShow = true;
           },
           error: err => {
             this.viewChange();
             this.alert={"type":"danger", "content":"Problème lors de la modification de l'évenment"};
-            this.isShow = true;
           },
           complete: () => console.log('DONE!')
         }

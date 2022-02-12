@@ -39,6 +39,7 @@ import { PageCreationTeamComponent } from './pages/page-creation-team/page-creat
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
 import { EmoticonComponent } from './emoticon/emoticon.component';
 import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
     PageModifierContactComponent,
     PageCreationTeamComponent,
     EmoticonComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

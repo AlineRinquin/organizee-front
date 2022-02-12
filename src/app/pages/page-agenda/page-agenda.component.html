@@ -1,12 +1,7 @@
 <app-header></app-header>
 
 
-<div class="alert alert-{{alert.type}}" role="alert" style="position:absolute;z-index:999;top:50%;left:40%; width: 500px;" *ngIf="isShow" id="showAlert">
-    {{alert.content}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="onClickCloseAlert()">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
+<app-alert *ngIf="alert" id="showAlert" [alert]="alert" (eventClose)="closeAlert($event)"></app-alert>
 
 <div style="display: flex;">
     <div style="width:150px;">
