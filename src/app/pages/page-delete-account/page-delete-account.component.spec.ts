@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageTestFormComponent } from './page-test-form.component';
+import { PageDeleteAccountComponent } from './page-delete-account.component';
 
-describe('PageTestFormComponent', () => {
-  let component: PageTestFormComponent;
-  let fixture: ComponentFixture<PageTestFormComponent>;
+describe('PageDeleteAccountComponent', () => {
+  let component: PageDeleteAccountComponent;
+  let fixture: ComponentFixture<PageDeleteAccountComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageTestFormComponent ]
+      declarations: [ PageDeleteAccountComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageTestFormComponent);
+    fixture = TestBed.createComponent(PageDeleteAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

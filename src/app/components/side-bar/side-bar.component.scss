@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: auto;
+  height: 100%;
+  position: absolute;
+  background-color: rgb(238, 238, 238);
+
+}
+.nav{
+  margin-top: 20px;
+  align-items: center;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+
+a{
+  color: black;
+  font-weight: bold;
+}
