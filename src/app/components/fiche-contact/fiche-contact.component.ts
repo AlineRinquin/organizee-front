@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-fiche-contact',
@@ -7,8 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FicheContactComponent implements OnInit {
   @Input() personne: any;
+  @Output() clickDelete = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onClickDelete(numPerson: number){
+    this.clickDelete.emit(numPerson);
+  }
 }
