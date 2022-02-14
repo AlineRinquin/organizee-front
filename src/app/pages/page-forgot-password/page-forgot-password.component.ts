@@ -23,11 +23,11 @@ export class PageForgotPasswordComponent implements OnInit {
     public onSubmit(submittedForm: any): void {
     console.log(submittedForm.form.value);
 
-    const email = submittedForm.form.value['email'];
-    console.log(email);
+    // const email = submittedForm.form.value['email'];
+    // console.log(email);
       window.alert("Vous allez recevoir un email pour re-initialiser votre mot de passe !")
-      this.router.navigate(['reinitialisation-password']);
-    ;
+      // this.router.navigate(['reinitialisation-password']);
+
   }
   }
 
