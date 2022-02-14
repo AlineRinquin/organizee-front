@@ -36,14 +36,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
-<<<<<<< HEAD
-import { PageTestFormComponent } from './pages/page-test-form/page-test-form.component';
-=======
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
 
 
 
->>>>>>> 5c7e4662b2e3c8af6778c79d1b56aa66a0fdf0a1
 
 @NgModule({
   declarations: [
@@ -79,11 +75,6 @@ import { AutofocusFixModule  } from 'ngx-autofocus-fix';
     PageAjoutContactComponent,
     PageModifierContactComponent,
     PageCreationTeamComponent,
-<<<<<<< HEAD
-    PageTestFormComponent,
-=======
-
->>>>>>> 5c7e4662b2e3c8af6778c79d1b56aa66a0fdf0a1
   ],
   imports: [
     BrowserModule,
