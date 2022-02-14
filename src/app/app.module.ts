@@ -39,7 +39,7 @@ import { PageCreationTeamComponent } from './pages/page-creation-team/page-creat
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
 import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
 import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
-
+import { EmoticonComponent } from './emoticon/emoticon.component';
 
 
 
@@ -79,6 +79,7 @@ import { PageUpdateAccountComponent } from './pages/page-update-account/page-upd
     PageCreationTeamComponent,
     PageDeleteAccountComponent,
     PageUpdateAccountComponent,
+    EmoticonComponent,
   ],
   imports: [
     BrowserModule,
