@@ -14,25 +14,20 @@ import {
   styleUrls: ['./page-forgot-password.component.scss']
 })
 export class PageForgotPasswordComponent implements OnInit {
-public errorForm: boolean;
   constructor(private authService: AuthService, private router: Router) {
-     this.errorForm = false;
+
   }
 
   ngOnInit(): void {}
-  public onSubmit(submittedForm: any): void {
+
+    public onSubmit(submittedForm: any): void {
     console.log(submittedForm.form.value);
+
     const email = submittedForm.form.value['email'];
-    if (email !== '') {
-      this.authService.forgotPassword(email).subscribe((resp) => {
-        console.log('Component : PageForgotPassword ', resp);
-        this.router.navigate(['reinitialisation-password']);
-      });
-    } else {
-      // afficher une erreur à l'utilisateur
-      this.errorForm = true;
-    }
+    console.log(email);
+      window.alert("Vous allez recevoir un email pour re-initialiser votre mot de passe !")
+      this.router.navigate(['reinitialisation-password']);
+    ;
+  }
   }
 
-
-}
