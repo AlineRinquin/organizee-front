@@ -69,7 +69,10 @@ export class PageRepertoireComponent implements OnInit {
     this.openDetails = personne;
   }
 
-  // this.repertoireService.deleteContact(contact).subscribe((resp) => {
-  //   this.router.navigate(['repertoire/']);
-  // });
+
+  onClickDelete(contact: Contact){
+    this.repertoireService.deleteContact(contact).subscribe((resp) => {
+      this.router.navigate(['repertoire/']);
+    });
+  }
 }
