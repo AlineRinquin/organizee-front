@@ -37,6 +37,8 @@ import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
+import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
+import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
 import { EmoticonComponent } from './emoticon/emoticon.component';
 
 
@@ -75,6 +77,8 @@ import { EmoticonComponent } from './emoticon/emoticon.component';
     PageAjoutContactComponent,
     PageModifierContactComponent,
     PageCreationTeamComponent,
+    PageDeleteAccountComponent,
+    PageUpdateAccountComponent,
     EmoticonComponent,
   ],
   imports: [
