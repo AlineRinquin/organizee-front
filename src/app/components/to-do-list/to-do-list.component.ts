@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Todo } from 'src/app/interfaces/todo';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-to-do-list',
@@ -7,6 +9,7 @@ import { Todo } from 'src/app/interfaces/todo';
   styleUrls: ['./to-do-list.component.scss'],
 })
 export class ToDoListComponent implements OnInit {
+  @Input() todo : any;
   public beforeEditCache: string;
   public todos: Todo[];
   public todoTitle: string;
@@ -14,8 +17,9 @@ export class ToDoListComponent implements OnInit {
   public filter : string;
   public casesRestantes : boolean;
   public masterSelected: boolean;
+  public result : any;
 
-  constructor() {
+  constructor(private TodoService : TodoService, private router: Router ) {
     this.beforeEditCache = '';
     this.todos = [];
     this.todoTitle = '';
@@ -23,9 +27,11 @@ export class ToDoListComponent implements OnInit {
     this.filter ='';
     this.casesRestantes=true;
     this.masterSelected= false;
+
   }
 
   ngOnInit(): void {
+    //this.refreshTodo();
     this.beforeEditCache = '';
     this.casesRestantes=true;
     this.filter='tous';
@@ -53,8 +59,11 @@ export class ToDoListComponent implements OnInit {
     ];
   }
   //ajouter tache
-  addTitle(): void {
-    if (this.todoTitle.trim().length === 0) {
+  addTache(): void {
+    this.TodoService.addTache(todo).subscribe((resp)=>{
+      this.router.navigate(['to-do-list'])
+    })
+    /* if (this.todoTitle.trim().length === 0) {
       return;
     }
 
@@ -65,8 +74,13 @@ export class ToDoListComponent implements OnInit {
       editing: false,
     });
     this.todoTitle = '';
-    this.idTodo++;
+    this.idTodo++; */
   }
+ /*  if (contact.nom !== '') {
+    this.repertoireService.addContact(contact).subscribe((resp) => {
+      this.router.navigate(['repertoire/']);
+    }); */
+
 
   //modifier la tâche
   modifier(todo: Todo): void {
@@ -90,9 +104,14 @@ export class ToDoListComponent implements OnInit {
   }
 
   //supprimer la tache
-  deleteTodo(id: number): void {
-    this.todos = this.todos.filter((todo) => todo.id !== id);
-  }
+  deleteTodo(id: number) {
+    this.TodoService.deleteTacheById(id).subscribe(
+      resp =>{
+      window.location.reload();
+    }
+    );}
+
+
 
   //nombre de tâches restantes
   toDoRest(): number{
