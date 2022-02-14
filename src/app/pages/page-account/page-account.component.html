@@ -1,7 +1,41 @@
 <app-header></app-header>
-<app-side-bar></app-side-bar>
-<div class="d-flex justify-content-center">
-  <button button type="button" class="btn btn-primary btn-lg"
-          routerLink="../creation-team"
-          routerLinkActive="active-custom">Créer ma team</button>
+<div class="row">
+  <div class="col-md-auto">
+    <app-side-bar></app-side-bar>
+  </div>
+  <div class=" col compte text-center">
+    <h1>Ma Team</h1>
+    <main class="contenu-compte">
+      <div class="d-flex justify-content-center">
+        <button button type="button" class="btn btn-primary btn-lg"
+                routerLink="../creation-team"
+                routerLinkActive="active-custom">Créer ma team</button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button button type="button" class="btn btn-primary btn-lg"
+                routerLink="../modifier-membre"
+                routerLinkActive="active-custom">Modifier mon compte</button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button button type="button" class="btn btn-primary btn-lg"
+                routerLink="../supprimer-membre"
+                routerLinkActive="active-custom">Supprimer mon compte</button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button button type="button" class="btn btn-primary btn-lg"
+                routerLink="../ajout-membre"
+                routerLinkActive="active-custom">Ajouter un membre</button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button button type="button" class="btn btn-primary btn-lg"
+                routerLink="../modifier-membre"
+                routerLinkActive="active-custom">Modifier ce membre</button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button button type="button" class="btn btn-primary btn-lg"
+                routerLink="../supprimer-membre"
+                routerLinkActive="active-custom">Supprimer ce membre</button>
+      </div>
+    </main>
+  </div>
 </div>
