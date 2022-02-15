@@ -12,6 +12,7 @@ import { PageForgotPasswordComponent } from './pages/page-forgot-password/page-f
 import { PageMenuSemaineComponent } from './pages/page-menu-semaine/page-menu-semaine.component';
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PageHumeurComponent} from './pages/page-humeur/page-humeur.component';
 import { PageRepertoireComponent } from './pages/page-repertoire/page-repertoire.component';
 import { PageResetPasswordComponent } from './pages/page-reset-password/page-reset-password.component';
 import { PageSignupComponent } from './pages/page-signup/page-signup.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'modifier-membre', component: PageUpdateMemberComponent },
   { path: 'ajouter-contact', component: PageAjoutContactComponent },
   { path: 'creation-team', component: PageCreationTeamComponent },
+  { path: 'humeur', component: PageHumeurComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

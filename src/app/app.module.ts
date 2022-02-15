@@ -21,7 +21,6 @@ import { PageUpdateMemberComponent } from './pages/page-update-member/page-updat
 import { SigninComponent } from './components/signin/signin.component';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
 import { MeteoComponent } from './components/meteo/meteo.component';
-import { HumeurComponent } from './components/humeur/humeur.component';
 import { CalendrierComponent } from './components/calendrier/calendrier.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { CardMemberComponent } from './components/card-member/card-member.component';
@@ -37,7 +36,7 @@ import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
-import { EmoticonComponent } from './emoticon/emoticon.component';
+import { PageHumeurComponent } from './pages/page-humeur/page-humeur.component';
 
 
 
@@ -62,7 +61,7 @@ import { EmoticonComponent } from './emoticon/emoticon.component';
     SigninComponent,
     PageDashboardComponent,
     MeteoComponent,
-    HumeurComponent,
+    PageHumeurComponent,
     CalendrierComponent,
     AvatarComponent,
     CardMemberComponent,
@@ -75,7 +74,7 @@ import { EmoticonComponent } from './emoticon/emoticon.component';
     PageAjoutContactComponent,
     PageModifierContactComponent,
     PageCreationTeamComponent,
-    EmoticonComponent,
+    PageHumeurComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,7 +82,7 @@ import { EmoticonComponent } from './emoticon/emoticon.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    AutofocusFixModule.forRoot(),
+    // AutofocusFixModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

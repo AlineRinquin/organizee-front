@@ -6,5 +6,6 @@ export interface Membre {
   dateNaissance: Date;
   couleur: string;
   passwordConfirm: string;
+ // smiley: string;
   roleList: string[];
 }
