@@ -7,9 +7,16 @@
   margin: auto;
 }
 
-.input-group mb-3 {
-  width: 100%;
+.input-group.mb-3 {
+  width: 50%;
   max-width: 330px;
   padding: 15px;
   margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+;h4 {
+  color: black;
+  font-weight: bold;
 }

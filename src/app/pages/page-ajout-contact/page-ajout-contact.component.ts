@@ -42,8 +42,7 @@ export class PageAjoutContactComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    console.log('value : ', this.ajoutContactForm.value);
-    console.log('form : ', this.ajoutContactForm);
+    const couleurValue = this.ajoutContactForm.value['couleurFc'];
     const firstNameValue = this.ajoutContactForm.value['firstNameFc'];
     const lastNameValue = this.ajoutContactForm.value['lastNameFc'];
     const telephoneValue = this.ajoutContactForm.value['telephoneFc'];
@@ -53,6 +52,7 @@ export class PageAjoutContactComponent implements OnInit {
 
     const contact: Contact = {
       id: '',
+      couleur: couleurValue,
       nom: lastNameValue,
       prenom: firstNameValue,
       telephone: telephoneValue,

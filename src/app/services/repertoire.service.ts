@@ -27,12 +27,11 @@ export class RepertoireService {
 
   addContact(contact: Contact): Observable<any> {
     console.log(contact);
-
     return this.http.post(`${this.apiUrl}/contacts/add`, contact);
   }
 
-  deleteContact(contact: Contact): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/contacts/delete/1`);
+  deleteContact(contactId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/contacts/delete/${contactId}`);
   }
 
   updateContact(contact: Contact): Observable<any> {
