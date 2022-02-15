@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Todo } from '../interfaces/todo';
+import { Tache } from '../models/tache';
+import { ToDoList } from '../models/to-do-list';
 
 @Injectable({
   providedIn: 'root',
@@ -23,8 +24,8 @@ export class TodoService {
     return this.http.delete(`${this.apiUrl}/taches/delete/${idTache}`,{responseType:'text'});
   }
 
-  addTache(todo:Todo): Observable<any> {
-    console.log(todo);
-    return this.http.post(`${this.apiUrl}/taches/add`, todo);
+  addTache(newtache: Tache,idTodoList:number): Observable<any> {
+    console.log(newtache);
+    return this.http.post(`${this.apiUrl}/taches/add/${idTodoList}`, newtache);
   }
 }

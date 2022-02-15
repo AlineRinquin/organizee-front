@@ -12,10 +12,10 @@
   class="todo-input"
   placeholder="+ Nouvelle Tâche"
   [(ngModel)]="todoTitle"
-  (keyup.enter)="addTache()"
+  (keyup.enter)="addTache(todo.id)"
 />
 
-
+{{todo}}
 
 <div class="element" *ngFor="let tache of todo.taches">
   <div class="element-gauche">
@@ -63,7 +63,7 @@
   <div>{{ toDoRest() }} tâches</div>
 </div>
 <div class="extra-container">
-  <div>
+  <!-- <div>
     <button [ngClass]="{ active: filter === 'tous' }" (click)="filter = 'tous'">
       Toutes la To Do List
     </button>
@@ -80,6 +80,6 @@
       Terminées
     </button>
   </div>
-
+ -->
 
 </div>
