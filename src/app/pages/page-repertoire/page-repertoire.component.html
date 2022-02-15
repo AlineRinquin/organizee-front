@@ -26,6 +26,6 @@
         <img style="max-height: 12% ; max-width: 12%" src="../../../assets/images/contact-1.png"/>
         <p class="fiche-contact" >{{ personne.prenom }} {{ personne.nom }}</p>
     </div>
-<div *ngIf="openDetails"><app-fiche-contact [personne]="openDetails"></app-fiche-contact></div>
+<div *ngIf="openDetails"><app-fiche-contact [personne]="openDetails" (clickDelete)="onClickDelete($event)"></app-fiche-contact></div>
     
 </div>

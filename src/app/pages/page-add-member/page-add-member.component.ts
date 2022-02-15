@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Membre } from 'src/app/models/membre';
 import { AuthService } from 'src/app/services/auth.service';
+import { MembreService } from 'src/app/services/membre.service';
 
 @Component({
   selector: 'app-page-add-member',
@@ -13,6 +14,7 @@ export class PageAddMemberComponent implements OnInit {
 
   public addMemberForm: FormGroup;
   constructor(
+    private membreService: MembreService,
     private authService: AuthService,
     private router: Router,
     private fb: FormBuilder
@@ -27,7 +29,7 @@ export class PageAddMemberComponent implements OnInit {
         firstNameFc: new FormControl('', [Validators.required]),
         lastNameFc: new FormControl('', [Validators.required]),
         dateNaissanceFc: new FormControl('', [Validators.required]),
-        couleurFc: new FormControl('', [Validators.required]),
+        couleurFc: new FormControl('', []),
         emailFc: new FormControl('', [
           Validators.email,
           Validators.required,
@@ -74,7 +76,7 @@ export class PageAddMemberComponent implements OnInit {
 
     if (membre.email !== '' && membre.password !== '') {
       this.authService.signup(membre).subscribe((resp) => {
-        this.router.navigate(['account/signin']);
+        this.router.navigate(['compte']);
       });
     } else {
       // affichage erreur
