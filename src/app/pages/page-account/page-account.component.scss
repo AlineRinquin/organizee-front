@@ -1,5 +1,7 @@
-.meteo {
+.contenu.compte{
   display: flex;
-  margin-left: 300px;
-  margin-top: -60px;
+  flex-direction: row;
+}
+button{
+  margin-bottom: 5px;
 }
