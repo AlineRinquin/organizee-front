@@ -6,5 +6,4 @@ export interface Menu {
   dateMenu: Date;
   membre: Membre;
   team: Team;
-  validationProposition: boolean;
 }
