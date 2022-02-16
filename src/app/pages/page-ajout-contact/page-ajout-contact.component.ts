@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 import { Contact } from '../../models/contact';
 import { RepertoireService } from '../../services/repertoire.service';
 
@@ -19,6 +20,7 @@ export class PageAjoutContactComponent implements OnInit {
 
   constructor(
     private repertoireService: RepertoireService,
+    private tokenService: TokenService,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -49,6 +51,7 @@ export class PageAjoutContactComponent implements OnInit {
     const emailValue = this.ajoutContactForm.value['emailFc'];
     const dateNaissanceValue = this.ajoutContactForm.value['dateNaissanceFc'];
     const adresseValue = this.ajoutContactForm.value['adresseFc'];
+    const teamId = this.tokenService.getCurrentTeamId()
 
     const contact: Contact = {
       id: '',
@@ -59,7 +62,7 @@ export class PageAjoutContactComponent implements OnInit {
       email: emailValue,
       dateNaissance: dateNaissanceValue,
       adresse: adresseValue,
-      team: { id: '1' }, // changer l'id quand la personne est logé => recuperer l'id de la team du membre
+      team: { id: teamId }, // changer l'id quand la personne est logé => recuperer l'id de la team du membre
     };
 
     if (contact.nom !== '') {
@@ -67,7 +70,7 @@ export class PageAjoutContactComponent implements OnInit {
         this.router.navigate(['repertoire/']);
       });
     } else {
-      // affichage erreur
+      window.alert("Le contact ne peut pas être ajouté!")
     }
   }
 }

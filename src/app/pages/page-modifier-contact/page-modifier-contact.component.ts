@@ -71,7 +71,7 @@ export class PageModifierContactComponent implements OnInit {
 
   //Méthode qui envoie les champs modifiés pour mise à jour
   public onSubmit(): void {
-    const couleurValue = this.modifContactForm.value['couleurFc'];
+    const couleurValue = this.modifContactForm.value[''];
     const firstNameValue = this.modifContactForm.value['firstNameFc'];
     const lastNameValue = this.modifContactForm.value['lastNameFc'];
     const telephoneValue = this.modifContactForm.value['telephoneFc'];
