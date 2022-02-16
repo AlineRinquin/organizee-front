@@ -60,7 +60,6 @@ export class PageModifierContactComponent implements OnInit {
   //Méthode qui initialise les champs du formulaire avec les infos de la BDD
   private initForm(contact?: Contact): FormGroup {
     return this.fb.group({
-      couleur: [contact ? contact.couleur : ''],
       firstName: [contact ? contact.nom : ''],
       lastName: [contact ? contact.prenom : ''],
       telephone: [contact ? contact.telephone : ''],
@@ -72,7 +71,7 @@ export class PageModifierContactComponent implements OnInit {
 
   //Méthode qui envoie les champs modifiés pour mise à jour
   public onSubmit(): void {
-    const couleurValue = this.modifContactForm.value['couleurFc'];
+    const couleurValue = this.modifContactForm.value[''];
     const firstNameValue = this.modifContactForm.value['firstNameFc'];
     const lastNameValue = this.modifContactForm.value['lastNameFc'];
     const telephoneValue = this.modifContactForm.value['telephoneFc'];
