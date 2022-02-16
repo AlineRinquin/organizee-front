@@ -37,6 +37,7 @@ import { PageModifierContactComponent } from './pages/page-modifier-contact/page
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
 import { PageHumeurComponent } from './pages/page-humeur/page-humeur.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -75,6 +76,7 @@ import { PageHumeurComponent } from './pages/page-humeur/page-humeur.component';
     PageModifierContactComponent,
     PageCreationTeamComponent,
     PageHumeurComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

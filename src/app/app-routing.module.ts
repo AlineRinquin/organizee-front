@@ -18,6 +18,7 @@ import { PageResetPasswordComponent } from './pages/page-reset-password/page-res
 import { PageSignupComponent } from './pages/page-signup/page-signup.component';
 import { PageToDoListComponent } from './pages/page-to-do-list/page-to-do-list.component';
 import { PageUpdateMemberComponent } from './pages/page-update-member/page-update-member.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'ajouter-contact', component: PageAjoutContactComponent },
   { path: 'creation-team', component: PageCreationTeamComponent },
   { path: 'humeur', component: PageHumeurComponent },
+  { path: 'footer', component: FooterComponent},
   { path: '**', component: PageNotFoundComponent },
 ];
 

@@ -1,25 +1,22 @@
-<p>page-humeur works!   </p>
-<!--<img  [src]="monHumeurLien";>
-<img [src]="tabHumeur[0].lien">
--->
+
+<body>
+
+<h2>Mon humeur :</h2>
 
 
-******************************************
-<!-- <p>Présentement, {{onChoixHumeur()}}</p> -->
-choix de mon humeur
-<!-- {{monHumeurTitle}} -->
-<!--  <br> -->
- <img src="{{monHumeurLien}}" *ngIf="monHumeurLien" >
-
-<p>Je choisis mon humeur :</p>
 
 
-<div *ngFor="let humor of tabHumeur; let i=index">
-    {{i}} 
-    <img src="{{humor.lien}}" alt="{{humor.title}}"  (click)="onChoixHumeur(i)">{{humor.title}}
+<p><img src="{{monHumeurLien}}"  *ngIf="monHumeurLien" ></p> 
+
+<p>Je modifie mon avatar :</p>
+
+
+<div class="humeur" *ngFor="let humor of tabHumeur; let i=index">
+    <img src="{{humor.lien}}" alt="{{humor.title}}"  (click)="onChoixHumeur(i)">
 </div> 
+
 
 <div >
     
 
-</div>
+</div> </body>
