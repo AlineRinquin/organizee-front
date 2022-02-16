@@ -25,7 +25,7 @@ export class TodoService {
   }
 
   addTache(newtache: Tache,idTodoList:number): Observable<any> {
-    console.log(newtache);
+    console.log(newtache +'gkggg');
     return this.http.post(`${this.apiUrl}/taches/add/${idTodoList}`, newtache);
   }
 }
