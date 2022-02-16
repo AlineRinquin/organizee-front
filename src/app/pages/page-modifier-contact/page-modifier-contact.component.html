@@ -4,10 +4,14 @@
 </div>
 
 <div class="modifContact-form text-center">
+    <h1>Modifier ce contact</h1>
     <main class="form-modifContact">
         <form  (ngSubmit)="onSubmit()" [formGroup]="modifContactForm">
-            <h1>Modifier ce contact</h1>
-
+            
+            <div class="form-floating">
+            <input type="color" class="form-control" id="floatingInputcouleur" placeholder="" name="couleur"
+            formControlName="couleurFc">
+            </div>
 
             <div class="form-floating">
                 <input type="text" 

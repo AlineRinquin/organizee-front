@@ -67,7 +67,7 @@ export class PageAjoutContactComponent implements OnInit {
         this.router.navigate(['repertoire/']);
       });
     } else {
-      // affichage erreur
+      window.alert("Le contact ne peut pas être ajouté!")
     }
   }
 }
