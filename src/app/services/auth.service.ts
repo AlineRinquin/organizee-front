@@ -41,9 +41,9 @@ export class AuthService {
 
     return this.http.post(`${this.apiUrl}/membres/sign-in`, body).pipe(
       map((x: any) => {
-        console.log('Service : ', x.accessToken);
+        console.log('Service : ', x.token);
         // Modification à faire ici
-        localStorage.setItem(this.tokenKey, x.accessToken);
+        localStorage.setItem(this.tokenKey, x.token);
         return x; // permet de renvoyer la réponse à l'initiateur (page Signin) après le traitement du map
       })
     );

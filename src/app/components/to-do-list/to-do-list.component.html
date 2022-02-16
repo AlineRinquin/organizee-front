@@ -1,40 +1,55 @@
 <input
   type="text"
+  class="todo-title"
+  placeholder="Titre"
+  value = "{{todo.nom}}"
+/>
+<div>
+  <button (click)="effacerList()">Effacer la To Do List</button>
+</div>
+<input
+  type="text"
   class="todo-input"
-  placeholder="Ajoute une nouvelle Tâche"
+  placeholder="+ Nouvelle Tâche"
   [(ngModel)]="todoTitle"
-  (keyup.enter)="addTitle()"
+  (keyup.enter)="addTache(todo.id)"
 />
 
-<div class="element" *ngFor="let todo of todosFilter()">
+{{todo}}
+
+<div class="element" *ngFor="let tache of todo.taches">
   <div class="element-gauche">
     <input
       type="checkbox"
-      [(ngModel)]="todo.completed"
-      (change)="doneEdit(todo)"
+      [(ngModel)]="tache.etat"
+      (change)="doneEdit(tache)"
+      checked="checked"
     />
     <div
-      *ngIf="!todo.editing; else editingTodo"
+      *ngIf="!tache.editing; else editingTodo"
       class="nomTache"
-      [ngClass]="{ completed: todo.completed }"
-      (dblclick)="modifier(todo)"
+      [ngClass]="{ completed: tache.etat }"
+      (dblclick)="modifier(tache)"
     >
-      {{ todo.title }}
+      {{ tache.texte }}
     </div>
     <ng-template #editingTodo>
       <input
         type="text"
         class="modifier-element"
-        [(ngModel)]="todo.title"
-        (blur)="doneEdit(todo)"
-        (keyup.enter)="doneEdit(todo)"
-        (keyup.esc)="cancelEdit(todo)"
+        [(ngModel)]="tache.texte"
+        (blur)="doneEdit(tache)"
+        (keyup.enter)="doneEdit(tache)"
+        (keyup.esc)="cancelEdit(tache)"
         autofocus
       />
     </ng-template>
   </div>
-  <div class="deleteTache" (click)="deleteTodo(todo.id)">&times;</div>
+  <div class="deleteTache" (click)="deleteTodo(tache.id)">&times;</div>
 </div>
+
+
+
 <div class="extra-container">
   <div>
     <label
@@ -48,7 +63,7 @@
   <div>{{ toDoRest() }} tâches</div>
 </div>
 <div class="extra-container">
-  <div>
+  <!-- <div>
     <button [ngClass]="{ active: filter === 'tous' }" (click)="filter = 'tous'">
       Toutes la To Do List
     </button>
@@ -65,8 +80,6 @@
       Terminées
     </button>
   </div>
+ -->
 
-  <div>
-    <button (click)="effacerList()">Effacer la To Do List</button>
-  </div>
 </div>

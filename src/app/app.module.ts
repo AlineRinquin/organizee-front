@@ -32,7 +32,7 @@ import { FicheContactComponent } from './components/fiche-contact/fiche-contact.
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CreneauComponent } from './components/creneau/creneau.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
@@ -89,7 +89,9 @@ import { EmoticonComponent } from './emoticon/emoticon.component';
     FormsModule,
     AutofocusFixModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
