@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import jwt_decode from 'jwt-decode';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -42,4 +43,17 @@ return null;
   }
 
   }
+
+public getRole(): string | null {
+const token = this.getToken();
+if(token){
+  const decodedToken = jwt_decode<any>(token);
+  const role= decodedToken.auth[0].authority;
+  return role;
+}else{
+  return null;
+}
+
+  }
+
 }
