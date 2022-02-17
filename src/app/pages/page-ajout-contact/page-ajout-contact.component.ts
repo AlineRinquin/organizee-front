@@ -30,6 +30,7 @@ export class PageAjoutContactComponent implements OnInit {
   ngOnInit(): void {
     // *********************************pensser à changer group car déprécié********************************
     this.ajoutContactForm = this.fb.group({
+      couleurFc: new FormControl('', [Validators.required]),
       lastNameFc: new FormControl('', [Validators.required]),
       firstNameFc: new FormControl('', [Validators.required]),
       telephoneFc: new FormControl('', [Validators.required]),

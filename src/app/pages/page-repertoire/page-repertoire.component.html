@@ -27,7 +27,7 @@
         <div class="row justify-content-evenly">
             <div class="col-4">
                 <div *ngFor="let personne of listContact" (click)="onClick(personne)">
-                    <img style="max-height: 12% ; max-width: 12%" src="../../../assets/images/contact-1.png" />
+                    <div class= "couleur" [style.background-color]="personne.couleur"></div>
                     <p class="fiche-contact">{{ personne.prenom }} {{ personne.nom }}</p>
                 </div>
             </div>
