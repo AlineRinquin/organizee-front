@@ -21,11 +21,18 @@ export class TodoService {
   }
 
   deleteTacheById(idTache: any): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/taches/delete/${idTache}`,{responseType:'text'});
+    return this.http.delete(`${this.apiUrl}/taches/delete/${idTache}`, {
+      responseType: 'text',
+    });
   }
 
-  addTache(newtache: Tache,idTodoList:number): Observable<any> {
-    console.log(newtache);
+  addTache(newtache: Tache, idTodoList: number): Observable<any> {
+   // console.log(newtache);
     return this.http.post(`${this.apiUrl}/taches/add/${idTodoList}`, newtache);
+  }
+
+  updateTache(tache: Tache): Observable<any> {
+console.log(tache);
+    return this.http.put(`${this.apiUrl}/taches/update/1`, tache);
   }
 }

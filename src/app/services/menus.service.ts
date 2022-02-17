@@ -33,10 +33,15 @@ apiUrl: string;
     return this.http.get(`${this.apiUrl}/menus/` + id);
   }
 
-  addMenu(menu: Menu): Observable<any> {
+  addMenu(menu: Menu): Observable<any> | void {
     console.log(menu);
+    const teamId = this.tokenService.getCurrentTeamId();
+    if (teamId){
+    return this.http.post(`${this.apiUrl}/menus/add/${teamId}`, menu);
+    }else {
+      this.router.navigate(['accueil']);
+    }
 
-    return this.http.post(`${this.apiUrl}/menus/add`, menu);
   }
 
   deleteMenu(id: any): Observable<any> {

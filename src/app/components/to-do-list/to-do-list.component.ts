@@ -34,32 +34,12 @@ export class ToDoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.refreshTodo();
     this.beforeEditCache = '';
     this.casesRestantes=true;
     this.filter='tous';
     this.idTodo = 4;
     this.todoTitle = '';
-   /*  this.todos = [
-      {
-        id: 1,
-        texte: 'Finish Angular Screencast',
-        etat: false,
-        editing: false,
-      },
-      {
-        id: 2,
-        texte: 'Take over world',
-        etat: false,
-        editing: false,
-      },
-      {
-        id: 3,
-        texte: 'One more thing',
-        etat: false,
-        editing: false,
-      },
-    ]; */
+
   }
   //ajouter tache
 
@@ -76,38 +56,28 @@ console.log(idTodoList);
     this.TodoService.addTache(tache,idTodoList).subscribe((resp)=>{
       window.location.reload();
     })
-    /* if (this.todoTitle.trim().length === 0) {
-      return;
-    }
-
-    this.todos.push({
-      id: this.idTodo,
-      title: this.todoTitle,
-      completed: false,
-      editing: false,
-    });
-    this.todoTitle = '';
-    this.idTodo++; */
   }
- /*  if (contact.nom !== '') {
-    this.repertoireService.addContact(contact).subscribe((resp) => {
-      this.router.navigate(['repertoire/']);
-    }); */
 
 
-  //modifier la tâche
+
+  //modifier par l'input
   modifier(tache: Tache): void {
     this.beforeEditCache = tache.texte;
     tache.editing = true;
   }
 
-  // modifier l'apparence focus
+  // ajouter la modification dans la liste
   doneEdit(tache: Tache): void {
     if (tache.texte.trim().length === 0) {
       tache.texte = this.beforeEditCache;
     }
     this.casesRestantes= this.casesQuiRestes();
     tache.editing = false;
+    this.TodoService.updateTache(tache).subscribe((resp)=>{
+      console.log(tache);
+      window.location.reload();
+    })
+
   }
 
   // annuler la modification
