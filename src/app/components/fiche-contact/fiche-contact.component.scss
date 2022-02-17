@@ -7,6 +7,26 @@
   margin: auto;
 }
 
+.couleur{
+  border: none;
+  margin-top: -15px;
+  border-radius: 80%;
+  width: 60px;
+  height: 60px;
+  flex-direction: row;
+}
+
+.info{
+display:flex;
+justify-content: center;
+}
+
+.fiche-contact{
+  display:flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
 .container {
   border: 1px solid 8c2e9b;
   padding: 10px;

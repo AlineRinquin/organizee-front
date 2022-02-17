@@ -27,7 +27,7 @@ export class MembreService {
   addMembre(membre: Membre): Observable<any> {
     console.log(membre);
 
-    return this.http.post(`${this.apiUrl}/membres/add`, membre);
+    return this.http.post(`${this.apiUrl}/membres/sign-up`, membre);
   }
 
   deleteMembre(membre: Membre): Observable<any> {

@@ -1,40 +1,31 @@
 <app-header></app-header>
-<div class="row">
-  <div class="col-md-auto">
+<div class="container-fluid">
+  <div class="row">
     <app-side-bar></app-side-bar>
+    <div class="col-9 offset-2" id="main">
+          <h1>Ma team</h1>
+          <div class="d-flex justify-content-center">
+            <button button type="button" class="btn btn-primary btn-lg"
+                    routerLink="../modifier-compte"
+                    routerLinkActive="active-custom">Modifier mon compte</button>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button button type="button" class="btn btn-primary btn-lg"
+                    routerLink="../supprimer-compte"
+                    routerLinkActive="active-custom">Supprimer mon compte</button>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button button type="button" class="btn btn-primary btn-lg"
+                    routerLink="../ajout-membre"
+                    routerLinkActive="active-custom">Ajouter un membre</button>
+          </div>
+          <div class="row">
+            <div class="col" *ngFor="let membreData of listMembres">
+                <app-card-member [membre]="membreData">
+                </app-card-member>
+            </div>
+          </div>
+      </div>
   </div>
-  <div class=" col compte text-center">
-    <h1>Ma Team</h1>
-    <main class="contenu-compte">
-      <div class="d-flex justify-content-center">
-        <button button type="button" class="btn btn-primary btn-lg"
-                routerLink="../creation-team"
-                routerLinkActive="active-custom">Créer ma team</button>
-      </div>
-      <div class="d-flex justify-content-center">
-        <button button type="button" class="btn btn-primary btn-lg"
-                routerLink="../modifier-compte"
-                routerLinkActive="active-custom">Modifier mon compte</button>
-      </div>
-      <div class="d-flex justify-content-center">
-        <button button type="button" class="btn btn-primary btn-lg"
-                routerLink="../supprimer-compte"
-                routerLinkActive="active-custom">Supprimer mon compte</button>
-      </div>
-      <div class="d-flex justify-content-center">
-        <button button type="button" class="btn btn-primary btn-lg"
-                routerLink="../ajout-membre"
-                routerLinkActive="active-custom">Ajouter un membre</button>
-      </div>
-      <div class="d-flex justify-content-center">
-        <button button type="button" class="btn btn-primary btn-lg"
-                routerLink="../modifier-membre"
-                routerLinkActive="active-custom">Modifier ce membre</button>
-      </div>
-      <div class="d-flex justify-content-center">
-        <button button type="button" class="btn btn-primary btn-lg"
-                routerLink="../supprimer-membre"
-                routerLinkActive="active-custom">Supprimer ce membre</button>
-      </div>
-    </main>
-  </div>
+</div>
+

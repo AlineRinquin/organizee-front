@@ -11,18 +11,32 @@
             </button>
         </div>
         <div class="row align-items-center">
-            <div class="col-md-6 offset-md-3">
-                <p class="fiche-contact" > 
-                    {{ personne.couleur }}</p>
-                <p class="fiche-contact" >{{ personne.prenom }} {{ personne.nom }}</p>
-                <p class="fiche-contact" ><img style="max-height: 12% ; max-width: 12%" src="../../../assets/images/phone.png"/>
-                    {{ personne.telephone }}</p>
-                <p class="fiche-contact" ><img style="max-height: 12% ; max-width: 12%" src="../../../assets/images/logo-gmail.png"/>
-                    {{ personne.email }}</p>
-                <p class="fiche-contact" ><img style="max-height: 12% ; max-width: 12%" src="../../../assets/images/gateau.png"/>
-                    {{ personne.dateNaissance }}</p>
-                    <p class="fiche-contact" >
-                        {{ personne.adresse }}</p>
+            <div class="col-md-12">
+                
+                <div class="row d-flex justify-content-center flex-row">
+                <div class= "couleur col-4" [style.background-color]="personne.couleur"></div>
+                <span class="fiche-contact col-7" >{{ personne.prenom }} {{ personne.nom }} </span>
+                </div>
+
+                <div class="row d-flex justify-content-center flex-row">
+                    <img class= "col-4"  style="max-height: 12% ; max-width: 12%" src="../../../assets/images/phone.png"/>
+                    <span class="fiche-contact col-7" >{{ personne.telephone }}</span>
+                </div>
+
+                <div class="row d-flex justify-content-center flex-row">
+                    <img class= "col-4" style="max-height: 12% ; max-width: 12%" src="../../../assets/images/logo-gmail.png"/>
+                    <span class="fiche-contact col-7" >{{ personne.email }}</span>
+                </div>
+
+                <div class="row d-flex justify-content-center flex-row">
+                    <img class= "col-4" style="max-height: 12% ; max-width: 12%" src="../../../assets/images/gateau.png"/>
+                    <span class="fiche-contact col-7" >{{ personne.dateNaissance }}</span>
+                </div>
+                
+                <div class="row d-flex justify-content-center flex-row">
+                <p class="fiche-contact col-7" >{{ personne.adresse }}</p>
+                </div>
+
             </div>
         </div>
         

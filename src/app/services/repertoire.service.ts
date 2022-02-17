@@ -38,6 +38,6 @@ export class RepertoireService {
   }
 
   updateContact(contact: Contact): Observable<any> {
-    return this.http.put(`${this.apiUrl}/contacts/update/`, contact);
+    return this.http.put(`${this.apiUrl}/contacts/update/1`, contact);
   }
 }
