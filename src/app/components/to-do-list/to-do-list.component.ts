@@ -60,19 +60,24 @@ console.log(idTodoList);
 
 
 
-  //modifier la tâche
+  //modifier par l'input
   modifier(tache: Tache): void {
     this.beforeEditCache = tache.texte;
     tache.editing = true;
   }
 
-  // modifier l'apparence focus
+  // ajouter la modification dans la liste
   doneEdit(tache: Tache): void {
     if (tache.texte.trim().length === 0) {
       tache.texte = this.beforeEditCache;
     }
     this.casesRestantes= this.casesQuiRestes();
     tache.editing = false;
+    this.TodoService.updateTache(tache).subscribe((resp)=>{
+      console.log(tache);
+      window.location.reload();
+    })
+
   }
 
   // annuler la modification
