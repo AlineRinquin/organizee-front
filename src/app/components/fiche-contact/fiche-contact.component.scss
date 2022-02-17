@@ -1,19 +1,15 @@
 .btn-secondary {
   color: #fff;
   background-color: #5a1e63 !important;
-  width: 100%;
-  max-width: 150px;
-  padding: 15px;
-  margin: auto;
+  min-width: 100px;
+  border-radius: 55px;
 }
 
 .couleur{
   border: none;
-  margin-top: -15px;
-  border-radius: 80%;
-  width: 60px;
-  height: 60px;
-  flex-direction: row;
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
 }
 
 .info{
