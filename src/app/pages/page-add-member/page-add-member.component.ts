@@ -75,7 +75,7 @@ export class PageAddMemberComponent implements OnInit {
 
 
     if (membre.email !== '' && membre.password !== '') {
-      this.authService.signup(membre).subscribe((resp) => {
+      this.membreService.addMembre(membre).subscribe((resp) => {
         this.router.navigate(['compte']);
       });
     } else {

@@ -23,7 +23,6 @@ import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.co
 import { MeteoComponent } from './components/meteo/meteo.component';
 import { HumeurComponent } from './components/humeur/humeur.component';
 import { CalendrierComponent } from './components/calendrier/calendrier.component';
-import { AvatarComponent } from './components/avatar/avatar.component';
 import { CardMemberComponent } from './components/card-member/card-member.component';
 import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
 import { TacheComponent } from './components/tache/tache.component';
@@ -66,7 +65,6 @@ import { EmoticonComponent } from './emoticon/emoticon.component';
     MeteoComponent,
     HumeurComponent,
     CalendrierComponent,
-    AvatarComponent,
     CardMemberComponent,
     ToDoListComponent,
     TacheComponent,
