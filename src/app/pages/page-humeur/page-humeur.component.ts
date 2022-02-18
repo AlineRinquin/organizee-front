@@ -17,7 +17,7 @@ export class PageHumeurComponent implements OnInit {
       { title : "Je pleure", lien : "assets/images/emoticon-pleurer.png"},
       { title : "Je suis fatigué", lien : "assets/images/emoticon-fatigue.png"},
       { title : "Je suis en colère", lien : "assets/images/emoticon-insulter.png"},
-      { title : "Je suis malade", lien : "assets/images/emoticon-vomir.png"}  ]
+      { title : "Je suis en joie", lien : "assets/images/emoticon-feter.png"}  ]
 
   constructor() {    }
 
