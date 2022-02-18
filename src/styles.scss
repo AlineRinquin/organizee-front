@@ -1,3 +1,12 @@
 @import "~bootstrap/scss/bootstrap.scss";
 //Pour utiliser les icons ne fonctionne que si vous avez fait cette commande : npm i bootstrap-icons --save
 @import "~bootstrap-icons/font/bootstrap-icons.scss";
+
+// pour surpasser le CSS par defaut
+.calendar_default_event_inner{
+    font-weight: bold;
+}
+
+.calendar_default_event{
+    border-radius: 10px;
+}

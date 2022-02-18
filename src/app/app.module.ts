@@ -38,11 +38,7 @@ import { AutofocusFixModule  } from 'ngx-autofocus-fix';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
 import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
-import { HumeurComponent } from './components/humeur/humeur.component';
-import { PageSupportComponent } from './pages/page-support/page-support.component';
-
-
-
+import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
 
 @NgModule({
   declarations: [
@@ -79,8 +75,6 @@ import { PageSupportComponent } from './pages/page-support/page-support.componen
     FooterComponent,
     PageDeleteAccountComponent,
     PageUpdateAccountComponent,
-    HumeurComponent,
-    PageSupportComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +83,7 @@ import { PageSupportComponent } from './pages/page-support/page-support.componen
     HttpClientModule,
     FormsModule,
     AutofocusFixModule.forRoot(),
+    DayPilotModule
   ],
   providers: [
 
