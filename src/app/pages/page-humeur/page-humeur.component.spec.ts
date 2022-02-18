@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HumeurComponent } from './humeur.component';
+import { PageHumeurComponent } from './page-humeur.component';
 
-describe('HumeurComponent', () => {
-  let component: HumeurComponent;
-  let fixture: ComponentFixture<HumeurComponent>;
+describe('PageHumeurComponent', () => {
+  let component: PageHumeurComponent;
+  let fixture: ComponentFixture<PageHumeurComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HumeurComponent ]
+      declarations: [ PageHumeurComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HumeurComponent);
+    fixture = TestBed.createComponent(PageHumeurComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
