@@ -22,7 +22,6 @@ import { SigninComponent } from './components/signin/signin.component';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
 import { MeteoComponent } from './components/meteo/meteo.component';
 import { CalendrierComponent } from './components/calendrier/calendrier.component';
-import { AvatarComponent } from './components/avatar/avatar.component';
 import { CardMemberComponent } from './components/card-member/card-member.component';
 import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
 import { TacheComponent } from './components/tache/tache.component';
@@ -31,13 +30,16 @@ import { FicheContactComponent } from './components/fiche-contact/fiche-contact.
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CreneauComponent } from './components/creneau/creneau.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
 import { PageHumeurComponent } from './pages/page-humeur/page-humeur.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
+import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
+import { EmoticonComponent } from './emoticon/emoticon.component';
 
 
 
@@ -64,7 +66,6 @@ import { FooterComponent } from './components/footer/footer.component';
     MeteoComponent,
     PageHumeurComponent,
     CalendrierComponent,
-    AvatarComponent,
     CardMemberComponent,
     ToDoListComponent,
     TacheComponent,
@@ -77,6 +78,9 @@ import { FooterComponent } from './components/footer/footer.component';
     PageCreationTeamComponent,
     PageHumeurComponent,
     FooterComponent,
+    PageDeleteAccountComponent,
+    PageUpdateAccountComponent,
+    EmoticonComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,7 +90,9 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsModule,
     // AutofocusFixModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

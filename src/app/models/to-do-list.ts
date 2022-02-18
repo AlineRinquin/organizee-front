@@ -1,7 +1,11 @@
+import { Tache } from './tache';
 import { Team } from './team';
 
 export interface ToDoList {
   nom: string;
   team: Team;
-  tache: string;
+  taches: Tache [];
+  id:number;
 }
+
+

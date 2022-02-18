@@ -1,10 +1,26 @@
 .btn-secondary {
   color: #fff;
   background-color: #5a1e63 !important;
-  width: 100%;
-  max-width: 150px;
-  padding: 15px;
-  margin: auto;
+  min-width: 100px;
+  border-radius: 55px;
+}
+
+.couleur{
+  border: none;
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+}
+
+.info{
+display:flex;
+justify-content: center;
+}
+
+.fiche-contact{
+  display:flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .container {

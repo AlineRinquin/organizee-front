@@ -2,14 +2,33 @@
   color: #fff;
   background-color: #5a1e63 !important;
   width: 100%;
-  max-width: 330px;
+  max-width: 230px;
   padding: 15px;
   margin: auto;
+  min-width: 100px;
+  border-radius: 55px;
+  font-weight: bold;
 }
 
-.input-group mb-3 {
-  width: 100%;
+.input-group.mb-3 {
+  width: 50%;
   max-width: 330px;
   padding: 15px;
   margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.couleur{
+  border: none;
+  margin-top: -15px;
+  border-radius: 80%;
+  width: 60px;
+  height: 60px;
+  flex-direction: row;
+}
+
+.h4 {
+  color: black;
+  font-weight: bold;
 }
