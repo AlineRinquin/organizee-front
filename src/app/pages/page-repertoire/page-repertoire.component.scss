@@ -2,9 +2,12 @@
   color: #fff;
   background-color: #5a1e63 !important;
   width: 100%;
-  max-width: 330px;
+  max-width: 230px;
   padding: 15px;
   margin: auto;
+  min-width: 100px;
+  border-radius: 55px;
+  font-weight: bold;
 }
 
 .input-group.mb-3 {
@@ -24,7 +27,8 @@
   height: 60px;
   flex-direction: row;
 }
-;h4 {
+
+.h4 {
   color: black;
   font-weight: bold;
 }
