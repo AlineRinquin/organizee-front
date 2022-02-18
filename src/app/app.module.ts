@@ -39,7 +39,6 @@ import { PageHumeurComponent } from './pages/page-humeur/page-humeur.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
 import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
-import { EmoticonComponent } from './emoticon/emoticon.component';
 
 
 
@@ -80,7 +79,6 @@ import { EmoticonComponent } from './emoticon/emoticon.component';
     FooterComponent,
     PageDeleteAccountComponent,
     PageUpdateAccountComponent,
-    EmoticonComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +86,7 @@ import { EmoticonComponent } from './emoticon/emoticon.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    // AutofocusFixModule.forRoot(),
+    AutofocusFixModule.forRoot(),
   ],
   providers: [
 
