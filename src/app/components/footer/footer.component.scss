@@ -1,7 +1,10 @@
-body {
-    background-color: pink;
-    text-align: left;
+.liens {
+display: flex;
+justify-content: center;
+color : blue;
+font-size: smaller;
 }
-h2 {
-    color : blue
+
+.footer {
+    margin-top: 20px;
 }

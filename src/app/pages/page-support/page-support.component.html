@@ -1,0 +1,22 @@
+<p>page-support works!</p>
+<h2>Formulaire de contact</h2>
+ <form #userEmail="ngForm" (ngSubmit)="onEnvoiForm(userEmail)">
+    
+     <label>Votre adresse mail</label>
+     <input type="email"
+     ngModel
+     name="lllll"
+     class="form-control">
+
+     <label>Votre message</label>
+     <input type="text"
+     ngModel
+     name="UserName"
+     class="form-control">
+
+
+<button type="submit">Validation</button>
+
+
+
+ </form>

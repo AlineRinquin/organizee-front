@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-page-humeur',
-  templateUrl: './page-humeur.component.html',
-  styleUrls: ['./page-humeur.component.scss']
+  selector: 'app-humeur',
+  templateUrl: './humeur.component.html',
+  styleUrls: ['./humeur.component.scss']
 })
+export class HumeurComponent implements OnInit {
 
-export class PageHumeurComponent implements OnInit {
-  
- monHumeurLien! : string[];
+
+  monHumeurLien! : string[];
  monHumeurTitle! : string[] ;
 
 
@@ -31,9 +31,6 @@ console.log("humeur titre est : ", this.monHumeurTitle);
 console.log("humeur lien est : ", this.monHumeurLien);
 console.log("index humeur est : ", numero );
 
-}
-
-
 
 }
-
+}
