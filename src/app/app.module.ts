@@ -39,7 +39,7 @@ import { PageHumeurComponent } from './pages/page-humeur/page-humeur.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
 import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
-
+import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
 
 
 @NgModule({
@@ -87,6 +87,8 @@ import { PageUpdateAccountComponent } from './pages/page-update-account/page-upd
     HttpClientModule,
     FormsModule,
     AutofocusFixModule.forRoot(),
+    DayPilotModule
+
   ],
   providers: [
 
