@@ -3,5 +3,7 @@ import { Team } from './team';
 
 export interface Menu {
   libelle: string;
-  dateMenu: Date;
+  dateMenu: string;
+  repas: string;
+  id: number;
 }
