@@ -40,7 +40,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
 import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +84,7 @@ import { PageUpdateAccountComponent } from './pages/page-update-account/page-upd
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    // AutofocusFixModule.forRoot(),
+    AutofocusFixModule.forRoot(),
   ],
   providers: [
 
