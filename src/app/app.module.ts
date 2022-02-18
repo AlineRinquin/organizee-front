@@ -41,6 +41,7 @@ import { PageDeleteAccountComponent } from './pages/page-delete-account/page-del
 import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
 import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,6 +88,7 @@ import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
     FormsModule,
     AutofocusFixModule.forRoot(),
     DayPilotModule
+
   ],
   providers: [
 
