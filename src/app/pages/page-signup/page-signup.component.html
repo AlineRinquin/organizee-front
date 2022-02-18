@@ -1,12 +1,12 @@
 <app-header></app-header>
 <div class="signup-form text-center">
     <h1>Inscrivez-vous !</h1>
+    <label for="floatingInputcouleur">Choisissez une couleur</label>
   <main class="form-signup">
     <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
           <div class="form-floating">
             <input type="color" class="form-control" id="floatingInputcouleur" placeholder="" name="couleur"
               formControlName="couleurFc">
-
           </div>
       <div class="form-floating">
         <input
@@ -126,10 +126,10 @@
       <button
         class="w-100 btn btn-lg btn-outline-success"
         type="submit"
-        [disabled]="signupForm.invalid"
-      >
+        [disabled]="signupForm.invalid">
         CREER MON COMPTE
       </button>
+
     </form>
   </main>
 </div>

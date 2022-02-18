@@ -1,5 +1,15 @@
+.todo-title {
+  width: 25%;
+  padding: 10px 18px;
+  font-size: xx-large;
+  margin-bottom: 16px;
+  &:focus {
+    outline: 0;
+  }
+}
+
 .todo-input {
-  width: 100%;
+  width: 20%;
   padding: 10px 18px;
   font-size: 18px;
   margin-bottom: 16px;
@@ -7,6 +17,8 @@
     outline: 0;
   }
 }
+
+
 .element {
   margin-bottom: 12px;
   display: flex;
@@ -16,6 +28,7 @@
 }
 
 .deleteTache {
+  width: 75%;
   cursor: pointer;
   margin-left: 14px;
   &:hover {
@@ -40,11 +53,12 @@
   margin-left: 12px;
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc; //override defaults
+  border: 1px solid rgb(204, 204, 204); //override defaults
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 
   &:focus {
     outline: none;
+    background-color:aquamarine;
   }
 }
 
@@ -53,15 +67,6 @@
   color: grey;
 }
 
-.extra-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 16px;
-  border-top: 1px solid lightgrey;
-  padding-top: 14px;
-  margin-bottom: 14px;
-}
 
 button {
   font-size: 14px;

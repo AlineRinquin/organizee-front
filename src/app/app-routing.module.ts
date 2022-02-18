@@ -7,6 +7,7 @@ import { PageAgendaComponent } from './pages/page-agenda/page-agenda.component';
 import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
+import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
 import { PageDeleteMemberComponent } from './pages/page-delete-member/page-delete-member.component';
 import { PageForgotPasswordComponent } from './pages/page-forgot-password/page-forgot-password.component';
 import { PageMenuSemaineComponent } from './pages/page-menu-semaine/page-menu-semaine.component';
@@ -17,6 +18,7 @@ import { PageRepertoireComponent } from './pages/page-repertoire/page-repertoire
 import { PageResetPasswordComponent } from './pages/page-reset-password/page-reset-password.component';
 import { PageSignupComponent } from './pages/page-signup/page-signup.component';
 import { PageToDoListComponent } from './pages/page-to-do-list/page-to-do-list.component';
+import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
 import { PageUpdateMemberComponent } from './pages/page-update-member/page-update-member.component';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -29,6 +31,7 @@ const routes: Routes = [
   { path: 'agenda', component: PageAgendaComponent },
   { path: 'tableau-de-bord', component: PageDashboardComponent },
   { path: 'supprimer-membre', component: PageDeleteMemberComponent },
+  { path: 'supprimer-compte', component: PageDeleteAccountComponent },
   { path: 'password-oublie', component: PageForgotPasswordComponent },
   { path: 'menu', component: PageMenuSemaineComponent },
   { path: 'repertoire', component: PageRepertoireComponent },
@@ -36,6 +39,7 @@ const routes: Routes = [
   { path: 'creation-compte', component: PageSignupComponent },
   { path: 'to-do-list', component: PageToDoListComponent },
   { path: 'modifier-membre', component: PageUpdateMemberComponent },
+  { path: 'modifier-compte', component: PageUpdateAccountComponent },
   { path: 'ajouter-contact', component: PageAjoutContactComponent },
   { path: 'creation-team', component: PageCreationTeamComponent },
   { path: 'humeur', component: PageHumeurComponent },

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AvatarComponent } from './avatar.component';
+import { PageDeleteAccountComponent } from './page-delete-account.component';
 
-describe('AvatarComponent', () => {
-  let component: AvatarComponent;
-  let fixture: ComponentFixture<AvatarComponent>;
+describe('PageDeleteAccountComponent', () => {
+  let component: PageDeleteAccountComponent;
+  let fixture: ComponentFixture<PageDeleteAccountComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AvatarComponent ]
+      declarations: [ PageDeleteAccountComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AvatarComponent);
+    fixture = TestBed.createComponent(PageDeleteAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

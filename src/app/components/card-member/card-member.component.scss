@@ -1,0 +1,56 @@
+#couleur{
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background: black;
+
+}
+
+.card {
+  min-height: 22rem;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer
+}
+
+
+.fonts {
+  font-size: 11px
+}
+
+.buttons button:nth-child(1) {
+  margin-top: 5px;
+  border: 1px solid #7879F1 !important;
+  color: #7879F1;
+  height: 40px;
+  width: 150px;
+}
+
+.buttons button:nth-child(1):hover {
+  margin-top: 5px;
+  border: 1px solid #7879F1 !important;
+  color: #fff;
+  height: 40px;
+  width: 150px;
+  background-color: #7879F1
+}
+
+.buttons button:nth-child(2) {
+  margin-top: 5px;
+  border: 1px solid #7879F1 !important;
+  background-color: #7879F1;
+  color: #fff;
+  height: 40px;
+  width: 150px;
+}
+
+.buttons button:nth-child(2):hover {
+  margin-top: 5px;
+  border: 1px solid #bd4646 !important;
+  background-color: #bd4646;
+  color: #fff;
+  height: 40px;
+  width: 150px;
+}

@@ -33,16 +33,6 @@ export class PageRepertoireComponent implements OnInit {
       this.listContact = listContact;
       this.listFull = listContact;
     });
-
-    this.personneid = this.route.snapshot.paramMap.get('id');
-    console.log(this.personneid);
-
-    this.repertoireService
-      .getContactById(this.personneid)
-      .subscribe((listContactInfo: any) => {
-        console.log(listContactInfo);
-        this.listContactInfo = listContactInfo;
-      });
   }
 
   // Méthode pour récuper ce qui est saisi dans l'input
@@ -63,13 +53,21 @@ export class PageRepertoireComponent implements OnInit {
     this.listContact = prenom;
   }
 
-  // Méthode qui au click va ouvrir les détails d'un contat
+  // Méthode qui au click va ouvrir les détails d'un contact
   onClick(personne: any) {
     console.log(personne);
     this.openDetails = personne;
   }
 
-  // this.repertoireService.deleteContact(contact).subscribe((resp) => {
-  //   this.router.navigate(['repertoire/']);
-  // });
+  // Méthode qui au click va supprimer un contact
+  onClickDelete(contactId: number){
+    this.repertoireService.deleteContact(contactId).subscribe((resp) => {
+      if(contactId) {
+        this.listContact.forEach(contactId => console.log(contactId))
+      }else{
+        window.alert("Le contact ne peut pas être supprimé!")
+      }
+      this.router.navigate(['repertoire/']);
+    });
+  }
 }

@@ -1,7 +1,7 @@
 export interface Todo {
   id : number,
-  title : string,
-  completed: boolean,
-  editing: boolean
+  texte : string,
+  etat: boolean,
+  // todoListId: number // FK
 }
 
