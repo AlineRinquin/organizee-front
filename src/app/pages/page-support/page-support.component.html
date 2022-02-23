@@ -1,22 +1,31 @@
-<p>page-support works!</p>
-<h2>Formulaire de contact</h2>
- <form #userEmail="ngForm" (ngSubmit)="onEnvoiForm(userEmail)">
-    
-     <label>Votre adresse mail</label>
-     <input type="email"
-     ngModel
-     name="lllll"
-     class="form-control">
-
-     <label>Votre message</label>
-     <input type="text"
-     ngModel
-     name="UserName"
-     class="form-control">
+<!--  <div>
+<app-header></app-header>
+<app-side-bar></app-side-bar>
+</div>   -->
 
 
-<button type="submit">Validation</button>
+<div>
+    <h2>Demande support</h2>
+    <form action="/demande_support" method="post">
 
+        <label for="name">Nom :</label>
+        <div>
+            <input type="text" id="name" value="Votre nom" name="user_name">
+        </div>
 
+        <label for="mail">E-mail :</label>
+        <div>
+            <input type="email" id="mail" name="user_mail" value="Votre adresse mail">
+        </div>
+        <label for="msg">Message :</label>
+        <div>
 
- </form>
+            <textarea id="msg" name="user_message">Formulez votre demande ici</textarea>
+        </div>
+        <div class="button">
+            
+            <button class="btn btn-primary">Envoyez votre message</button>
+            <button type="button" class="btn btn-danger">Effacer</button>
+        </div>
+    </form>
+</div>

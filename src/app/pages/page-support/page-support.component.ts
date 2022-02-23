@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 //DRIVEN FORM
 @Component({
   selector: 'app-page-support',
@@ -13,18 +14,6 @@ export class PageSupportComponent implements OnInit {
   }
 
 
-onEnvoiForm(userEmail:any){
-  console.log(userEmail);
 }
 
 
-
-
-
-
-
-
-
-
-
-}//fin

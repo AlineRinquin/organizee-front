@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
@@ -39,6 +40,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
 import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
 import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
+import { HumeurComponent } from './components/humeur/humeur.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
     CardMemberComponent,
     ToDoListComponent,
     TacheComponent,
+    HumeurComponent,
     CardMenuComponent,
     FicheContactComponent,
     PaginationComponent,

@@ -19,7 +19,7 @@ import { PageSignupComponent } from './pages/page-signup/page-signup.component';
 import { PageToDoListComponent } from './pages/page-to-do-list/page-to-do-list.component';
 import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
 import { PageUpdateMemberComponent } from './pages/page-update-member/page-update-member.component';
-import { PageSupportComponent} from './pages/page-support/page-support.component';
+import { PageSupportComponent } from './pages/page-support/page-support.component';
 
 
 
