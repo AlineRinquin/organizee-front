@@ -24,7 +24,7 @@ tokenKey = environment.tokenKey;
     const token = this.getToken();
     if(token) {
       const decodedToken = jwt_decode<any>(token);
-      const userId = decodedToken.sub;
+      const userId = decodedToken.userId;
       return userId;
     } else {
       return null;
