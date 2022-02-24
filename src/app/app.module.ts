@@ -42,6 +42,7 @@ import { PageUpdateAccountComponent } from './pages/page-update-account/page-upd
 import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
 import { HumeurComponent } from './components/humeur/humeur.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,6 +88,7 @@ import { HumeurComponent } from './components/humeur/humeur.component';
     FormsModule,
     AutofocusFixModule.forRoot(),
     DayPilotModule
+
   ],
   providers: [
 

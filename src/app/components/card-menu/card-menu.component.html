@@ -1,46 +1,124 @@
-<div class="menu">
 <div *ngFor="let menu of listMenus">
-  <p>{{ menu.dateMenu }} {{ menu.libelle }}</p>
-</div>
+  <div class="menu card mb-4" style="width: 14rem">
+    <p>{{ menu.dateMenu | date: "EEEE, d":"fr" }}</p>
+    <p>{{ menu.repas }}</p>
+    <p>{{ menu.libelle }}</p>
 
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">
+          Mettre à jour un menu
+        </h4>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        >
+          <span aria-hidden="true"> × </span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="upMenuForm">
+          <div class="form-group">
+            <label for="dateMenu"> Date </label>
+            <div class="input-group">
+              <input
+                id="dateMenu"
+                class="form-control"
+                formControlName="dateMenuFc"
+                value="{{ menu.dateMenu }}"
+                placeholder=""
+                name="date"
+              />
+              <input
+                id="libelle"
+                class="form-control"
+                formControlName="libelleFc"
+                value="{{ menu.libelle }}"
+                placeholder=""
+                name="libelle"
+              />
+              <input
+                id="repas"
+                class="form-control"
+                formControlName="repasFc"
+                value="{{ menu.repas }}"
+                placeholder=""
+                name="repas"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          (click)="modal.close(updateMenu(menu.id))"
+        >
+          Mettre à jour
+        </button>
+      </div>
+    </ng-template>
+
+    <i class="bi bi-pencil-square" (click)="open(content)"></i>
+    <i class="bi bi-trash3" (click)="deleteMenu(menu.id)"></i>
+  </div>
+</div>
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">
-      Ajouter un menu
-    </h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-
-      <span aria-hidden="true">
-        ×
-      </span>
+    <h4 class="modal-title" id="modal-basic-title">Ajouter un menu</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true"> × </span>
     </button>
   </div>
   <div class="modal-body">
     <form [formGroup]="menuForm">
       <div class="form-group">
-        <label for="dateMenu">
-          Date
-        </label>
+        <label for="dateMenu"> Date </label>
         <div class="input-group">
-          <input id="dateMenu" class="form-control" formControlName="dateMenuFc" placeholder="yyyy-mm-dd" name="date"
-          >
-<input id="libelle" class="form-control" formControlName="libelleFc" placeholder="" name="libelle"
->
+          <input
+            id="dateMenu"
+            class="form-control"
+            formControlName="dateMenuFc"
+            placeholder="aaaa-mm-jj"
+            name="date"
+          />
+          <input
+            id="libelle"
+            class="form-control"
+            formControlName="libelleFc"
+            placeholder="repas"
+            name="libelle"
+          />
+          <input
+            id="repas"
+            class="form-control"
+            formControlName="repasFc"
+            placeholder="soir ou midi"
+            name="repas"
+          />
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close(saveMenu())">
-      Save
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close(saveMenu())"
+    >
+      Enregistrer
     </button>
   </div>
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">
- Ajouter un menu
+<button type="button" class="btn btn-outline-dark" (click)="open(content)">
+  Ajouter un menu
 </button>
-
-
-
-</div>
