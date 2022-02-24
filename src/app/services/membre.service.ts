@@ -21,12 +21,11 @@ export class MembreService {
   }
 
   getMembreId(id: any): Observable<any> {
-    return this.http.get(`${this.apiUrl}/membres/1` + id);
+    return this.http.get(`${this.apiUrl}/membres/` + id);
   }
 
   addMembre(membre: Membre): Observable<any> {
     console.log(membre);
-
     return this.http.post(`${this.apiUrl}/membres/sign-up`, membre);
   }
 

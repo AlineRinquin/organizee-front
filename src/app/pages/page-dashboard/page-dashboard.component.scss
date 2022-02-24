@@ -1,5 +1,22 @@
+.titre{
+  text-align: center;
+  font-weight: bold;
+}
+
 .meteo {
   display: flex;
-  margin-left: 300px;
+  margin-left: 500px;
   margin-top: -60px;
+}
+
+.container {
+  display: flex;
+  padding: 10px;
+  border: 1px solid 8c2e9b;
+}
+
+
+
+.calendrier{
+  align-content: flex-end;
 }
