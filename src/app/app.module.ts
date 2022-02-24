@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
@@ -40,7 +39,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
 import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
 import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
-
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr)
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
     FooterComponent,
     PageDeleteAccountComponent,
     PageUpdateAccountComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -87,10 +89,10 @@ import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
     HttpClientModule,
     FormsModule,
     AutofocusFixModule.forRoot(),
-    DayPilotModule
-
+    DayPilotModule,
   ],
   providers: [
+{provide: LOCALE_ID, useValue: "fr-FR" }
 
   ],
   bootstrap: [AppComponent],
