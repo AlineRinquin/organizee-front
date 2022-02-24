@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MembreService } from 'src/app/services/membre.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-page-dashboard',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageDashboardComponent implements OnInit {
 
-  constructor() { }
+  conectedUser: any;
 
-  ngOnInit(): void {
+  constructor(private membreService: MembreService,
+    private http: HttpClient, 
+    private router: Router,  
+    private tokenService: TokenService) { 
   }
 
+  ngOnInit(): void {
+    this.membreService.getMembreId(this.tokenService.getCurrentMembreId()).subscribe((result) => {
+      this.conectedUser = result ;
+      console.log(result);
+    })
+  }
+
+
+
+
+  // récuperer l id du membre s=qui est connecté
+  //recuperer l id dans le token grace au user id du getCurrentMembreId
+  // placer ce userId dans la methode getMembreId a la place de l id
+//********************************************************************
 }

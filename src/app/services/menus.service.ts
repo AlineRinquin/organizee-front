@@ -44,13 +44,17 @@ apiUrl: string;
 
   }
 
-  deleteMenu(id: any): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/menus/delete/`+ id);
+  deleteMenu(id:number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/menus/delete/${id}`);
   }
 
-  updateMenu(menu: Menu): Observable<any> {
-    return this.http.put(`${this.apiUrl}/contacts/update/`, menu);
-  }
+
+  updateMenu(menu: Menu, id:number): Observable<any> | void {
+    const teamId = this.tokenService.getCurrentTeamId();
+    if (teamId){
+    return this.http.put(`${this.apiUrl}/menus/update/${teamId}/${id}`, menu);
+  }else {
+      this.router.navigate(['accueil']);
+    }
 }
-
-
+}
