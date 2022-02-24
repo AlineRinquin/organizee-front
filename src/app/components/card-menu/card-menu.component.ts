@@ -35,16 +35,6 @@ public upMenuForm : FormGroup;
     this.listMenus=[];
     this.menuForm = new FormGroup({});
     this.upMenuForm = this.initForm();
-   }
-
-     //Méthode qui initialise les champs du formulaire avec les infos de la BDD
-  private initForm(menu?: Menu): FormGroup {
-    return this.fb.group({
-      dateMenu: [menu ? menu.dateMenu : ''],
-      libelle: [menu ? menu.libelle : ''],
-      repas: [menu ? menu.repas : ''],
-
-    });
   }
 
   //delete d'un menu
@@ -58,15 +48,17 @@ this.menusService.deleteMenu(id_menu)?.subscribe((resp) => {
 
 //updateMenu
 updateMenu(id_menu : number): void {
+
     const dateValue = this.menuForm.value['dateMenuFc'];
-    const libelleValue = this.menuForm.value['libelleFc'];
-    const repasValue = this.menuForm.value['repasFc'];
+    const repasMidiValue = this.menuForm.value['repasMidiFc'];
+    const repasSoirValue = this.menuForm.value['repasSoirFc'];
+
 
     const menu: Menu = {
       dateMenu: dateValue,
-      libelle: libelleValue,
-      repas: repasValue,
-      id: id_menu
+      repasMidi: repasMidiValue,
+      repasSoir: repasSoirValue,
+      id: 0
     };
 
     console.log(id_menu);
@@ -77,22 +69,33 @@ updateMenu(id_menu : number): void {
       });
   }
 
+  //Méthode qui initialise les champs du formulaire avec les infos de la BDD
+  private initForm(menu?: Menu): FormGroup {
+    return this.fb.group({
+      dateMenu: [menu ? menu.dateMenu : ''],
+      libelle: [menu ? menu.repasMidi : ''],
+      repas: [menu ? menu.repasSoir : ''],
+
+    });
+  }
+
 
 //ajout d'un menu
 saveMenu(): void {
 
     const dateValue = this.menuForm.value['dateMenuFc'];
-    const libelleValue = this.menuForm.value['libelleFc'];
-    const repasValue = this.menuForm.value['repasFc'];
+    const repasMidiValue = this.menuForm.value['repasMidiFc'];
+    const repasSoirValue = this.menuForm.value['repasSoirFc'];
+
 
     const menu: Menu = {
       dateMenu: dateValue,
-      libelle: libelleValue,
-      repas: repasValue,
+      repasMidi: repasMidiValue,
+      repasSoir: repasSoirValue,
       id: 0
     };
 
-   if (menu.dateMenu !=='' && menu.libelle !== '') {
+  if (menu.dateMenu !=='') {
 
     console.log(menu.dateMenu);
       this.menusService.addMenu(menu)?.subscribe((resp) => {
@@ -110,7 +113,9 @@ saveMenu(): void {
 this.menusService.getMenu()?.subscribe((listMenus: any[])=>{
   console.log(listMenus);
   this.listMenus=listMenus;
+
 });
+
 
   this.menuForm = this.fb.group(
   {

@@ -2,8 +2,8 @@ import { Membre } from './membre';
 import { Team } from './team';
 
 export interface Menu {
-  libelle: string;
   dateMenu: string;
-  repas: string;
+  repasMidi: string;
+  repasSoir: string;
   id: number;
 }
