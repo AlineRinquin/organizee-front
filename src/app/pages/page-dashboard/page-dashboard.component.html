@@ -1,6 +1,5 @@
 <app-header></app-header>
 <app-side-bar></app-side-bar>
-<app-humeur></app-humeur>
 
 <app-deconnexion></app-deconnexion>
 
@@ -9,35 +8,27 @@
     <h3 class="titre">Bienvenue {{ conectedUser.prenom }}!!</h3>
   </div>
   <div class="row d-flex align-items-center flex-row">
+    <div class="col-sm-3 col-xs-6 box border" id="boxThree">
+      <app-meteo></app-meteo>
+    </div>
+    <div class="col-sm-3 col-xs-6 box border" id="boxTwo">
+      <app-calendrier>A venir</app-calendrier>
+    </div>
 
-      <div class="col-sm-3 col-xs-6 box border" id="boxThree">
-        <app-meteo></app-meteo>
-      </div>
-      <div class="col-sm-3 col-xs-6 box border" id="boxTwo">
-        <app-calendrier>A venir</app-calendrier>
-      </div>
-
-      <div class="row">
+    <div class="row">
       <div class="col-sm-3 col-xs-6 box border" id="boxFour">
         <div>
-          <p>Humeur en attente component
-          </p>
-          <p>Humeur en attente component
-          </p>
-          <p>Humeur en attente component
-          </p>
-        </div>
+          <app-humeur></app-humeur>
         </div>
       </div>
-    
+    </div>
+
     <div class="row avatar">
       <div class="col" *ngFor="let membreData of listMembres">
-          <app-card-avatar [membre]="membreData">
-          </app-card-avatar>
+        <app-card-avatar [membre]="membreData"> </app-card-avatar>
       </div>
     </div>
   </div>
 </div>
 
 <app-footer></app-footer>
-

@@ -44,7 +44,6 @@ const routes: Routes = [
   { path: 'modifier-compte', canActivate: [AuthGuard], component: PageUpdateAccountComponent },
   { path: 'ajouter-contact', canActivate: [AuthGuard], component: PageAjoutContactComponent },
   { path: 'creation-team', canActivate: [AuthGuard], component: PageCreationTeamComponent },
-  { path: 'humeur', canActivate: [AuthGuard], component: PageHumeurComponent },
   { path: 'footer', component: FooterComponent},
   { path: '**', component: PageNotFoundComponent },
 ];
