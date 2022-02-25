@@ -6,23 +6,34 @@
   <div>
     <h3 class="titre">Bienvenue {{ conectedUser.prenom }}!!</h3>
   </div>
-
   <div class="row d-flex align-items-center flex-row">
-    <div class="col-4">
-      <div class="flex-row border">
+
+      <div class="col-sm-3 col-xs-6 box border" id="boxThree">
         <app-meteo></app-meteo>
       </div>
-      <div class="flex-row border">
-        <span>Humeur en attente component</span>
+      <div class="col-sm-3 col-xs-6 box border" id="boxTwo">
+        <app-calendrier>A venir</app-calendrier>
+      </div>
+
+      <div class="row">
+      <div class="col-sm-3 col-xs-6 box border" id="boxFour">
+        <div>
+          <p>Humeur en attente component
+          </p>
+          <p>Humeur en attente component
+          </p>
+          <p>Humeur en attente component
+          </p>
+        </div>
+        </div>
+      </div>
+    
+    <div class="row avatar">
+      <div class="col" *ngFor="let membreData of listMembres">
+          <app-card-avatar [membre]="membreData">
+          </app-card-avatar>
       </div>
     </div>
-
-    <div class="col-8 border">
-      <app-calendrier>A venir</app-calendrier>
-    </div>
-  </div>
-
-  <div class="row">
-    <app-card-member>A modifier</app-card-member>
   </div>
 </div>
+

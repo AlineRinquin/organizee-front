@@ -41,6 +41,7 @@ import { PageUpdateAccountComponent } from './pages/page-update-account/page-upd
 import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { CardAvatarComponent } from './components/card-avatar/card-avatar.component';
 import { DeconnexionComponent } from './components/deconnexion/deconnexion.component';
 registerLocaleData(localeFr)
 
@@ -81,6 +82,7 @@ registerLocaleData(localeFr)
     FooterComponent,
     PageDeleteAccountComponent,
     PageUpdateAccountComponent,
+    CardAvatarComponent,
     DeconnexionComponent,
 
   ],

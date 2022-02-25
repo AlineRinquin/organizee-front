@@ -12,18 +12,25 @@ import { TokenService } from 'src/app/services/token.service';
 export class PageDashboardComponent implements OnInit {
 
   conectedUser: any;
+  listMembres: any[];
 
   constructor(private membreService: MembreService,
     private http: HttpClient, 
     private router: Router,  
     private tokenService: TokenService) { 
-  }
+      this.listMembres = [];
+}
 
   ngOnInit(): void {
     this.membreService.getMembreId(this.tokenService.getCurrentMembreId()).subscribe((result) => {
       this.conectedUser = result ;
       console.log(result);
     })
+
+    this.membreService.getMembresByTeamId()?.subscribe((membres: any[]) => {
+      console.log(membres);
+      this.listMembres = membres;
+  });
   }
 
 

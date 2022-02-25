@@ -54,8 +54,8 @@ export class PageAddMemberComponent implements OnInit {
   public onSubmit(): void {
     console.log('value : ', this.addMemberForm.value);
     console.log('form : ', this.addMemberForm);
-    const firstNameValue = this.addMemberForm.value['firstNameFc'];
     const lastNameValue = this.addMemberForm.value['lastNameFc'];
+    const firstNameValue = this.addMemberForm.value['firstNameFc'];
     const emailValue = this.addMemberForm.value['emailFc'];
     const roleValue = this.addMemberForm.value['roleFc'];
     const passwordValue = this.addMemberForm.value['passwordFc'];
@@ -65,8 +65,8 @@ export class PageAddMemberComponent implements OnInit {
 
 
     const membre: Membre = {
-      nom: firstNameValue,
-      prenom: lastNameValue,
+      nom: lastNameValue,
+      prenom: firstNameValue,
       email: emailValue,
       password: passwordValue,
       couleur: couleurValue,

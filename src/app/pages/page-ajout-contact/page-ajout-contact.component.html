@@ -1,21 +1,17 @@
-<div>
-  <app-header></app-header>
-  <app-side-bar></app-side-bar>
-</div>
+<app-header></app-header>
+<div class="row">
+    <div class="col-md-auto">
+        <app-side-bar></app-side-bar>
+    </div>
 <div class="ajoutContact-form text-center">
-  <h1>Ajouter un contact</h1>
-  <main class="form-ajoutContact">
-    <form (ngSubmit)="onSubmit()" [formGroup]="ajoutContactForm">
-      <div class="form-floating">
-        <input
-          type="color"
-          class="form-control"
-          id="floatingInputcouleur"
-          placeholder=""
-          name="couleur"
-          formControlName="couleurFc"
-        />
-      </div>
+    <h3>Ajouter un contact</h3>
+    <main class="form-ajoutContact">
+        <form  (ngSubmit)="onSubmit()" [formGroup]="ajoutContactForm">
+            
+            <div class="form-floating">
+            <input type="color" class="form-control" id="floatingInputcouleur" placeholder="" name="couleur"
+              formControlName="couleurFc">
+            </div>
 
       <div class="form-floating">
         <input
@@ -86,13 +82,57 @@
         <label for="floatingInputfirstName">Adresse</label>
       </div>
 
-      <button
-        class="w-100 btn btn-lg btn-secondary"
-        type="submit"
-        [disabled]="ajoutContactForm.invalid"
-      >
-        Valider
-      </button>
-    </form>
-  </main>
+
+            </div>
+            <div class="form-floating">
+                <input type="text" 
+                        class="form-control" 
+                        id="floatingInputTelephone" 
+                        placeholder="" 
+                        name="telephone" 
+                        formControlName="telephoneFc">
+                <label for="floatingInputfirstName">Téléphone</label>
+
+
+            </div>
+            <div class="form-floating">
+                <input type="email" 
+                        class="form-control" 
+                        id="floatingInput" 
+                        placeholder="" 
+                        name="email" 
+                        formControlName="emailFc">
+                <label for="floatingInput">Adresse email</label>
+            </div>
+
+
+            <div class="form-floating">
+                <input type="date" 
+                        class="form-control" 
+                        id="floatingInputdateNaissance" 
+                        placeholder="" 
+                        name="dateNaissance" 
+                        formControlName="dateNaissanceFc">
+                <label for="floatingInputfirstName">Date de naissance</label>
+            </div>
+
+
+            <div class="form-floating">
+                <input type="text" 
+                        class="form-control" 
+                        id="floatingInputAdresse" 
+                        placeholder="" 
+                        name="adresse" 
+                        formControlName="adresseFc">
+                <label for="floatingInputfirstName">Adresse</label>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-secondary" 
+                    type="submit" 
+                    [disabled]="ajoutContactForm.invalid">Valider</button>
+
+        </form>
+    </main>
 </div>
+</div>
+
