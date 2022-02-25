@@ -28,7 +28,12 @@ export class SigninComponent implements OnInit {
     if (email !== '' && password !== '') {
       this.authService.signin(email, password).subscribe((resp) => {
         console.log('Component Signin: ', resp);
-        this.router.navigate(['tableau-de-bord']);
+        //if(resp == ){
+          this.router.navigate(['tableau-de-bord']);
+        //}else{
+         // window.alert("Votre identifiant/mot de passe est erroné");
+        //}
+        console.log('Component Signin: ', resp);
       });
     } else {
       // afficher une erreur à l'utilisateur
