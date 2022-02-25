@@ -29,6 +29,7 @@ export class PageAddMemberComponent implements OnInit {
         firstNameFc: new FormControl('', [Validators.required]),
         lastNameFc: new FormControl('', [Validators.required]),
         dateNaissanceFc: new FormControl('', [Validators.required]),
+        roleFc: new FormControl('', []),
         couleurFc: new FormControl('', []),
         emailFc: new FormControl('', [
           Validators.email,
@@ -56,6 +57,7 @@ export class PageAddMemberComponent implements OnInit {
     const firstNameValue = this.addMemberForm.value['firstNameFc'];
     const lastNameValue = this.addMemberForm.value['lastNameFc'];
     const emailValue = this.addMemberForm.value['emailFc'];
+    const roleValue = this.addMemberForm.value['roleFc'];
     const passwordValue = this.addMemberForm.value['passwordFc'];
     const dateNaissanceValue = this.addMemberForm.value['dateNaissanceFc'];
     const couleurValue = this.addMemberForm.value['couleurFc'];
@@ -70,12 +72,12 @@ export class PageAddMemberComponent implements OnInit {
       couleur: couleurValue,
       dateNaissance: dateNaissanceValue,
       passwordConfirm: passwordConfirmValue,
-      roleList: ["ROLE_PARENT"]
+      roleList: [roleValue]
     };
 
 
     if (membre.email !== '' && membre.password !== '') {
-      this.membreService.addMembre(membre).subscribe((resp) => {
+      this.membreService.addMembre(membre)?.subscribe((resp) => {
         this.router.navigate(['compte']);
       });
     } else {

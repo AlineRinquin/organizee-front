@@ -87,7 +87,20 @@
                   !addMemberForm.controls['emailFc'].valid
               }"
             />
-            <label for="floatingInputemail">VOTRE EMAIL</label>
+            <label for="floatingInputemail">Votre Email</label>
+          </div>
+          <div class="form-floating">
+            <select
+              class="form-control"
+              id="floatingInputRole"
+              placeholder=""
+              name="Role"
+              formControlName="roleFc"
+            >
+            <option value="ROLE_PARENT">Adulte</option>
+            <option value="ROLE_ENFANT">Enfant</option>
+            </select>
+            <label value="ROLE_PARENT">Sélectionner un profil</label>
           </div>
           <div class="form-floating">
             <input
