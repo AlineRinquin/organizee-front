@@ -1,0 +1,36 @@
+.card {
+  min-height: 22rem;
+  margin-left: 75px;
+  margin-bottom: 30px;
+  border: 1px solid #f7c02b;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.tag {
+  margin-top: 20px;
+  background-color: #fad980;
+  margin-left: -8px;
+  width: 13rem;
+  border: 1px solid #fad980;
+  border-radius: 8px;
+}
+.bi {
+  margin-top: 10px;
+}
+
+.btn {
+  margin-top: 10px;
+  color: black;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.jour {
+  font-weight: bolder;
+  font-size: 25px;
+}
+.repas {
+  font-weight: bold;
+}

@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
@@ -21,9 +20,7 @@ import { PageUpdateMemberComponent } from './pages/page-update-member/page-updat
 import { SigninComponent } from './components/signin/signin.component';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
 import { MeteoComponent } from './components/meteo/meteo.component';
-import { HumeurComponent } from './components/humeur/humeur.component';
 import { CalendrierComponent } from './components/calendrier/calendrier.component';
-import { AvatarComponent } from './components/avatar/avatar.component';
 import { CardMemberComponent } from './components/card-member/card-member.component';
 import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
 import { TacheComponent } from './components/tache/tache.component';
@@ -32,7 +29,18 @@ import { FicheContactComponent } from './components/fiche-contact/fiche-contact.
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CreneauComponent } from './components/creneau/creneau.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
+import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
+import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
+import { AutofocusFixModule  } from 'ngx-autofocus-fix';
+import { FooterComponent } from './components/footer/footer.component';
+import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
+import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
+import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr)
 
 @NgModule({
   declarations: [
@@ -55,16 +63,22 @@ import { HttpClientModule } from '@angular/common/http';
     SigninComponent,
     PageDashboardComponent,
     MeteoComponent,
-    HumeurComponent,
     CalendrierComponent,
-    AvatarComponent,
     CardMemberComponent,
     ToDoListComponent,
     TacheComponent,
+
     CardMenuComponent,
     FicheContactComponent,
     PaginationComponent,
     CreneauComponent,
+    PageAjoutContactComponent,
+    PageModifierContactComponent,
+    PageCreationTeamComponent,
+    FooterComponent,
+    PageDeleteAccountComponent,
+    PageUpdateAccountComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -72,8 +86,13 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    AutofocusFixModule.forRoot(),
+    DayPilotModule,
   ],
-  providers: [],
+  providers: [
+{provide: LOCALE_ID, useValue: "fr-FR" }
+
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

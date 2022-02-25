@@ -1,10 +1,11 @@
 export interface Membre {
-  firstName: string;
-  lastName: string;
+  nom: string;
+  prenom: string;
   email: string;
   password: string;
   dateNaissance: Date;
-  teamName: string;
-  profil: boolean;
+  couleur: string;
   passwordConfirm: string;
+ // smiley: string;
+  roleList: string[];
 }

@@ -1,0 +1,70 @@
+.login-form {
+  height: 100vh;
+  padding-top: 40px;
+  background-color: #e286d3;
+}
+
+.form-ajoutContact {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 1px;
+  border-radius: 10px;
+  background-color: #fcddec;
+  border-color: #81164d;
+}
+
+.form-ajoutContact .checkbox {
+  font-weight: 400;
+}
+
+.form-ajoutContact .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-ajoutContact input[type="email"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-ajoutContact input[type="color"] {
+  border: none;
+  margin-bottom: 10px;
+  margin-top: -70px;
+  margin-left: 100px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.form-ajoutContact input[type="color"]::-webkit-color-swatch {
+  border: none;
+  margin-top: -15px;
+  border-radius: 80%;
+  width: 80px;
+  height: 80px;
+}
+
+.form-ajoutContact input[type="text"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-ajoutContact input[type="date"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+
+.btn-secondary {
+  margin-top: 10px;
+  background-color: #ffff;
+  color: rgb(255, 255, 255);
+  background-color: #5a1e63 !important;
+}

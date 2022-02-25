@@ -1,109 +1,135 @@
 <app-header></app-header>
 <div class="signup-form text-center">
-    <main class="form-signup">
-        <form  (ngSubmit)="onSubmit()" [formGroup]="signupForm">
-            <h1>Merci de vous inscrire</h1>
-            <div class="form-floating">
-                <input type="text" 
-                        class="form-control" 
-                        id="floatingInputlastName" 
-                        placeholder="" 
-                        name="lastName" 
-                        formControlName="lastNameFc"
-                        [ngClass]="{'is-valid' : signupForm.controls['lastNameFc'].touched && signupForm.controls['lastNameFc'].valid, 
-                                    'is-invalid':  signupForm.controls['lastNameFc'].touched && !signupForm.controls['lastNameFc'].valid}">
-                <label for="floatingInputlastName">Nom</label>
-            </div>
-            <div class="form-floating">
-                <input type="text" 
-                        class="form-control" 
-                        id="floatingInputfirstName" 
-                        placeholder="" 
-                        name="firstName" 
-                        formControlName="firstNameFc"
-                        [ngClass]="{'is-valid' : signupForm.controls['firstNameFc'].touched && signupForm.controls['firstNameFc'].valid, 
-                                    'is-invalid':  signupForm.controls['firstNameFc'].touched && !signupForm.controls['firstNameFc'].valid}">
-                <label for="floatingInputfirstName">Prénom</label>
-            </div>
-            <div class="form-floating">
-                <input type="date" 
-                        class="form-control" 
-                        id="floatingInputdateNaissance" 
-                        placeholder="" 
-                        name="dateNaissance" 
-                        formControlName="dateNaissanceFc"
-                        [ngClass]="{'is-valid' : signupForm.controls['dateNaissanceFc'].touched && signupForm.controls['dateNaissanceFc'].valid, 
-                                    'is-invalid':  signupForm.controls['dateNaissanceFc'].touched && !signupForm.controls['dateNaissanceFc'].valid}">
-                <label for="floatingInputfirstName">Date de naissance</label>
-            </div>
-            <div class="form-floating">
-                <input type="text" 
-                        class="form-control" 
-                        id="floatingInputteamName" 
-                        placeholder="" 
-                        name="teamName" 
-                        formControlName="teamNameFc"
-                        [ngClass]="{'is-valid' : signupForm.controls['teamNameFc'].touched && signupForm.controls['teamNameFc'].valid, 
-                                    'is-invalid':  signupForm.controls['teamNameFc'].touched && !signupForm.controls['teamNameFc'].valid}">
-                <label for="floatingInputfirstName">Ma team</label>
-            </div>
-            <div class="form-floating">
-                <select type="text" 
-                        class="form-control" 
-                        id="floatingInputprofil" 
-                        name="profil" 
-                        formControlName="profilFc"
-                        [ngClass]="{'is-valid' : signupForm.controls['profilFc'].touched && signupForm.controls['profilFc'].valid, 
-                                    'is-invalid':  signupForm.controls['profilFc'].touched && !signupForm.controls['profilFc'].valid}">
-                                <option>Adulte</option>
-                                <option>Enfant</option>
-                </select>
-                <label for="floatingInputfirstName">Profil</label>
-            </div>
-            <div class="form-floating">
-                <input type="email" 
-                        class="form-control" 
-                        id="floatingInput" 
-                        placeholder="" 
-                        name="email" 
-                        formControlName="emailFc"
-                        [ngClass]="{'is-valid' : signupForm.controls['emailFc'].touched && signupForm.controls['emailFc'].valid, 
-                                    'is-invalid':  signupForm.controls['emailFc'].touched && !signupForm.controls['emailFc'].valid}">
-                <label for="floatingInput">Adresse email</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" 
-                        class="form-control" 
-                        id="floatingPassword" 
-                        placeholder="" 
-                        name="password" 
-                        formControlName="passwordFc"
-                        [ngClass]="{'is-valid' : signupForm.controls['passwordFc'].touched && signupForm.controls['passwordFc'].valid, 
-                                    'is-invalid':  signupForm.controls['passwordFc'].touched && !signupForm.controls['passwordFc'].valid}">
-                <label for="floatingPassword">Mot de passe</label>
-            </div>
-            <div class="form-floating">
-                <input type="passwordConfirm" 
-                        class="form-control" 
-                        id="floatingpasswordConfirm" 
-                        placeholder="" 
-                        name="passwordConfirm" 
-                        formControlName="passwordConfirmFc"
-                        [ngClass]="{'is-valid' : signupForm.controls['passwordConfirmFc'].touched && signupForm.controls['passwordConfirmFc'].valid, 
-                                    'is-invalid':  signupForm.controls['passwordConfirmFc'].touched && !signupForm.controls['passwordConfirmFc'].valid}">
-                <label for="floatingPassword">Confirmer mot de passe</label>
-            </div>
+    <h1>Inscrivez-vous !</h1>
+    <label for="floatingInputcouleur">Choisissez une couleur</label>
+  <main class="form-signup">
+    <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+          <div class="form-floating">
+            <input type="color" class="form-control" id="floatingInputcouleur" placeholder="" name="couleur"
+              formControlName="couleurFc">
+          </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInputlastName"
+          placeholder=""
+          name="lastName"
+          formControlName="lastNameFc"
+          [ngClass]="{
+            'is-valid':
+              signupForm.controls['lastNameFc'].touched &&
+              signupForm.controls['lastNameFc'].valid,
+            'is-invalid':
+              signupForm.controls['lastNameFc'].touched &&
+              !signupForm.controls['lastNameFc'].valid
+          }"
+        />
+        <label for="floatingInputlastName">VOTRE NOM</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInputfirstName"
+          placeholder=""
+          name="firstName"
+          formControlName="firstNameFc"
+          [ngClass]="{
+            'is-valid':
+              signupForm.controls['firstNameFc'].touched &&
+              signupForm.controls['firstNameFc'].valid,
+            'is-invalid':
+              signupForm.controls['firstNameFc'].touched &&
+              !signupForm.controls['firstNameFc'].valid
+          }"
+        />
+        <label for="floatingInputfirstName">VOTRE PRENOM</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="date"
+          class="form-control"
+          id="floatingInputdateNaissance"
+          placeholder=""
+          name="dateNaissance"
+          formControlName="dateNaissanceFc"
+          [ngClass]="{
+            'is-valid':
+              signupForm.controls['dateNaissanceFc'].touched &&
+              signupForm.controls['dateNaissanceFc'].valid,
+            'is-invalid':
+              signupForm.controls['dateNaissanceFc'].touched &&
+              !signupForm.controls['dateNaissanceFc'].valid
+          }"
+        />
+        <label for="floatingInputdateNaissance">VOTRE DATE DE NAISSANCE</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInputemail"
+          placeholder=""
+          name="email"
+          formControlName="emailFc"
+          [ngClass]="{
+            'is-valid':
+              signupForm.controls['emailFc'].touched &&
+              signupForm.controls['emailFc'].valid,
+            'is-invalid':
+              signupForm.controls['emailFc'].touched &&
+              !signupForm.controls['emailFc'].valid
+          }"
+        />
+        <label for="floatingInputemail">VOTRE EMAIL</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder=""
+          name="password"
+          formControlName="passwordFc"
+          [ngClass]="{
+            'is-valid':
+              signupForm.controls['passwordFc'].touched &&
+              signupForm.controls['passwordFc'].valid,
+            'is-invalid':
+              signupForm.controls['passwordFc'].touched &&
+              !signupForm.controls['passwordFc'].valid
+          }"
+        />
+        <label for="floatingPassword">MOT DE PASSE</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingpasswordConfirm"
+          placeholder=""
+          name="passwordConfirm"
+          formControlName="passwordConfirmFc"
+          [ngClass]="{
+            'is-valid':
+              signupForm.controls['passwordConfirmFc'].touched &&
+              signupForm.controls['passwordConfirmFc'].valid,
+            'is-invalid':
+              signupForm.controls['passwordConfirmFc'].touched &&
+              !signupForm.controls['passwordConfirmFc'].valid
+          }"
+        />
+        <label for="floatingPasswordConfirm">CONFIRMEZ VOTRE MOT DE PASSE</label>
+      </div>
 
-            <button class="w-100 btn btn-lg btn-success" 
-                    type="submit" 
-                    [disabled]="signupForm.invalid">Je m'inscris !</button>
-            <p>
-                Value : {{ signupForm.value | json }}
-            </p>
-            <p>
-                Form valid : {{ signupForm.valid }}
-            </p>
+      <button
+        class="w-100 btn btn-lg btn-outline-success"
+        type="submit"
+        [disabled]="signupForm.invalid">
+        CREER MON COMPTE
+      </button>
 
-        </form>
-    </main>
+    </form>
+  </main>
 </div>

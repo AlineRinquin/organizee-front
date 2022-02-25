@@ -1,0 +1,91 @@
+.todo-title {
+  width: 25%;
+  padding: 10px 18px;
+  font-size: xx-large;
+  margin-bottom: 16px;
+  &:focus {
+    outline: 0;
+  }
+}
+
+.todo-input {
+  width: 20%;
+  padding: 10px 18px;
+  font-size: 18px;
+  margin-bottom: 16px;
+  &:focus {
+    outline: 0;
+  }
+}
+
+
+.element {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation-duration: 0.3s;
+}
+
+.deleteTache {
+  width: 75%;
+  cursor: pointer;
+  margin-left: 14px;
+  &:hover {
+    color: black;
+  }
+}
+
+.element-gauche { // later
+  display: flex;
+  align-items: center;
+}
+
+.nomTache{
+  padding: 10px;
+  border: 1px solid white;
+  margin-left: 12px;
+}
+
+.modifier-element {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-left: 12px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(204, 204, 204); //override defaults
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+
+  &:focus {
+    outline: none;
+    background-color:aquamarine;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  color: grey;
+}
+
+
+button {
+  font-size: 14px;
+  background-color: white;
+  appearance: none;
+
+  &:hover {
+    background: lightgreen;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.active {
+  background: lightgreen;
+}
+.completed {
+  text-decoration: line-through;
+  color: grey;
+}

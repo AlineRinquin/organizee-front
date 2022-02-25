@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+}
+
+.bienvenue {
+  float: left;
+  // display: inline-block;
+  // height: 300px;
+  border: 4px solid #5d5fef;
+  border-radius: 10px;
+  margin-top: 50px;
+  // margin-left: 200px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.titre {
+  text-align: center;
+}
+
+p {
+  font-size: 1em;
+  line-height: 2em;
+}
+.connexion {
+  // float: right;
+  height: 350px;
+  display: inline;
+  margin-top: -40px;
+  margin-left: 10px;
+  // margin-right: 200px;
+}
+
+.pub {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 100px;
+  padding-right: 200px;
+  padding-left: 200px;
+  justify-content: space-between;
+}
+
+img {
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  box-shadow: 6px 6px #d3d3d3;
+}

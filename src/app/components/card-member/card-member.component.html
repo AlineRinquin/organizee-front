@@ -1,1 +1,23 @@
-<p>card-member works!</p>
+<div class="container mt-5 membre">
+  <div class="row d-flex justify-content-center">
+      <div class="col-md-auto">
+          <div class="card p-3 py-4 align-items">
+            <!-- récuperer couleur du back-->
+            <div class="text-center"><div class="rounded-circle"id="couleur"[style.background-color]="membre.couleur"></div></div>
+            <div class="text-center mt-3">
+              <h3 class="mt-2 mb-0">{{membre.prenom }}  {{membre.nom }}</h3>
+              <div class="buttons text-center"><button button type="button" class="btn btn-outline-primary px-4"
+                        routerLink="../modifier-membre"
+                        routerLinkActive="active-custom">
+                        Modifier
+                </button><button button type="button" class="btn btn-primary px-4"
+                        routerLink="../supprimer-membre"
+                        routerLinkActive="active-custom">
+                        Supprimer
+                </button>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

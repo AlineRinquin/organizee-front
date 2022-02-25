@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { identifierModuleUrl } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Membre } from '../models/membre';
+import { Team } from '../models/team';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +22,10 @@ export class AuthService {
   signup(membre: Membre): Observable<any> {
     console.log(membre);
 
-    return this.http.post(`${this.apiUrl}/creation-compte`, membre);
+    return this.http.post(`${this.apiUrl}/membres/sign-up`, membre);
+
   }
+
 
   signin(email: string, password: string): Observable<any> {
     const body = {
@@ -35,24 +39,41 @@ export class AuthService {
     // - pour pouvoir stocker dans le localstorage notre accesstoken
     // - Sous la clé "TOKEN-LBP"
 
-    return this.http.post(`${this.apiUrl}/login`, body).pipe(
+    return this.http.post(`${this.apiUrl}/membres/sign-in`, body).pipe(
       map((x: any) => {
-        console.log('Service : ', x.accessToken);
+        console.log('Service : ', x.token);
         // Modification à faire ici
-        localStorage.setItem(this.tokenKey, x.accessToken);
+        localStorage.setItem(this.tokenKey, x.token);
         return x; // permet de renvoyer la réponse à l'initiateur (page Signin) après le traitement du map
       })
     );
   }
 
-  forgotPassword(email: string, password: string): Observable<any> {
+  forgotPassword(email: string): Observable<any> {
     const body = {
       email: email,
-      password: password,
     };
-
-    console.log('Mon body : ', body);
-
-    return this.http.post(`${this.apiUrl}/forgot-psw`, body);
+    return this.http.get(`${this.apiUrl}/membres/forgot-password`);
   }
+
+    resetPassword(email: string, password: string): Observable<any> {
+    const body = password;
+     console.log(password);
+   return this.http.put(`${this.apiUrl}/membres/reset-password/${email}`, body);
+  }
+
+  creationTeam(team: Team): Observable<any> {
+    console.log(team);
+
+    return this.http.post(`${this.apiUrl}/teams/add`, team);
+  }
+
+
+
+  addMember(membre: Membre): Observable<any> {
+    console.log(membre);
+
+    return this.http.post(`${this.apiUrl}/tableau-de-bord`, membre);
+  }
+
 }

@@ -1,1 +1,43 @@
-<p>fiche-contact works!</p>
+<div class="container">
+    <div class="row">
+        <div class="row d-flex justify-content-end align-items-center flex-row">
+            <div class="couleur col-7" [style.background-color]="personne.couleur"></div>
+            <div class="col-5">
+                <div class="col">
+                    <button routerLink="../modifier-contact/{{personne.id}}"
+                        class=" btn btn-sm btn-rounded btn-secondary mb-2">
+                        Modifier
+                    </button>
+                </div>
+                <div class="col">
+                    <button class=" btn btn-sm btn-rounded btn-secondary" (click)="onClickDelete(personne.id)">
+                        Supprimer
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="row my-3 d-flex justify-content-center flex-row">
+                    <span class="fiche-contact col-7">{{ personne.prenom }} {{ personne.nom }} </span>
+                </div>
+                <div class="row my-3 d-flex justify-content-center flex-row">
+                    <span i class="col-4 bi bi-telephone-inbound"></span>
+                    <span class="fiche-contact col-7">{{ personne.telephone }}</span>
+                </div>
+                <div class="row my-3 d-flex justify-content-center flex-row">
+                    <i class="col-4 bi bi-envelope"></i>
+                    <span class="fiche-contact col-7">{{ personne.email }}</span>
+                </div>
+                <div class="row my-3 d-flex justify-content-center flex-row">
+                    <i class="col-4 bi bi-calendar-heart"></i>
+                    <span class="fiche-contact col-7">{{ personne.dateNaissance }}</span>
+                </div>
+                <div class="row my-3 d-flex justify-content-center flex-row">
+                    <i class="col-4 bi bi-map"></i>
+                    <span class="fiche-contact col-7">{{ personne.adresse }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
