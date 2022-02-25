@@ -34,7 +34,6 @@ import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
-import { PageHumeurComponent } from './pages/page-humeur/page-humeur.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
 import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
@@ -66,11 +65,11 @@ registerLocaleData(localeFr)
     SigninComponent,
     PageDashboardComponent,
     MeteoComponent,
-    PageHumeurComponent,
     CalendrierComponent,
     CardMemberComponent,
     ToDoListComponent,
     TacheComponent,
+
     CardMenuComponent,
     FicheContactComponent,
     PaginationComponent,
@@ -78,7 +77,6 @@ registerLocaleData(localeFr)
     PageAjoutContactComponent,
     PageModifierContactComponent,
     PageCreationTeamComponent,
-    PageHumeurComponent,
     FooterComponent,
     PageDeleteAccountComponent,
     PageUpdateAccountComponent,

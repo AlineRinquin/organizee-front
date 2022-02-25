@@ -33,11 +33,5 @@ export class PageDashboardComponent implements OnInit {
   });
   }
 
-
-
-
-  // récuperer l id du membre s=qui est connecté
-  //recuperer l id dans le token grace au user id du getCurrentMembreId
-  // placer ce userId dans la methode getMembreId a la place de l id
-//********************************************************************
 }
+
