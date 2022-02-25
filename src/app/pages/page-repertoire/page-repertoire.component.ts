@@ -69,5 +69,6 @@ export class PageRepertoireComponent implements OnInit {
       }
       this.router.navigate(['repertoire/']);
     });
+    window.location.reload();
   }
 }

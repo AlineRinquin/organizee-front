@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MembreService } from 'src/app/services/membre.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-page-dashboard',
@@ -8,26 +11,27 @@ import { FormsModule } from '@angular/forms';
 })
 export class PageDashboardComponent implements OnInit {
 
-  constructor() { }
+  conectedUser: any;
+  listMembres: any[];
+
+  constructor(private membreService: MembreService,
+    private http: HttpClient, 
+    private router: Router,  
+    private tokenService: TokenService) { 
+      this.listMembres = [];
+}
 
   ngOnInit(): void {
+    this.membreService.getMembreId(this.tokenService.getCurrentMembreId()).subscribe((result) => {
+      this.conectedUser = result ;
+      console.log(result);
+    })
+
+    this.membreService.getMembresByTeamId()?.subscribe((membres: any[]) => {
+      console.log(membres);
+      this.listMembres = membres;
+  });
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
