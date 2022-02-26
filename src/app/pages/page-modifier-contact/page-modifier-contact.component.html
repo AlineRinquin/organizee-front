@@ -1,10 +1,11 @@
-<div>
-    <app-header></app-header>
-    <app-side-bar></app-side-bar>
-</div>
+<app-header></app-header>
+<div class="row">
+    <div class="col-md-auto">
+        <app-side-bar></app-side-bar>
+    </div>
 
 <div class="modifContact-form text-center">
-    <h1>Modifier ce contact</h1>
+    <h3>Modifier ce contact</h3>
     <main class="form-modifContact">
         <form  (ngSubmit)="onSubmit()" [formGroup]="modifContactForm">
             
@@ -84,4 +85,5 @@
 
         </form>
     </main>
+</div>
 </div> 

@@ -1,0 +1,22 @@
+
+<div>
+
+    <h2>Mon humeur :</h2>
+    
+    
+    
+    
+    <p><img src="{{monHumeurLien}}"  alt="{{monHumeurTitle}}" *ngIf="monHumeurLien" ></p> 
+    
+    <p>Je modifie mon avatar :</p>
+    
+    
+    <div class="humeur" *ngFor="let humor of tabHumeur; let i=index">
+        <img src="{{humor.lien}}" alt="{{humor.title}}"  (click)="onChoixHumeur(i)">
+    </div> 
+    
+    
+    <div >
+        
+    
+    </div> </div>

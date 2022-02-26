@@ -1,4 +1,5 @@
 <app-header></app-header>
+
 <div class="container-fluid">
   <div class="row">
     <app-side-bar></app-side-bar>
@@ -6,12 +7,14 @@
       <div class="form-addMember">
         <form (ngSubmit)="onSubmit()" [formGroup]="addMemberForm">
           <div class="form-floating">
-            <input type="color"
-            class="form-control"
-            id="floatingInputcouleur"
-            placeholder=""
-            name="couleur"
-            formControlName="couleurFc">
+            <input
+              type="color"
+              class="form-control"
+              id="floatingInputcouleur"
+              placeholder=""
+              name="couleur"
+              formControlName="couleurFc"
+            />
           </div>
           <div class="form-floating">
             <input
@@ -68,7 +71,9 @@
                   !addMemberForm.controls['dateNaissanceFc'].valid
               }"
             />
-            <label for="floatingInputdateNaissance">VOTRE DATE DE NAISSANCE</label>
+            <label for="floatingInputdateNaissance"
+              >VOTRE DATE DE NAISSANCE</label
+            >
           </div>
           <div class="form-floating">
             <input
@@ -87,7 +92,20 @@
                   !addMemberForm.controls['emailFc'].valid
               }"
             />
-            <label for="floatingInputemail">VOTRE EMAIL</label>
+            <label for="floatingInputemail">Votre Email</label>
+          </div>
+          <div class="form-floating">
+            <select
+              class="form-control"
+              id="floatingInputRole"
+              placeholder=""
+              name="Role"
+              formControlName="roleFc"
+            >
+              <option value="ROLE_PARENT">Adulte</option>
+              <option value="ROLE_ENFANT">Enfant</option>
+            </select>
+            <label value="ROLE_PARENT">Sélectionner un profil</label>
           </div>
           <div class="form-floating">
             <input
@@ -125,17 +143,20 @@
                   !addMemberForm.controls['passwordConfirmFc'].valid
               }"
             />
-            <label for="floatingPasswordConfirm">CONFIRMEZ VOTRE MOT DE PASSE</label>
+            <label for="floatingPasswordConfirm"
+              >CONFIRMEZ VOTRE MOT DE PASSE</label
+            >
           </div>
 
           <button
             class="w-100 btn btn-lg btn-outline-success"
             type="submit"
             [disabled]="addMemberForm.invalid"
-          >Ajouter le membre</button>
+          >
+            Ajouter le membre
+          </button>
         </form>
       </div>
     </div>
   </div>
 </div>
-
