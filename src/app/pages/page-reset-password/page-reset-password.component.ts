@@ -66,7 +66,7 @@ export class PageResetPasswordComponent implements OnInit {
 
 
       this.authService.resetPassword(membre,this.uuid).subscribe((resp) => {
-        //this.router.navigate(['accueil']);
+        this.router.navigate(['accueil']);
       });
   }
 
