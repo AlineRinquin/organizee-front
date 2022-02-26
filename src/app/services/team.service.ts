@@ -21,7 +21,7 @@ export class TeamService {
   }
 
   getTeamById(id: any): Observable<any> {
-    return this.http.get(`${this.apiUrl}/teams/1` + id);
+    return this.http.get(`${this.apiUrl}/teams/1`);
   }
 
   addTeam(team: Team): Observable<any> {
