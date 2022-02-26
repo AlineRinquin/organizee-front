@@ -7,10 +7,8 @@
 
   <div class="col compte text-center py-3 border">
     <div>
-      <button class="btn btn-sm btn-rounded btn-secondary m-3" type="submit">
-        Tous les contacts
-      </button>
       <button
+        *ngIf="parent" 
         routerLink="/ajouter-contact"
         class="btn btn-sm btn-rounded btn-secondary m-3"
       >
