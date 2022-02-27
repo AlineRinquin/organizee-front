@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'password-oublie', component: PageForgotPasswordComponent },
   { path: 'menu', canActivate: [AuthGuard], component: PageMenuSemaineComponent },
   { path: 'repertoire', canActivate: [AuthGuard], component: PageRepertoireComponent },
-  { path: 'reinitialisation-password', component: PageResetPasswordComponent },
+  { path: 'reinitialisation-password/:uuid', component: PageResetPasswordComponent },
   { path: 'creation-compte', component: PageSignupComponent },
   { path: 'page-support', component: PageSupportComponent},
   { path: 'to-do-list', canActivate: [AuthGuard], component: PageToDoListComponent },

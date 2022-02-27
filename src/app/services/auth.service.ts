@@ -44,17 +44,13 @@ export class AuthService {
 
   }
 
-  forgotPassword(email: string): Observable<any> {
-    const body = {
-      email: email,
-    };
-    return this.http.get(`${this.apiUrl}/membres/forgot-password`);
+  forgotPassword(membre: Membre): Observable<any> {
+     return this.http.post(`${this.apiUrl}/membres/forgot-password`, membre, {responseType: "text"});
   }
 
-    resetPassword(email: string, password: string): Observable<any> {
-    const body = password;
-     console.log(password);
-   return this.http.put(`${this.apiUrl}/membres/reset-password/${email}`, body);
+  resetPassword(membre: Membre, uuid:string): Observable<any> {
+    console.log('--'+uuid+' / '+membre);
+   return this.http.put(`${this.apiUrl}/membres/reset-password/${uuid}`, membre);
   }
 
   creationTeam(team: Team): Observable<any> {
