@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Tache} from 'src/app/models/tache';
-import { ToDoList} from 'src/app/models/to-do-list';
+import { Tache } from 'src/app/models/tache';
+import { ToDoList } from 'src/app/models/to-do-list';
 import { TodoService } from 'src/app/services/todo.service';
 import { TodoList } from 'src/app/todo-list';
 
@@ -16,49 +16,59 @@ export class ToDoListComponent implements OnInit {
   //public todos: ToDoList[];
   public todoTitle: string;
   public idTodo: number;
-  public filter : string;
-  public casesRestantes : boolean;
+  public filter: string;
+  public casesRestantes: boolean;
   public masterSelected: boolean;
-  public result : any;
-  public tache : Tache [];
+  public result: any;
+  public tache: Tache[];
 
-  constructor(private TodoService : TodoService, private router: Router ) {
+  constructor(private TodoService: TodoService, private router: Router) {
     this.beforeEditCache = '';
     //this.todos = [];
     this.todoTitle = '';
     this.idTodo = 0;
-    this.filter ='';
-    this.casesRestantes=true;
-    this.masterSelected= false;
+    this.filter = '';
+    this.casesRestantes = true;
+    this.masterSelected = false;
     this.tache = [];
   }
 
   ngOnInit(): void {
     this.beforeEditCache = '';
-    this.casesRestantes=true;
-    this.filter='tous';
+    this.casesRestantes = true;
+    this.filter = 'tous';
     this.idTodo = 4;
     this.todoTitle = '';
-
+  }
+  //supprimer la todoList
+  deleteTodo(id: number): void {
+    this.TodoService.deleteTodoById(id).subscribe((resp) => {
+      window.location.reload();
+    });
   }
   //ajouter tache
 
-  addTache(idTodoList : number) {//idTodoList id que la todoList que l'on récupère
-console.log(idTodoList);
+  addTache(idTodoList: number) {
+    //idTodoList id que la todoList que l'on récupère
+    console.log(idTodoList);
     const tache: Tache = {
-      id : 0,
+      id: 0,
       texte: this.todoTitle,
-      etat : false,
-      editing : false,
-
-    }
+      etat: false,
+      editing: false,
+    };
     console.log(this.tache);
-    this.TodoService.addTache(tache,idTodoList).subscribe((resp)=>{
+    this.TodoService.addTache(tache, idTodoList).subscribe((resp) => {
       window.location.reload();
-    })
+    });
   }
 
-
+  //modifier le titre de la to-do-list
+  updateTodo(todoList: ToDoList): void {
+    this.TodoService.updateTodo(todoList)?.subscribe((resp) => {
+      window.location.reload();
+    });
+  }
 
   //modifier par l'input
   modifier(tache: Tache): void {
@@ -71,13 +81,12 @@ console.log(idTodoList);
     if (tache.texte.trim().length === 0) {
       tache.texte = this.beforeEditCache;
     }
-    this.casesRestantes= this.casesQuiRestes();
+    this.casesRestantes = this.casesQuiRestes();
     tache.editing = false;
-    this.TodoService.updateTache(tache).subscribe((resp)=>{
+    this.TodoService.updateTache(tache).subscribe((resp) => {
       console.log(tache);
       window.location.reload();
-    })
-
+    });
   }
 
   // annuler la modification
@@ -87,23 +96,20 @@ console.log(idTodoList);
   }
 
   //supprimer la tache
-  deleteTodo(id: number) {
-    this.TodoService.deleteTacheById(id).subscribe(
-      resp =>{
+  deleteTache(id: number) {
+    this.TodoService.deleteTacheById(id).subscribe((resp) => {
       window.location.reload();
-    }
-    );}
-
-
+    });
+  }
 
   //nombre de tâches restantes
-  toDoRest(): number{
-    return this.todo.taches.filter((tache: Tache)=> !tache.etat).length;
+  toDoRest(): number {
+    return this.todo.taches.filter((tache: Tache) => !tache.etat).length;
   }
 
   //Cocher toutes les tâches de la liste
   listComplete(): boolean {
-    return this.todo.taches.filter((tache: Tache)=> tache).length>0;
+    return this.todo.taches.filter((tache: Tache) => tache).length > 0;
   }
 
   //Effacer la to do list
@@ -125,7 +131,7 @@ console.log(idTodoList);
   }
 
   //barre de filtre des tâches
- /*  todosFilter(): ToDoList[] {
+  /*  todosFilter(): ToDoList[] {
     if(this.filter === 'tous'){
       return this.todo.taches
     }else if (this.filter === 'active'){
@@ -135,6 +141,4 @@ console.log(idTodoList);
     }
     return this.todo
     } */
-  }
-
-
+}
