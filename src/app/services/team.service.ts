@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Team } from '../models/team';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class TeamService {
   tokenKey: string;
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private tokenService: TokenService, private router: Router) {
     this.apiUrl = environment.apiUrl;
     this.tokenKey = environment.tokenKey;
   }
@@ -20,8 +22,13 @@ export class TeamService {
     return this.http.get(`${this.apiUrl}/teams/all`);
   }
 
-  getTeamById(id: any): Observable<any> {
-    return this.http.get(`${this.apiUrl}/teams/1`);
+  getTeamById(): Observable<any> | void {
+    const teamId = this.tokenService.getCurrentTeamId();
+    if (teamId){
+    return this.http.get(`${this.apiUrl}/teams/${teamId}`);
+    } else {
+      this.router.navigate(['accueil']);
+    }
   }
 
   addTeam(team: Team): Observable<any> {

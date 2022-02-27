@@ -14,7 +14,7 @@ export class AuthService {
   private tokenKey: string;
 
   constructor(private http: HttpClient) {
-    // On se sert des variables d'environnement de notre application
+
     this.apiUrl = environment.apiUrl;
     this.tokenKey = environment.tokenKey;
   }
@@ -34,32 +34,23 @@ export class AuthService {
     };
 
     console.log('Mon body : ', body);
-
-    // Modifier cette partie ci-dessous :
-    // - pour pouvoir stocker dans le localstorage notre accesstoken
-    // - Sous la clé "TOKEN-LBP"
-
     return this.http.post(`${this.apiUrl}/membres/sign-in`, body).pipe(
       map((x: any) => {
         console.log('Service : ', x.token);
-        // Modification à faire ici
         localStorage.setItem(this.tokenKey, x.token);
         return x; // permet de renvoyer la réponse à l'initiateur (page Signin) après le traitement du map
       })
     );
+
   }
 
-  forgotPassword(email: string): Observable<any> {
-    const body = {
-      email: email,
-    };
-    return this.http.get(`${this.apiUrl}/membres/forgot-password`);
+  forgotPassword(membre: Membre): Observable<any> {
+     return this.http.post(`${this.apiUrl}/membres/forgot-password`, membre, {responseType: "text"});
   }
 
-    resetPassword(email: string, password: string): Observable<any> {
-    const body = password;
-     console.log(password);
-   return this.http.put(`${this.apiUrl}/membres/reset-password/${email}`, body);
+  resetPassword(membre: Membre, uuid:string): Observable<any> {
+    console.log('--'+uuid+' / '+membre);
+   return this.http.put(`${this.apiUrl}/membres/reset-password/${uuid}`, membre);
   }
 
   creationTeam(team: Team): Observable<any> {

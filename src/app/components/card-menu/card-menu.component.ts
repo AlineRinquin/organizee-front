@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Menu } from 'src/app/models/menu';
 import { MenusService } from 'src/app/services/menus.service';
@@ -22,6 +22,8 @@ closeResult = '';
 public listMenus:any[];
 public menuId : any;
 public menuForm : FormGroup;
+public upMenuForm : FormGroup;
+
 
   constructor(
     private menusService: MenusService,
@@ -31,9 +33,52 @@ public menuForm : FormGroup;
     private fb: FormBuilder
   ) {
     this.listMenus=[];
-    this.menuId=0;
     this.menuForm = new FormGroup({});
-   }
+    this.upMenuForm = new FormGroup({});
+    this.upMenuForm = this.initForm();
+     }
+
+//Méthode qui initialise les champs du formulaire avec les infos de la BDD
+  private initForm(menu?: Menu): FormGroup {
+    return this.fb.group({
+      dateMenu: [menu ? menu.dateMenu : ''],
+      repasMidi: [menu ? menu.repasMidi : ''],
+      repasSoir: [menu ? menu.repasSoir : ''],
+
+    });
+  }
+
+  //delete d'un menu
+  deleteMenu(id_menu : number): void {
+  window.alert("Le menu a bien été supprimé!")
+this.menusService.deleteMenu(id_menu)?.subscribe((resp) => {
+  // this.router.navigate(['menu']);
+});
+window.location.reload();
+}
+
+//updateMenu
+updateMenu(id_menu : number): void {
+
+    const dateValue = this.upMenuForm.value['dateMenuFc'];
+    const repasMidiValue = this.upMenuForm.value['repasMidiFc'];
+    const repasSoirValue = this.upMenuForm.value['repasSoirFc'];
+
+
+    const menu: Menu = {
+      dateMenu: dateValue,
+      repasMidi: repasMidiValue,
+      repasSoir: repasSoirValue,
+      id: 0
+    };
+
+    console.log(id_menu);
+
+    this.menusService.updateMenu(menu, id_menu)?.subscribe((resp) => {
+      console.log(menu, id_menu);
+      });
+    window.location.reload();
+  }
 
 
 
@@ -41,22 +86,27 @@ public menuForm : FormGroup;
 saveMenu(): void {
 
     const dateValue = this.menuForm.value['dateMenuFc'];
-    const libelleValue = this.menuForm.value['libelleFc'];
+    const repasMidiValue = this.menuForm.value['repasMidiFc'];
+    const repasSoirValue = this.menuForm.value['repasSoirFc'];
+
 
     const menu: Menu = {
       dateMenu: dateValue,
-      libelle: libelleValue,
+      repasMidi: repasMidiValue,
+      repasSoir: repasSoirValue,
+      id: 0
     };
 
-    // if (menu.dateMenu != undefined && menu.libelle != '') {
+  if (menu.dateMenu !=='') {
 
-    console.log(dateValue);
+    console.log(menu.dateMenu);
       this.menusService.addMenu(menu)?.subscribe((resp) => {
-        this.router.navigate(['menu']);
+        window.location.reload();
+
       });
-    // } else {
-    //   this.router.navigate(['menu']);
-    // }
+    } else {
+      this.router.navigate(['accueil']);
+    }
 }
 
 
@@ -66,14 +116,29 @@ saveMenu(): void {
 this.menusService.getMenu()?.subscribe((listMenus: any[])=>{
   console.log(listMenus);
   this.listMenus=listMenus;
+
 });
+
 
   this.menuForm = this.fb.group(
   {
     dateMenuFc: new FormControl('',[Validators.required]),
-    libelleFc: new FormControl('',[Validators.required]),
+    repasMidiFc: new FormControl('',[Validators.required]),
+    repasSoirFc: new FormControl('',[Validators.required]),
   }
 );
+
+
+  this.upMenuForm = this.fb.group(
+  {
+    dateMenuFc: new FormControl('',[Validators.required]),
+    repasMidiFc: new FormControl('',[Validators.required]),
+    repasSoirFc: new FormControl('',[Validators.required]),
+  }
+);
+
+
+
   }
 
 open(content: any) {
@@ -97,13 +162,5 @@ open(content: any) {
   }
 }
 
-
-
-//modif d'un menu
-// this.menuId=this.route.snapshot.paramMap.get('id');
-// this.menusService.getMenuById(this.menuId)
-// .subscribe((this.listMenus:any)=>)
-
-//delete d'un menu
 
 

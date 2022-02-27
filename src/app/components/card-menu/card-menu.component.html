@@ -1,46 +1,135 @@
-<div class="menu">
-<div *ngFor="let menu of listMenus">
-  <p>{{ menu.dateMenu }} {{ menu.libelle }}</p>
-</div>
-
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">
-      Ajouter un menu
-    </h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-
-      <span aria-hidden="true">
-        ×
-      </span>
+    <h4 class="modal-title" id="modal-basic-title">Ajouter un menu</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true"> × </span>
     </button>
   </div>
   <div class="modal-body">
     <form [formGroup]="menuForm">
       <div class="form-group">
-        <label for="dateMenu">
-          Date
-        </label>
         <div class="input-group">
-          <input id="dateMenu" class="form-control" formControlName="dateMenuFc" placeholder="yyyy-mm-dd" name="date"
-          >
-<input id="libelle" class="form-control" formControlName="libelleFc" placeholder="" name="libelle"
->
+          <input
+            type="date"
+            id="dateMenu"
+            class="form-control"
+            formControlName="dateMenuFc"
+            placeholder="Date"
+            name="date"
+          />
+
+          <input
+            id="repasMidi"
+            class="form-control"
+            formControlName="repasMidiFc"
+            placeholder="Repas du midi"
+            name="repasMidi"
+          />
+
+          <input
+            id="repasSoir"
+            class="form-control"
+            formControlName="repasSoirFc"
+            placeholder="Repas du soir"
+            name="repasSoir"
+          />
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close(saveMenu())">
-      Save
+    <button
+      type="button"
+      class="btn btn-outline-warning"
+      (click)="modal.close(saveMenu())"
+    >
+      Enregistrer
     </button>
   </div>
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">
- Ajouter un menu
+<button type="button" class="btn btn-outline-warning" (click)="open(content)">
+  Ajouter un menu
 </button>
 
-
-
+<div class="container mt-5 menu">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-auto" *ngFor="let menu of listMenus">
+      <div class="card p-3 py-4 align-items" style="width: 14rem">
+        <p class="jour">{{ menu.dateMenu | date: "EEEE":"fr" }}</p>
+        <div class="tag">
+          <p class="repas">Midi</p>
+          <p>{{ menu.repasMidi }}</p>
+        </div>
+        <div class="tag">
+          <p class="repas">Soir</p>
+          <p>{{ menu.repasSoir }}</p>
+        </div>
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+              Mettre à jour un menu
+            </h4>
+            <button
+              type="button"
+              class="close"
+              aria-label="Close"
+              (click)="modal.dismiss('Cross click')"
+            >
+              <span aria-hidden="true"> × </span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="upMenuForm">
+              <div class="form-group">
+                <div class="input-group">
+                  <input
+                    type="date"
+                    id="dateMenu"
+                    class="form-control"
+                    formControlName="dateMenuFc"
+                    value="{{ menu.dateMenu }}"
+                    placeholder="Date"
+                    name="date"
+                  />
+                  <input
+                    id="repasMidi"
+                    class="form-control"
+                    formControlName="repasMidiFc"
+                    value="{{ menu.repasMidi }}"
+                    placeholder="Repas du midi"
+                    name="repasMidi"
+                  />
+                  <input
+                    id="repasSoir"
+                    class="form-control"
+                    formControlName="repasSoirFc"
+                    value="{{ menu.repasSoir }}"
+                    placeholder="Repas du soir"
+                    name="repasSoir"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-warning"
+              (click)="modal.close(updateMenu(menu.id))"
+            >
+              Mettre à jour
+            </button>
+          </div>
+        </ng-template>
+        <i class="bi bi-pencil-square" (click)="open(content)"></i>
+        <i class="bi bi-trash3" (click)="deleteMenu(menu.id)"></i>
+      </div>
+    </div>
+  </div>
 </div>

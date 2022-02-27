@@ -1,6 +1,6 @@
 .navbar-brand {
-  position: absolute;
-  margin-left: 12%;
+  position: relative;
+  margin-right: 70%;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 3rem;
@@ -29,5 +29,8 @@ a:active {
 }
 
 #img {
-  margin-left: 50%;
+  position: absolute;
+  max-width: 5%;
+  margin-left: 5%;
+  margin-top: 10px;
 }
