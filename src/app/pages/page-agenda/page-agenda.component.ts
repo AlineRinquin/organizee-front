@@ -188,8 +188,8 @@ export class PageAgendaComponent implements AfterViewInit {
         end: args.e.end(),
         id: args.e.id(),
         barColor: "#555555",
-        text: args.e.text(),
-        membre: {id:this.userId},
+        text: this.rdvSplit(args.e.text()),
+        membre: {id:args.e.data.tags.membre},
         team: {id:this.teamId}
       }      
       this.evenementService.updateEvenements(event).subscribe(
