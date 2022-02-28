@@ -23,9 +23,14 @@
         routerLinkActive="active-custom">S'inscrire</button>
 
     </form>
-
-    <div *ngIf="errorForm">
+    <a routerLink="/password-oublie" routerLinkActive="active-custom" class="nav-link">password perdu ?</a>
+    <!-- <div *ngIf="errorForm">
       <p class="text-danger">Il manque des informations dans le formulaire...</p>
+    </div> -->
+    <div *ngIf="isShow">
+      <div class="alert alert-{{alert.type}}" role="alert">
+        {{alert.content}}
+      </div>
     </div>
   </main>
 </div>
