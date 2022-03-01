@@ -43,6 +43,7 @@ import localeFr from '@angular/common/locales/fr';
 import { CardAvatarComponent } from './components/card-avatar/card-avatar.component';
 import { HumeurComponent } from './components/humeur/humeur.component';
 import { DeconnexionComponent } from './components/deconnexion/deconnexion.component';
+import { AlertComponent } from './components/alert/alert.component';
 registerLocaleData(localeFr)
 
 @NgModule({
@@ -82,7 +83,8 @@ registerLocaleData(localeFr)
     PageUpdateAccountComponent,
     CardAvatarComponent,
     DeconnexionComponent,
-    HumeurComponent
+    HumeurComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

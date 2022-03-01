@@ -44,4 +44,9 @@ export class SigninComponent implements OnInit {
       this.isShow = true;
     }
   }
+
+  onClickCloseAlert(){
+    console.log('fermeture');
+    this.isShow = ! this.isShow;
+  }
 }
