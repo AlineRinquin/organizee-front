@@ -45,7 +45,7 @@ apiUrl: string;
   }
 
   deleteMenu(id:number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/menus/delete/${id}`);
+    return this.http.delete(`${this.apiUrl}/menus/delete/${id}`, {responseType:"text"});
   }
 
 
@@ -57,4 +57,5 @@ apiUrl: string;
       this.router.navigate(['accueil']);
     }
 }
+
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MembreService } from 'src/app/services/membre.service';
-import { TeamService } from 'src/app/services/team.service';
+
 
 @Component({
   selector: 'app-page-account',
@@ -10,14 +10,15 @@ import { TeamService } from 'src/app/services/team.service';
 export class PageAccountComponent implements OnInit {
   public listMembres: any[];
 
-  constructor(private teamService: TeamService, private membreService: MembreService) {
+  constructor(private membreService: MembreService) {
     this.listMembres = [];
    }
 
   ngOnInit(): void {
-    this.membreService.getMembres().subscribe((membres: any[]) => {
+    this.membreService.getMembresByTeamId()?.subscribe((membres: any[]) => {
+      console.log(membres);
       this.listMembres = membres;
-    });
-  }
 
+  });
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from 'src/app/models/contact';
 import { RepertoireService } from 'src/app/services/repertoire.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-page-repertoire',
@@ -15,18 +16,27 @@ export class PageRepertoireComponent implements OnInit {
   public personneid: any;
   keyword: any;
   openDetails: any;
+  parent: boolean;
 
   constructor(
     private repertoireService: RepertoireService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private tokenService: TokenService
   ) {
     this.listContact = [];
     this.listFull = [];
     this.listContactInfo = '';
+    this.parent = false;
   }
 
   ngOnInit(): void {
+    const roleUser = this.tokenService.getRole();
+
+    if(roleUser == "ROLE_PARENT"){
+      this.parent = true;
+    }
+
     //récupère tout les contact et leurs info
     this.repertoireService.getContact().subscribe((listContact: any[]) => {
       console.log(listContact);
@@ -69,5 +79,6 @@ export class PageRepertoireComponent implements OnInit {
       }
       this.router.navigate(['repertoire/']);
     });
+    window.location.reload();
   }
 }

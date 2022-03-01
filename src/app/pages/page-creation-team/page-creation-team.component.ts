@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Team } from 'src/app/models/team';
+import { MembreService } from 'src/app/services/membre.service';
 import { TeamService } from 'src/app/services/team.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class PageCreationTeamComponent implements OnInit {
   public teamForm: FormGroup;
   constructor(
     private teamService: TeamService,
+    private membreService: MembreService,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -39,9 +41,6 @@ export class PageCreationTeamComponent implements OnInit {
     const team: Team = {
       nom : nameValue,
     };
-
-
-
     if (team.nom !== '' ) {
       this.teamService.addTeam(team).subscribe((resp) => {
         this.router.navigate(['compte']);

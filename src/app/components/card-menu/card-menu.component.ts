@@ -34,24 +34,36 @@ public upMenuForm : FormGroup;
   ) {
     this.listMenus=[];
     this.menuForm = new FormGroup({});
+    this.upMenuForm = new FormGroup({});
     this.upMenuForm = this.initForm();
+     }
+
+//Méthode qui initialise les champs du formulaire avec les infos de la BDD
+  private initForm(menu?: Menu): FormGroup {
+    return this.fb.group({
+      dateMenu: [menu ? menu.dateMenu : ''],
+      repasMidi: [menu ? menu.repasMidi : ''],
+      repasSoir: [menu ? menu.repasSoir : ''],
+
+    });
   }
 
   //delete d'un menu
   deleteMenu(id_menu : number): void {
-  window.alert("Le menu a bien été supprimé!")
+  // window.alert("Le menu a bien été supprimé!")
 this.menusService.deleteMenu(id_menu)?.subscribe((resp) => {
-  this.router.navigate(['menu']);
+ // this.router.navigate(['menu']);
+  window.location.reload();
 });
 
-  }
+}
 
 //updateMenu
 updateMenu(id_menu : number): void {
 
-    const dateValue = this.menuForm.value['dateMenuFc'];
-    const repasMidiValue = this.menuForm.value['repasMidiFc'];
-    const repasSoirValue = this.menuForm.value['repasSoirFc'];
+    const dateValue = this.upMenuForm.value['dateMenuFc'];
+    const repasMidiValue = this.upMenuForm.value['repasMidiFc'];
+    const repasSoirValue = this.upMenuForm.value['repasSoirFc'];
 
 
     const menu: Menu = {
@@ -64,20 +76,11 @@ updateMenu(id_menu : number): void {
     console.log(id_menu);
 
     this.menusService.updateMenu(menu, id_menu)?.subscribe((resp) => {
-      console.log("ok");
-        this.router.navigate(['menu']);
+      console.log(menu, id_menu);
+      window.location.reload();
       });
   }
 
-  //Méthode qui initialise les champs du formulaire avec les infos de la BDD
-  private initForm(menu?: Menu): FormGroup {
-    return this.fb.group({
-      dateMenu: [menu ? menu.dateMenu : ''],
-      libelle: [menu ? menu.repasMidi : ''],
-      repas: [menu ? menu.repasSoir : ''],
-
-    });
-  }
 
 
 //ajout d'un menu
@@ -99,7 +102,8 @@ saveMenu(): void {
 
     console.log(menu.dateMenu);
       this.menusService.addMenu(menu)?.subscribe((resp) => {
-        this.router.navigate(['menu']);
+        window.location.reload();
+
       });
     } else {
       this.router.navigate(['accueil']);
@@ -120,10 +124,22 @@ this.menusService.getMenu()?.subscribe((listMenus: any[])=>{
   this.menuForm = this.fb.group(
   {
     dateMenuFc: new FormControl('',[Validators.required]),
-    libelleFc: new FormControl('',[Validators.required]),
-    repasFc: new FormControl('',[Validators.required]),
+    repasMidiFc: new FormControl('',[Validators.required]),
+    repasSoirFc: new FormControl('',[Validators.required]),
   }
 );
+
+
+  this.upMenuForm = this.fb.group(
+  {
+    dateMenuFc: new FormControl('',[Validators.required]),
+    repasMidiFc: new FormControl('',[Validators.required]),
+    repasSoirFc: new FormControl('',[Validators.required]),
+  }
+);
+
+
+
   }
 
 open(content: any) {

@@ -1,9 +1,27 @@
 <app-header></app-header>
-<app-side-bar></app-side-bar>
-<div class="d-flex align-items-stretch">
-  <div class="row">
-    <div class="col" *ngFor="let todos of result">
-      <app-to-do-list [todo]="todos"> </app-to-do-list>
+<div class="row">
+  <div class="col-md-auto">
+    <app-side-bar></app-side-bar>
+  </div>
+  <div class="col menu text-center">
+    <h2>To-Do-List</h2>
+    <div class="d-flex align-items-stretch"></div>
+    <input
+      type="text"
+      class="btn btn-outline-success"
+      placeholder=" Ajouter une To-Do-List"
+      [(ngModel)]="todoListTitle"
+      (keyup.enter)="addTodoByTeamId()"
+    />
+
+    <div class="d-flex align-items-stretch">
+      <div class="custom-main container p-3">
+        <div class="row">
+          <div class="col" *ngFor="let todos of listTodos">
+            <app-to-do-list [todo]="todos"> </app-to-do-list>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
