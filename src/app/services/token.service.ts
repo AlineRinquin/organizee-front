@@ -23,7 +23,7 @@ tokenKey = environment.tokenKey;
     public eraseToken(): string | null {
     const token = localStorage.getItem(this.tokenKey);
     if(token) {
-        this.tokenKey = '';
+      localStorage.removeItem(this.tokenKey);
         return token;
       }else {
       return null;
