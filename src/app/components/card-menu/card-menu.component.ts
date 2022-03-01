@@ -50,11 +50,12 @@ public upMenuForm : FormGroup;
 
   //delete d'un menu
   deleteMenu(id_menu : number): void {
-  window.alert("Le menu a bien été supprimé!")
+  // window.alert("Le menu a bien été supprimé!")
 this.menusService.deleteMenu(id_menu)?.subscribe((resp) => {
-  // this.router.navigate(['menu']);
+ // this.router.navigate(['menu']);
+  window.location.reload();
 });
-window.location.reload();
+
 }
 
 //updateMenu
@@ -76,8 +77,8 @@ updateMenu(id_menu : number): void {
 
     this.menusService.updateMenu(menu, id_menu)?.subscribe((resp) => {
       console.log(menu, id_menu);
+      window.location.reload();
       });
-    window.location.reload();
   }
 
 
