@@ -83,7 +83,6 @@ registerLocaleData(localeFr)
     CardAvatarComponent,
     DeconnexionComponent,
     HumeurComponent
-
   ],
   imports: [
     BrowserModule,
