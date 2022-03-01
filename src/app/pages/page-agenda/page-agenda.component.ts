@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { DayPilot, DayPilotCalendarComponent, DayPilotNavigatorComponent } from "@daypilot/daypilot-lite-angular";
 import { EvenementService } from 'src/app/services/evenement.service';
 import { environment } from 'src/environments/environment';
-import jwt_decode from 'jwt-decode';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-page-agenda',
@@ -10,7 +10,7 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./page-agenda.component.scss']
 })
 export class PageAgendaComponent implements AfterViewInit {
-
+  debug: boolean;
   userId : any;
   teamId : any;
   role:any;
@@ -20,9 +20,10 @@ export class PageAgendaComponent implements AfterViewInit {
   @ViewChild("navigator") navigator!: DayPilotNavigatorComponent;
   @ViewChild("calendar") calendar!: DayPilotCalendarComponent;
 
-  constructor(private evenementService:EvenementService) {
+  constructor(private evenementService:EvenementService, private tokenService: TokenService) {
     this.isShow = false;
     this.alert = "";
+    this.debug = environment.debug;
   }
 
   get date(): DayPilot.Date {
@@ -55,15 +56,8 @@ export class PageAgendaComponent implements AfterViewInit {
   }
   
   ngOnInit(): void {
-    const token = localStorage.getItem(environment.tokenKey);
-    if(token) {
-      const decodedToken = jwt_decode<any>(token);
-      this.userId = decodedToken.userId;
-      this.teamId = decodedToken.teamId;
-      this.role = decodedToken.auth[0].authority;
-    }else{
-      //
-    }
+    this.userId = this.tokenService.getCurrentMembreId();
+    this.teamId = this.tokenService.getCurrentTeamId();
   }
 
   // petite triche pour eviter la repetition du nom dans le RDV
@@ -191,22 +185,28 @@ export class PageAgendaComponent implements AfterViewInit {
         text: this.rdvSplit(args.e.text()),
         membre: {id:args.e.data.tags.membre},
         team: {id:this.teamId}
-      }      
-      this.evenementService.updateEvenements(event).subscribe(
-        {
-          next: result => {
-            this.viewChange();
-            this.alert={"type":"success", "content":"L'évènement à bien été modifié"};
-            this.isShow = true;
-          },
-          error: err => {
-            this.viewChange();
-            this.alert={"type":"danger", "content":"Problème lors de la modification de l'évenment"};
-            this.isShow = true;
-          },
-          complete: () => console.log('DONE!')
-        }
-      );
+      }
+      if( (args.e.data.tags.membre == this.userId) || (this.role == 'ROLE_PARENT')){ // mettre role parent en variable
+        this.evenementService.updateEvenements(event).subscribe(
+          {
+            next: result => {
+              this.viewChange();
+              this.alert={"type":"success", "content":"L'évènement à bien été déplacé"};
+              this.isShow = true;
+            },
+            error: err => {
+              this.viewChange();
+              this.alert={"type":"danger", "content":"Problème lors de la modification de l'évenement"};
+              this.isShow = true;
+            },
+            complete: () => console.log('DONE!')
+          }
+        );
+      }else{
+        this.viewChange();
+        this.alert={"type":"danger", "content":"Vous ne pouvez pas déplacé cet évènement !"};
+        this.isShow = true;  
+      }
     }
   }
 
