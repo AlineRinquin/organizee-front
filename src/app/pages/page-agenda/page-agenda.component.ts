@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { DayPilot, DayPilotCalendarComponent, DayPilotNavigatorComponent } from "@daypilot/daypilot-lite-angular";
 import { EvenementService } from 'src/app/services/evenement.service';
 import { environment } from 'src/environments/environment';
-import jwt_decode from 'jwt-decode';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-page-agenda',
@@ -20,7 +20,7 @@ export class PageAgendaComponent implements AfterViewInit {
   @ViewChild("navigator") navigator!: DayPilotNavigatorComponent;
   @ViewChild("calendar") calendar!: DayPilotCalendarComponent;
 
-  constructor(private evenementService:EvenementService) {
+  constructor(private evenementService:EvenementService, private tokenService: TokenService) {
     this.isShow = false;
     this.alert = "";
     this.debug = environment.debug;
@@ -56,15 +56,8 @@ export class PageAgendaComponent implements AfterViewInit {
   }
   
   ngOnInit(): void {
-    const token = localStorage.getItem(environment.tokenKey);
-    if(token) {
-      const decodedToken = jwt_decode<any>(token);
-      this.userId = decodedToken.userId;
-      this.teamId = decodedToken.teamId;
-      this.role = decodedToken.auth[0].authority;
-    }else{
-      //
-    }
+    this.userId = this.tokenService.getCurrentMembreId();
+    this.teamId = this.tokenService.getCurrentTeamId();
   }
 
   // petite triche pour eviter la repetition du nom dans le RDV
