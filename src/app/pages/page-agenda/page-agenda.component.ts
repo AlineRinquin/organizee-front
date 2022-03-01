@@ -10,7 +10,7 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./page-agenda.component.scss']
 })
 export class PageAgendaComponent implements AfterViewInit {
-
+  debug: boolean;
   userId : any;
   teamId : any;
   role:any;
@@ -23,6 +23,7 @@ export class PageAgendaComponent implements AfterViewInit {
   constructor(private evenementService:EvenementService) {
     this.isShow = false;
     this.alert = "";
+    this.debug = environment.debug;
   }
 
   get date(): DayPilot.Date {
