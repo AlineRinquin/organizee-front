@@ -14,9 +14,10 @@ import {
   styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent implements OnInit {
-  public errorForm: boolean;
+  alert : any;
+  isShow : boolean;
   constructor(private authService: AuthService, private router: Router) {
-    this.errorForm = false;
+    this.isShow = false;
   }
 
   ngOnInit(): void {}
@@ -26,18 +27,21 @@ export class SigninComponent implements OnInit {
     const email = submittedForm.form.value['email'];
     const password = submittedForm.form.value['password'];
     if (email !== '' && password !== '') {
-      this.authService.signin(email, password).subscribe((resp) => {
-        console.log('Component Signin: ', resp);
-        //if(resp == ){
-          this.router.navigate(['tableau-de-bord']);
-        //}else{
-         // window.alert("Votre identifiant/mot de passe est erroné");
-        //}
-        console.log('Component Signin: ', resp);
-      });
+      this.authService.signin(email, password).subscribe(
+        {
+          next: resp => {
+            this.router.navigate(['tableau-de-bord']);
+          },
+          error: err => {
+            this.alert={"type":"danger", "content":"Le login ou paswword est invalide"};
+            this.isShow = true;
+          },
+          complete: () => console.log('DONE!')
+        });
     } else {
       // afficher une erreur à l'utilisateur
-      this.errorForm = true;
+      this.alert={"type":"danger", "content":"Le login ou password est invalide"};
+      this.isShow = true;
     }
   }
 }

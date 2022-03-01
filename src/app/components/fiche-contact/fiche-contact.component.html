@@ -4,13 +4,17 @@
             <div class="couleur col-7" [style.background-color]="personne.couleur"></div>
             <div class="col-5">
                 <div class="col">
-                    <button routerLink="../modifier-contact/{{personne.id}}"
+                    <button 
+                        *ngIf="parent" 
+                        routerLink="../modifier-contact/{{personne.id}}"
                         class=" btn btn-sm btn-rounded btn-secondary mb-2">
                         Modifier
                     </button>
                 </div>
                 <div class="col">
-                    <button class=" btn btn-sm btn-rounded btn-secondary" (click)="onClickDelete(personne.id)">
+                    <button 
+                    *ngIf="parent" 
+                    class=" btn btn-sm btn-rounded btn-secondary" (click)="onClickDelete(personne.id)">
                         Supprimer
                     </button>
                 </div>
