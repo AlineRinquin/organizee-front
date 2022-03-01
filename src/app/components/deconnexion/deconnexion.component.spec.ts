@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmoticonComponent } from './emoticon.component';
+import { DeconnexionComponent } from './deconnexion.component';
 
-describe('EmoticonComponent', () => {
-  let component: EmoticonComponent;
-  let fixture: ComponentFixture<EmoticonComponent>;
+describe('DeconnexionComponent', () => {
+  let component: DeconnexionComponent;
+  let fixture: ComponentFixture<DeconnexionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmoticonComponent ]
+      declarations: [ DeconnexionComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmoticonComponent);
+    fixture = TestBed.createComponent(DeconnexionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

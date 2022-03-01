@@ -1,13 +1,18 @@
-<div>
-    <app-header></app-header>
-    <app-side-bar></app-side-bar>
-</div>
+<app-header></app-header>
+<div class="row">
+    <div class="col-md-auto">
+        <app-side-bar></app-side-bar>
+    </div>
 
 <div class="modifContact-form text-center">
+    <h3>Modifier ce contact</h3>
     <main class="form-modifContact">
         <form  (ngSubmit)="onSubmit()" [formGroup]="modifContactForm">
-            <h1>Modifier ce contact</h1>
-
+            
+            <div class="form-floating">
+            <input type="color" class="form-control" id="floatingInputcouleur" placeholder="" name="couleur"
+            formControlName="couleurFc" value= "{{ listContactInfo.couleur }}">
+            </div>
 
             <div class="form-floating">
                 <input type="text" 
@@ -80,4 +85,5 @@
 
         </form>
     </main>
+</div>
 </div> 

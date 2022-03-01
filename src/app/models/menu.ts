@@ -2,9 +2,8 @@ import { Membre } from './membre';
 import { Team } from './team';
 
 export interface Menu {
-  libelle: string;
-  dateMenu: Date;
-  membre: Membre;
-  team: Team;
-  validationProposition: boolean;
+  dateMenu: string;
+  repasMidi: string;
+  repasSoir: string;
+  id: number;
 }

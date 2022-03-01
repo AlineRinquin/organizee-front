@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 import { Contact } from '../../models/contact';
 import { RepertoireService } from '../../services/repertoire.service';
 
@@ -19,6 +20,7 @@ export class PageAjoutContactComponent implements OnInit {
 
   constructor(
     private repertoireService: RepertoireService,
+    private tokenService: TokenService,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -28,6 +30,7 @@ export class PageAjoutContactComponent implements OnInit {
   ngOnInit(): void {
     // *********************************pensser à changer group car déprécié********************************
     this.ajoutContactForm = this.fb.group({
+      couleurFc: new FormControl('', [Validators.required]),
       lastNameFc: new FormControl('', [Validators.required]),
       firstNameFc: new FormControl('', [Validators.required]),
       telephoneFc: new FormControl('', [Validators.required]),
@@ -42,24 +45,25 @@ export class PageAjoutContactComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    console.log('value : ', this.ajoutContactForm.value);
-    console.log('form : ', this.ajoutContactForm);
+    const couleurValue = this.ajoutContactForm.value['couleurFc'];
     const firstNameValue = this.ajoutContactForm.value['firstNameFc'];
     const lastNameValue = this.ajoutContactForm.value['lastNameFc'];
     const telephoneValue = this.ajoutContactForm.value['telephoneFc'];
     const emailValue = this.ajoutContactForm.value['emailFc'];
     const dateNaissanceValue = this.ajoutContactForm.value['dateNaissanceFc'];
     const adresseValue = this.ajoutContactForm.value['adresseFc'];
+    const teamId = this.tokenService.getCurrentTeamId()
 
     const contact: Contact = {
       id: '',
+      couleur: couleurValue,
       nom: lastNameValue,
       prenom: firstNameValue,
       telephone: telephoneValue,
       email: emailValue,
       dateNaissance: dateNaissanceValue,
       adresse: adresseValue,
-      team: { id: '1' }, // changer l'id quand la personne est logé => recuperer l'id de la team du membre
+      team: { id: teamId }, // changer l'id quand la personne est logé => recuperer l'id de la team du membre
     };
 
     if (contact.nom !== '') {
@@ -67,7 +71,7 @@ export class PageAjoutContactComponent implements OnInit {
         this.router.navigate(['repertoire/']);
       });
     } else {
-      // affichage erreur
+      window.alert("Le contact ne peut pas être ajouté!")
     }
   }
 }

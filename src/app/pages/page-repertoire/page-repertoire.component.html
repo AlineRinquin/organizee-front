@@ -1,31 +1,61 @@
 <app-header></app-header>
-<app-side-bar></app-side-bar>
 
-<div>
-    <button class="w-100 btn btn-lg btn-secondary " 
-        type="submit">Tous les contacts
-    </button>
+<div class="row">
+  <div class="col-md-auto">
+    <app-side-bar></app-side-bar>
+  </div>
 
-    <button routerLink="/ajouter-contact" class="w-100 btn btn-lg btn-rounded btn-secondary">
+  <div class="col compte text-center py-3 border">
+    <div>
+      <button
+        *ngIf="parent" 
+        routerLink="/ajouter-contact"
+        class="btn btn-sm btn-rounded btn-secondary m-3"
+      >
         Ajouter un contact
-    </button>
+      </button>
 
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" 
-            placeholder="Rechercher un contact" 
-            aria-label="Rechercher un contact" 
-            aria-describedby="basic-addon2"
-            #word
-            (keyup)="onSearchChange(word.value)">
-            
-        <div class="input-group-append">
+      <div class="input-group mb-3 d-flex justify-content-center">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Rechercher un contact"
+          aria-label="Rechercher un contact"
+          aria-describedby="basic-addon2"
+          #word
+          (keyup)="onSearchChange(word.value)"
+        />
+
+        <div class="input-group-append"></div>
+      </div>
+      <div>
+        <h4>Liste des Contacts</h4>
+      </div>
+      <div class="row justify-content-evenly">
+        <div class="col-4">
+          <div
+            class="row my-3 d-flex justify-content-center flex-row"
+            *ngFor="let personne of listContact"
+            (click)="onClick(personne)"
+          >
+            <div
+              class="couleur col-4"
+              [style.background-color]="personne.couleur"
+            ></div>
+            <span class="fiche-contact col-7"
+              >{{ personne.prenom }} {{ personne.nom }}</span
+            >
+          </div>
         </div>
-    </div>
 
-    <div *ngFor="let personne of listContact" (click)="onClick(personne)" >
-        <img style="max-height: 12% ; max-width: 12%" src="../../../assets/images/contact-1.png"/>
-        <p class="fiche-contact" >{{ personne.prenom }} {{ personne.nom }}</p>
+        <div class="col-4" *ngIf="openDetails">
+          <app-fiche-contact
+            [personne]="openDetails"
+            (clickDelete)="onClickDelete($event)"
+          >
+          </app-fiche-contact>
+        </div>
+      </div>
     </div>
-<div *ngIf="openDetails"><app-fiche-contact [personne]="openDetails"></app-fiche-contact></div>
-    
+  </div>
 </div>

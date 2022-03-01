@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: auto;
+  height: 100%;
+  position: absolute;
+  background-color: rgb(238, 238, 238);
+}
+.nav{
+  margin-top: 20px;
+  align-items: left;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+
+a{
+  color: black;
+  font-weight: bold;
+}

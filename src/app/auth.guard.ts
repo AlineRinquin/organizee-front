@@ -39,7 +39,7 @@ export class AuthGuard implements CanActivate {
         const dateExp = new Date(decodedToken.exp * 1000);
         if (new Date() >= dateExp) {
           // le token a expiré, je n'autorise pas l'accès
-          this.router.navigate(['account/signin']);
+          this.router.navigate(['accueil']);
           return false;
         }
       }
@@ -48,7 +48,7 @@ export class AuthGuard implements CanActivate {
       return true;
     } else {
       console.log('You shall not pass !!!!');
-      this.router.navigate(['account/signin']); // redirection de notre utilisateur vers une url de notre application (dans notre code TS)
+      this.router.navigate(['accueil']); // redirection de notre utilisateur vers une url de notre application (dans notre code TS)
       return false;
     }
   }

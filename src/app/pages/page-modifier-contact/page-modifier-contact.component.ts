@@ -44,6 +44,7 @@ export class PageModifierContactComponent implements OnInit {
 
     // *********************************pensser à changer group car déprécié********************************
     this.modifContactForm = this.fb.group({
+      couleurFc: new FormControl('', [Validators.required]),
       lastNameFc: new FormControl('', [Validators.required]),
       firstNameFc: new FormControl('', [Validators.required]),
       telephoneFc: new FormControl('', [Validators.required]),
@@ -71,8 +72,7 @@ export class PageModifierContactComponent implements OnInit {
 
   //Méthode qui envoie les champs modifiés pour mise à jour
   public onSubmit(): void {
-    console.log('value : ', this.modifContactForm.value);
-    console.log('form : ', this.modifContactForm);
+    const couleurValue = this.modifContactForm.value['couleurFc'];
     const firstNameValue = this.modifContactForm.value['firstNameFc'];
     const lastNameValue = this.modifContactForm.value['lastNameFc'];
     const telephoneValue = this.modifContactForm.value['telephoneFc'];
@@ -82,6 +82,7 @@ export class PageModifierContactComponent implements OnInit {
 
     const contact: Contact = {
       id: this.personneid,
+      couleur: couleurValue,
       nom: lastNameValue,
       prenom: firstNameValue,
       telephone: telephoneValue,

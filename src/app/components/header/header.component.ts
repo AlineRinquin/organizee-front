@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
+
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+isLogged=false;
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(public tokenService : TokenService){
+
   }
 
-}
+  ngOnInit(): void {
+
+    if(this.tokenService.getToken()){
+      this.isLogged=true;
+    }
+
+  }
+
+  }
+

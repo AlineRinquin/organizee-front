@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Todo } from 'src/app/interfaces/todo';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Tache } from 'src/app/models/tache';
+import { ToDoList } from 'src/app/models/to-do-list';
+import { TodoService } from 'src/app/services/todo.service';
+import { TodoList } from 'src/app/todo-list';
 
 @Component({
   selector: 'app-to-do-list',
@@ -7,113 +11,117 @@ import { Todo } from 'src/app/interfaces/todo';
   styleUrls: ['./to-do-list.component.scss'],
 })
 export class ToDoListComponent implements OnInit {
+  @Input() todo!: ToDoList;
   public beforeEditCache: string;
-  public todos: Todo[];
+  //public todos: ToDoList[];
   public todoTitle: string;
   public idTodo: number;
-  public filter : string;
-  public casesRestantes : boolean;
+  public filter: string;
+  public casesRestantes: boolean;
   public masterSelected: boolean;
+  public result: any;
+  public tache: Tache[];
 
-  constructor() {
+  constructor(private TodoService: TodoService, private router: Router) {
     this.beforeEditCache = '';
-    this.todos = [];
+    //this.todos = [];
     this.todoTitle = '';
     this.idTodo = 0;
-    this.filter ='';
-    this.casesRestantes=true;
-    this.masterSelected= false;
+    this.filter = '';
+    this.casesRestantes = true;
+    this.masterSelected = false;
+    this.tache = [];
   }
 
   ngOnInit(): void {
     this.beforeEditCache = '';
-    this.casesRestantes=true;
-    this.filter='tous';
+    this.casesRestantes = true;
+    this.filter = 'tous';
     this.idTodo = 4;
     this.todoTitle = '';
-    this.todos = [
-      {
-        id: 1,
-        title: 'Finish Angular Screencast',
-        completed: false,
-        editing: false,
-      },
-      {
-        id: 2,
-        title: 'Take over world',
-        completed: false,
-        editing: false,
-      },
-      {
-        id: 3,
-        title: 'One more thing',
-        completed: false,
-        editing: false,
-      },
-    ];
+  }
+  //supprimer la todoList
+  deleteTodo(id: number): void {
+    this.TodoService.deleteTodoById(id).subscribe((resp) => {
+      window.location.reload();
+    });
   }
   //ajouter tache
-  addTitle(): void {
-    if (this.todoTitle.trim().length === 0) {
-      return;
-    }
 
-    this.todos.push({
-      id: this.idTodo,
-      title: this.todoTitle,
-      completed: false,
+  addTache(idTodoList: number) {
+    //idTodoList id que la todoList que l'on récupère
+    console.log(idTodoList);
+    const tache: Tache = {
+      id: 0,
+      texte: this.todoTitle,
+      etat: false,
       editing: false,
+    };
+    console.log(this.tache);
+    this.TodoService.addTache(tache, idTodoList).subscribe((resp) => {
+      window.location.reload();
     });
-    this.todoTitle = '';
-    this.idTodo++;
   }
 
-  //modifier la tâche
-  modifier(todo: Todo): void {
-    this.beforeEditCache = todo.title;
-    todo.editing = true;
+  //modifier le titre de la to-do-list
+  updateTodo(todoList: ToDoList): void {
+    this.TodoService.updateTodo(todoList)?.subscribe((resp) => {
+      window.location.reload();
+    });
   }
 
-  // modifier l'apparence focus
-  doneEdit(todo: Todo): void {
-    if (todo.title.trim().length === 0) {
-      todo.title = this.beforeEditCache;
+  //modifier par l'input
+  modifier(tache: Tache): void {
+    this.beforeEditCache = tache.texte;
+    tache.editing = true;
+  }
+
+  // ajouter la modification dans la liste
+  doneEdit(tache: Tache): void {
+    if (tache.texte.trim().length === 0) {
+      tache.texte = this.beforeEditCache;
     }
-    this.casesRestantes= this.casesQuiRestes();
-    todo.editing = false;
+    this.casesRestantes = this.casesQuiRestes();
+    tache.editing = false;
+    this.TodoService.updateTache(tache).subscribe((resp) => {
+      console.log(tache);
+      window.location.reload();
+    });
   }
 
   // annuler la modification
-  cancelEdit(todo: Todo): void {
-    todo.title = this.beforeEditCache;
-    todo.editing = false;
+  cancelEdit(tache: Tache): void {
+    tache.texte = this.beforeEditCache;
+    tache.editing = false;
   }
 
   //supprimer la tache
-  deleteTodo(id: number): void {
-    this.todos = this.todos.filter((todo) => todo.id !== id);
+  deleteTache(id: number) {
+    this.TodoService.deleteTacheById(id).subscribe((resp) => {
+      window.location.reload();
+    });
   }
 
   //nombre de tâches restantes
-  toDoRest(): number{
-    return this.todos.filter(todo=> !todo.completed).length;
+  toDoRest(): number {
+    return this.todo.taches.filter((tache: Tache) => !tache.etat).length;
   }
 
   //Cocher toutes les tâches de la liste
   listComplete(): boolean {
-    return this.todos.filter(todo=> todo.completed).length>0;
+    return this.todo.taches.filter((tache: Tache) => tache).length > 0;
   }
 
   //Effacer la to do list
 
   effacerList(): void {
-    this.todos = [];
+    //this.todo = [];
   }
 
   //cocher toutes les cases de la todoList
   cocherAllTodoList(): void {
-    for (var i = 0; i < this.todos.length; i++) {
-      this.todos[i].completed = this.masterSelected;
+    for (var i = 0; i < this.todo.taches.length; i++) {
+      this.todo.taches[i].etat = this.masterSelected;
     }
     this.cocherAllTodoList();
   }
@@ -123,16 +131,14 @@ export class ToDoListComponent implements OnInit {
   }
 
   //barre de filtre des tâches
-  todosFilter(): Todo[] {
+  /*  todosFilter(): ToDoList[] {
     if(this.filter === 'tous'){
-      return this.todos
+      return this.todo.taches
     }else if (this.filter === 'active'){
-      return this.todos.filter(todo=> !todo.completed)
+      return this.todo.taches.filter((tache: Tache)=> !tache.etat)
     }else if (this.filter === 'complete'){
-      return this.todos.filter(todo=>todo.completed)
+      return this.todo.taches.filter((tache: Tache)=>tache.etat)
     }
-    return this.todos
-    }
-  }
-
-
+    return this.todo
+    } */
+}

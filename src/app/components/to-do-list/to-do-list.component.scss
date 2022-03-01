@@ -1,21 +1,64 @@
+.container {
+  border: 3px #4e9e7b solid;
+  padding: 5%;
+  min-width: 300px;
+  max-width: 30%;
+  margin: 5%;
+  border-radius: 5%;
+  margin-bottom: 20% !important;
+}
+
+.todo-title {
+  width: 75%;
+  padding: 10px 18px;
+  font-size: large !important;
+  font-weight: bold !important;
+  color: #4e9e7b !important;
+  border-top-color: #4e9e7b !important;
+  border-left-color: #4e9e7b !important;
+  border-radius: 5% !important;
+  margin-top: 0%;
+  margin-bottom: 5%;
+  margin-right: 3% !important;
+  color: black;
+  box-shadow: 5px 5px 5px gray;
+  &:focus {
+    outline: 0;
+    background-color: lightgray;
+  }
+}
+
 .todo-input {
-  width: 100%;
+  width: 75%;
   padding: 10px 18px;
   font-size: 18px;
   margin-bottom: 16px;
+  color: white !important;
+  background-color: #4e9e7b !important;
+  border-radius: 5%;
+  margin-left: 4%;
   &:focus {
     outline: 0;
+    background-color: lightgray;
   }
 }
+
 .element {
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   animation-duration: 0.3s;
+  color: black;
+  background-color: #4e9e7b;
+}
+
+::placeholder {
+  color: white;
 }
 
 .deleteTache {
+  width: 75%;
   cursor: pointer;
   margin-left: 14px;
   &:hover {
@@ -23,64 +66,66 @@
   }
 }
 
-.element-gauche { // later
+.element-gauche {
   display: flex;
   align-items: center;
 }
 
-.nomTache{
+.nomTache {
   padding: 10px;
-  border: 1px solid white;
   margin-left: 12px;
 }
 
 .modifier-element {
   font-size: 24px;
-  color: #2c3e50;
+  color: white;
   margin-left: 12px;
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc; //override defaults
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  border: 1px solid rgb(204, 204, 204); //override defaults
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
 
   &:focus {
     outline: none;
+    background-color: grey;
   }
+}
+
+.selection {
+  margin-left: 0%;
+  text-align: left;
+  font-size: medium;
+  font-weight: bold;
+  color: #4e9e7b;
 }
 
 .completed {
   text-decoration: line-through;
-  color: grey;
+  color: white !important;
+}
+.casesRestantes {
+  color: #4cc690;
 }
 
-.extra-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 16px;
-  border-top: 1px solid lightgrey;
-  padding-top: 14px;
-  margin-bottom: 14px;
-}
-
-button {
+/* button {
   font-size: 14px;
   background-color: white;
   appearance: none;
 
   &:hover {
-    background: lightgreen;
+    background: grey;
   }
 
   &:focus {
     outline: none;
   }
-}
+} */
 
-.active {
-  background: lightgreen;
-}
-.completed {
+/* .active {
+  background: grey;
+} */
+/* .completed {
   text-decoration: line-through;
   color: grey;
 }
+ */

@@ -1,54 +1,70 @@
-<input
-  type="text"
-  class="todo-input"
-  placeholder="Ajoute une nouvelle Tâche"
-  [(ngModel)]="todoTitle"
-  (keyup.enter)="addTitle()"
-/>
+<div class="container">
+  <input
+    type="text"
+    class="todo-title btn btn-outline-success"
+    placeholder="Titre"
+    value="{{ todo.nom }}"
+    [(ngModel)]="todo.nom"
+    (keyup.enter)="updateTodo(todo)"
+  />
 
-<div class="element" *ngFor="let todo of todosFilter()">
-  <div class="element-gauche">
+  <i class="bi bi-trash3" (click)="deleteTodo(todo.id)"></i>
+  <div class="row justify-align">
     <input
-      type="checkbox"
-      [(ngModel)]="todo.completed"
-      (change)="doneEdit(todo)"
+      type="text"
+      class="todo-input shadow justify-center"
+      placeholder="+ Nouvelle Tâche"
+      [(ngModel)]="todoTitle"
+      (keyup.enter)="addTache(todo.id)"
     />
-    <div
-      *ngIf="!todo.editing; else editingTodo"
-      class="nomTache"
-      [ngClass]="{ completed: todo.completed }"
-      (dblclick)="modifier(todo)"
-    >
-      {{ todo.title }}
-    </div>
-    <ng-template #editingTodo>
-      <input
-        type="text"
-        class="modifier-element"
-        [(ngModel)]="todo.title"
-        (blur)="doneEdit(todo)"
-        (keyup.enter)="doneEdit(todo)"
-        (keyup.esc)="cancelEdit(todo)"
-        autofocus
-      />
-    </ng-template>
   </div>
-  <div class="deleteTache" (click)="deleteTodo(todo.id)">&times;</div>
-</div>
-<div class="extra-container">
-  <div>
-    <label
-      ><input
+  <div
+    class="element btn btn-outline-success shadow"
+    *ngFor="let tache of todo.taches"
+  >
+    <div class="element-gauche">
+      <input
+        type="checkbox"
+        [(ngModel)]="tache.etat"
+        (change)="doneEdit(tache)"
+        checked="checked"
+      />
+      <div
+        *ngIf="!tache.editing; else editingTodo"
+        class="nomTache"
+        [ngClass]="{ completed: tache.etat }"
+        (dblclick)="modifier(tache)"
+      >
+        {{ tache.texte }}
+      </div>
+      <ng-template #editingTodo>
+        <input
+          type="text"
+          class="modifier-element"
+          [(ngModel)]="tache.texte"
+          (blur)="doneEdit(tache)"
+          (keyup.enter)="doneEdit(tache)"
+          (keyup.esc)="cancelEdit(tache)"
+          autofocus
+        />
+      </ng-template>
+    </div>
+    <div class="deleteTache" (click)="deleteTache(tache.id)">&times;</div>
+  </div>
+  <div class="selection">
+    <label>
+      <input
+        class="selection"
         type="checkbox"
         (change)="cocherAllTodoList()"
         [(ngModel)]="masterSelected"
       />Selectionner toutes les tâches</label
     >
+    <div class="casesRestantes">{{ toDoRest() }} tâche(s) restante(s)</div>
   </div>
-  <div>{{ toDoRest() }} tâches</div>
 </div>
-<div class="extra-container">
-  <div>
+<!--<div class="extra-container">
+   <div>
     <button [ngClass]="{ active: filter === 'tous' }" (click)="filter = 'tous'">
       Toutes la To Do List
     </button>
@@ -66,7 +82,4 @@
     </button>
   </div>
 
-  <div>
-    <button (click)="effacerList()">Effacer la To Do List</button>
-  </div>
-</div>
+</div> -->

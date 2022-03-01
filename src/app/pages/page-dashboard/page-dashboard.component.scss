@@ -1,0 +1,50 @@
+.titre{
+  display: inline-flex;
+  margin-left: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.meteo {
+  margin-left: 500px;
+  margin-top: -60px;
+}
+
+.container {
+  display: flex;
+  padding: 20px;
+
+}
+
+button{
+  margin-bottom: 5px;
+}
+
+.calendrier{
+  align-content: flex-end;
+}
+
+#boxFour{
+  height: 150px;
+  margin-top: -99px;
+  width: fit-content;
+}
+
+#boxThree{
+  margin-top: -85px;
+  height: 150px;
+  width: fit-content;
+}
+
+#boxTwo{
+  margin-top: 50px;
+  margin-left: 150px;
+  height: 50%;
+  width: fit-content;
+}
+
+.avatar{
+  margin-top: -50px;
+  justify-content: space-between;
+  margin: 0;
+}

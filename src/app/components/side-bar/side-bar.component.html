@@ -1,11 +1,29 @@
-<nav class="custom-side-bar flex-shrink-0 bg-white">
-    <div  id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a routerLink="../compte" routerLinkActive="active-custom" class="nav-link">Ma Team</a>
-            <a routerLink="../repertoire" routerLinkActive="active-custom" class="nav-link">Répertoire</a>
-            <a routerLink="../to-do-list" routerLinkActive="active-custom" class="nav-link">To-Do-List</a>
-            <a routerLink="../menu" routerLinkActive="active-custom" class="nav-link">Menus</a>
-            <a routerLink="../agenda" routerLinkActive="active-custom" class="nav-link">Agenda</a>
-        </div>
-    </div>
+<nav class="wrapper  md-auto position-fixed ">
+  <ul class="nav flex-column" id="sticky-sidebar">
+    <li class="nav-item" ngbNavItem="maTeam" >
+      <a routerLink="../compte" routerLinkActive="active-custom" class="nav-link">
+        <i class="bi bi-people-fill"></i>
+        Ma Team</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/repertoire" routerLinkActive="active-custom" class="nav-link">
+        <i class="bi bi-person-rolodex"></i>
+        Répertoire</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="../to-do-list" routerLinkActive="active-custom" class="nav-link">
+        <i class="bi bi-check2-square"></i>
+        To-Do-List</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="../menu" routerLinkActive="active-custom" class="nav-link">
+        <i class='fas fa-pizza-slice'></i>
+        Menus</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="../agenda" routerLinkActive="active-custom" class="nav-link">
+        <i class="bi bi-calendar-event"></i>
+        Agenda</a>
+    </li>
+  </ul>
 </nav>

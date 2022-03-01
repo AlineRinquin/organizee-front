@@ -1,29 +1,84 @@
 <app-header></app-header>
+<app-side-bar></app-side-bar>
 
+<div
+  class="alert alert-{{ alert.type }}"
+  role="alert"
+  style="position: absolute; z-index: 999; top: 50%; left: 40%; width: 500px"
+  *ngIf="isShow"
+  id="showAlert"
+>
+  {{ alert.content }}
+  <button
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+    (click)="onClickCloseAlert()"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
-<app-alert *ngIf="alert" id="showAlert" [alert]="alert" (eventClose)="closeAlert($event)"></app-alert>
+<div style="display: flex">
+  <div style="width: 150px">
+    <app-side-bar></app-side-bar>
+  </div>
 
-<div style="display: flex;">
-    <div style="width:150px;">
-        <app-side-bar></app-side-bar>
-    </div>
-    
-    <div style="width: 100%;">
-        <div class="wrap">
-            <div class="left">
-                <daypilot-navigator [config]="navigatorConfig" [(date)]="date" #navigator></daypilot-navigator>
-            </div>
-            <div class="main">
-                <div>
-                    <a href="#" class="btn btn-sm btn-primary" style="margin-right:5px;" (click)="navigatePrevious($event)">Previous</a>
-                    <a href="#" class="btn btn-sm btn-primary" style="margin-right:5px;" (click)="navigateToday($event)">Today</a>
-                    <a href="#" class="btn btn-sm btn-primary" style="margin-right:5px;" (click)="navigateNext($event)">Next</a>
-                </div>
-                
-                    <daypilot-calendar [config]="config" [events]="events" #calendar (viewChange)="viewChange()"></daypilot-calendar>
-                
-            </div>
+  <div style="width: 100%">
+    <div class="wrap">
+      <div class="left">
+        <daypilot-navigator
+          [config]="navigatorConfig"
+          [(date)]="date"
+          #navigator
+        ></daypilot-navigator>
+      </div>
+      <div class="main">
+        <div style="width: 100%; margin: 10px">
+          <a
+            href="#"
+            class="btn btn-sm btn-primary"
+            style="margin-right: 5px"
+            (click)="navigatePrevious($event)"
+            >Previous</a
+          >
+          <a
+            href="#"
+            class="btn btn-sm btn-primary"
+            style="margin-right: 5px"
+            (click)="navigateToday($event)"
+            >Today</a
+          >
+          <a
+            href="#"
+            class="btn btn-sm btn-primary"
+            style="margin-right: 5px"
+            (click)="navigateNext($event)"
+            >Next</a
+          >
+          
+          <!-- DEBUT : Pour le debugage -->
+          <span *ngIf="debug">team : {{ teamId }} - user: {{ userId }} - role: {{ role }}</span>
+          <!-- FIN : Pour le debugage -->
+
+          <span style="float: right"
+            ><a
+              href="#"
+              class="btn btn-sm btn-primary"
+              style="margin-right: 5px"
+              >Ajouter un évènement</a
+            ></span
+          >
         </div>
+
+        <daypilot-calendar
+          [config]="config"
+          [events]="events"
+          #calendar
+          (viewChange)="viewChange()"
+        ></daypilot-calendar>
+      </div>
     </div>
-    
+  </div>
 </div>
