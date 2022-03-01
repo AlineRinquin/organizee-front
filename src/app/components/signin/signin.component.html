@@ -27,7 +27,9 @@
     <!-- <div *ngIf="errorForm">
       <p class="text-danger">Il manque des informations dans le formulaire...</p>
     </div> -->
+    
     <app-alert *ngIf="isShow" [alert]="alert" (eventClose)="onClickCloseAlert();"></app-alert>
+    
     <!-- <div *ngIf="isShow">
       <div class="alert alert-{{alert.type}}" role="alert">
         {{alert.content}}
