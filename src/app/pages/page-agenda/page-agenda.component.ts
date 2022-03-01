@@ -58,6 +58,7 @@ export class PageAgendaComponent implements AfterViewInit {
   ngOnInit(): void {
     this.userId = this.tokenService.getCurrentMembreId();
     this.teamId = this.tokenService.getCurrentTeamId();
+    this.role = this.tokenService.getRole();
   }
 
   // petite triche pour eviter la repetition du nom dans le RDV
