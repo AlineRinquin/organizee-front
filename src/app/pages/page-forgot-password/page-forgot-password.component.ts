@@ -20,7 +20,7 @@ export class PageForgotPasswordComponent implements OnInit {
 
   alert : any;
   isShow : boolean;
-  
+
   constructor(private authService: AuthService, private router: Router, private mailService: MailService,) {
     this.alert = "";
     this.isShow = false;
@@ -41,9 +41,7 @@ export class PageForgotPasswordComponent implements OnInit {
       };
 
     console.log(membre);
-    // this.authService.forgotPassword(membre).subscribe((resp) => {
-    //   console.log('----'+resp)
-    // });
+
 
     this.authService.forgotPassword(membre).subscribe(
       {
@@ -70,7 +68,7 @@ export class PageForgotPasswordComponent implements OnInit {
         },
         complete: () => console.log('DONE!')
       }
-    ); 
+    );
 
 
 
