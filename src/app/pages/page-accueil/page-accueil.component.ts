@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class PageAccueilComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router,  private tokenService: TokenService) { 
+  constructor(private http: HttpClient, private router: Router,  private tokenService: TokenService) {
 
   }
 
