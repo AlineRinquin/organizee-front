@@ -1,7 +1,9 @@
 <app-header></app-header>
 <app-side-bar></app-side-bar>
 
-<div
+<app-alert *ngIf="isShow" [alert]="alert" (eventClose)="onClickCloseAlert();"></app-alert>
+
+<!-- <div
   class="alert alert-{{ alert.type }}"
   role="alert"
   style="position: absolute; z-index: 999; top: 50%; left: 40%; width: 500px"
@@ -18,7 +20,7 @@
   >
     <span aria-hidden="true">&times;</span>
   </button>
-</div>
+</div> -->
 
 <div style="display: flex">
   <div style="width: 150px">
@@ -57,7 +59,11 @@
             (click)="navigateNext($event)"
             >Next</a
           >
-          team : {{ teamId }} - user: {{ userId }} - role: {{ role }}
+          
+          <!-- DEBUT : Pour le debugage -->
+          <span *ngIf="debug">team : {{ teamId }} - user: {{ userId }} - role: {{ role }}</span>
+          <!-- FIN : Pour le debugage -->
+
           <span style="float: right"
             ><a
               href="#"
