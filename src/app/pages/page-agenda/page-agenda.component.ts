@@ -54,7 +54,7 @@ export class PageAgendaComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
   }
-  
+
   ngOnInit(): void {
     this.userId = this.tokenService.getCurrentMembreId();
     this.teamId = this.tokenService.getCurrentTeamId();
@@ -92,7 +92,7 @@ export class PageAgendaComponent implements AfterViewInit {
           {
             next: result => {
               this.viewChange();
-              this.alert={"type":"success", "content":"L'évènement à bien été modifié"};
+              this.alert={"type":"success", "content":"L'évènement a bien été modifié"};
               this.isShow = true;
             },
             error: err => {
@@ -102,11 +102,11 @@ export class PageAgendaComponent implements AfterViewInit {
             },
             complete: () => console.log('DONE!')
           }
-        );  
+        );
       }else{
         this.viewChange();
-        this.alert={"type":"danger", "content":"Vous ne pouvez pas modifié cet évènement !"};
-        this.isShow = true;  
+        this.alert={"type":"danger", "content":"Vous ne pouvez pas modifier cet évènement !"};
+        this.isShow = true;
       }
 
     },
@@ -172,7 +172,7 @@ export class PageAgendaComponent implements AfterViewInit {
       }else{
         this.viewChange();
         this.alert={"type":"danger", "content":"Vous ne pouvez pas suprimé cet évènement !"};
-        this.isShow = true;  
+        this.isShow = true;
       }
     },
     eventResizeHandling: "Update",
@@ -206,7 +206,7 @@ export class PageAgendaComponent implements AfterViewInit {
       }else{
         this.viewChange();
         this.alert={"type":"danger", "content":"Vous ne pouvez pas déplacé cet évènement !"};
-        this.isShow = true;  
+        this.isShow = true;
       }
     }
   }
