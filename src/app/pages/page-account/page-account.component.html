@@ -3,8 +3,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-9 offset-2" id="main">
-      <h1>{{currentTeam.nom}}</h1>
-      <div class="row">
+      <h1 class="col-md-auto">{{currentTeam.nom}}</h1>
+      <div>
+        <!-- Pour récupérer le membre connecté-->
         <div class="d-flex justify-content-center">
           <app-card-member [membre]="currentUser"> </app-card-member>
         </div>
@@ -20,8 +21,11 @@
         </div>
       </div>
       <div class="row">
-
+        <!-- Pour exclure le membre connecté de la liste car il est récupéré plus haut-->
+        <!-- ng-container pour gérer l'espace vide que laissé le membre exclu à cause du dom -->
+        <!-- cf. : https://angular.io/guide/built-in-directives#hosting-a-directive-without-a-dom-element-->
         <ng-container *ngFor="let membreData of listMembres">
+          <!-- Condition dans ngIf mais une div à la place du ng-container pour le style-->
           <div class="col"  *ngIf= "membreData.id != currentUser.id" >
             <app-card-member [membre]="membreData"> </app-card-member>
           </div>

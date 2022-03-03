@@ -16,6 +16,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class PageSignupComponent implements OnInit {
   public signupForm: FormGroup;
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -54,8 +55,7 @@ export class PageSignupComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    console.log('value : ', this.signupForm.value);
-    console.log('form : ', this.signupForm);
+    const idValue = this.signupForm.value[''];
     const prenomValue = this.signupForm.value['firstNameFc'];
     const nomValue = this.signupForm.value['lastNameFc'];
     const emailValue = this.signupForm.value['emailFc'];
@@ -66,6 +66,7 @@ export class PageSignupComponent implements OnInit {
     const roleValue = ['ROLE_PARENT'];
 
     const membre: Membre = {
+      id: idValue,
       nom: nomValue,
       prenom: prenomValue,
       email: emailValue,
@@ -84,7 +85,7 @@ export class PageSignupComponent implements OnInit {
       // affichage erreur
     }
   }
-
+  /** Méthode pour compare le mot de passe et la confirmation de mot de passe **/
   ConfirmedValidator(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];

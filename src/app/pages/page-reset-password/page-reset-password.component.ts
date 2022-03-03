@@ -44,6 +44,7 @@ export class PageResetPasswordComponent implements OnInit {
     const passwordConfirmValue = this.resetForm.value['passwordConfirmFc'];
 
     const membre: Membre = {
+      id: "",
       nom: "",
       prenom: "",
       dateNaissance: new Date(),

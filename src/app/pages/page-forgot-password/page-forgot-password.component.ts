@@ -1,15 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
 import { Membre } from 'src/app/models/membre';
 import { MailService } from 'src/app/services/mail.service';
 import { Mail } from 'src/app/models/mail';
+
 
 @Component({
   selector: 'app-page-forgot-password',
@@ -30,6 +25,7 @@ export class PageForgotPasswordComponent implements OnInit {
 
     public onSubmit(submittedForm: any): void {
       const membre: Membre = {
+        id: "",
         nom: "",
         prenom: "",
         dateNaissance: new Date(),

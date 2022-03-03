@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'creation-compte', component: PageSignupComponent },
   { path: 'page-support', component: PageSupportComponent},
   { path: 'to-do-list', canActivate: [AuthGuard], component: PageToDoListComponent },
-  { path: 'modifier-membre', canActivate: [AuthGuard], component: PageUpdateMemberComponent },
+  { path: 'modifier-membre/:id', canActivate: [AuthGuard], component: PageUpdateMemberComponent },
   { path: 'modifier-compte', canActivate: [AuthGuard], component: PageUpdateAccountComponent },
   { path: 'ajouter-contact', canActivate: [AuthGuard], component: PageAjoutContactComponent },
   { path: 'creation-team', canActivate: [AuthGuard], component: PageCreationTeamComponent },

@@ -4,10 +4,30 @@
     <label for="floatingInputcouleur">Choisissez une couleur</label>
   <main class="form-signup">
     <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
-          <div class="form-floating">
-            <input type="color" class="form-control" id="floatingInputcouleur" placeholder="" name="couleur"
-              formControlName="couleurFc">
-          </div>
+      <div class="form-floating">
+        <input type="color" class="form-control" id="floatingInputcouleur" placeholder=""
+          name="couleur"
+          formControlName="couleurFc">
+      </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInputteamName"
+          placeholder=""
+          name="teamName"
+          formControlName="teamNameFc"
+          [ngClass]="{
+            'is-valid':
+              signupForm.controls['teamNameFc'].touched &&
+              signupForm.controls['teamNameFc'].valid,
+            'is-invalid':
+              signupForm.controls['teamNameFc'].touched &&
+              !signupForm.controls['teamNameFc'].valid
+          }"
+        />
+        <label for="floatingInputlastName">Le nom de votre team</label>
+      </div>
       <div class="form-floating">
         <input
           type="text"
@@ -25,7 +45,7 @@
               !signupForm.controls['lastNameFc'].valid
           }"
         />
-        <label for="floatingInputlastName">VOTRE NOM</label>
+        <label for="floatingInputlastName">Votre nom</label>
       </div>
       <div class="form-floating">
         <input
@@ -44,7 +64,7 @@
               !signupForm.controls['firstNameFc'].valid
           }"
         />
-        <label for="floatingInputfirstName">VOTRE PRENOM</label>
+        <label for="floatingInputfirstName">Votre prénom</label>
       </div>
       <div class="form-floating">
         <input
@@ -63,7 +83,7 @@
               !signupForm.controls['dateNaissanceFc'].valid
           }"
         />
-        <label for="floatingInputdateNaissance">VOTRE DATE DE NAISSANCE</label>
+        <label for="floatingInputdateNaissance">Votr date de naissance</label>
       </div>
       <div class="form-floating">
         <input
@@ -82,7 +102,7 @@
               !signupForm.controls['emailFc'].valid
           }"
         />
-        <label for="floatingInputemail">VOTRE EMAIL</label>
+        <label for="floatingInputemail">Votre adresse mail</label>
       </div>
       <div class="form-floating">
         <input
@@ -101,7 +121,7 @@
               !signupForm.controls['passwordFc'].valid
           }"
         />
-        <label for="floatingPassword">MOT DE PASSE</label>
+        <label for="floatingPassword">Votre mot de passe</label>
       </div>
       <div class="form-floating">
         <input
@@ -120,7 +140,7 @@
               !signupForm.controls['passwordConfirmFc'].valid
           }"
         />
-        <label for="floatingPasswordConfirm">CONFIRMEZ VOTRE MOT DE PASSE</label>
+        <label for="floatingPasswordConfirm">Confirmez votre mot de passe</label>
       </div>
 
       <button

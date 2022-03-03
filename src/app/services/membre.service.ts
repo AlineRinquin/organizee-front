@@ -48,7 +48,7 @@ export class MembreService {
   deleteMembre(membre: Membre): Observable<any> {
     return this.http.delete(`${this.apiUrl}/membres/delete/1`);
   }
-
+  //modifier pour récupérer id et pas mettre un id par défaut
   updateMembre(membre: Membre): Observable<any> {
     return this.http.put(`${this.apiUrl}/membres/update/1`, membre);
   }
