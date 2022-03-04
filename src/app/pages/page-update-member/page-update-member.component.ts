@@ -63,6 +63,7 @@ export class PageUpdateMemberComponent implements OnInit {
 
   /** Méthode qui initialise les champs du formulaire avec les infos de la BDD **/
   private initForm(membre?: Membre): FormGroup {
+
     return this.fb.group({
       nom:[membre ? membre.nom : ''],
       prenom: [membre ? membre.prenom : ''],
@@ -74,6 +75,7 @@ export class PageUpdateMemberComponent implements OnInit {
       roleList: [membre ? membre.roleList : ['']],
     });
   }
+
 
   /** Méthode qui envoie les champs modifiés pour mise à jour **/
   public onSubmit(): void {
@@ -98,8 +100,10 @@ export class PageUpdateMemberComponent implements OnInit {
       roleList: [roleValue]
     };
 
-    this.membreService.updateMembre(membre).subscribe((resp) => {
-      this.router.navigate(['compte']);
+    console.log(membre);
+
+    this.membreService.updateMembre(membre)?.subscribe((resp) => {
+      //this.router.navigate(['compte']);
     });
   }
 

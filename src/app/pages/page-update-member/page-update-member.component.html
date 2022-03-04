@@ -15,6 +15,7 @@
               name="couleur"
               formControlName="couleurFc"
               value="{{membreInfos.couleur}}"
+              [(ngModel)]="membreInfos.couleur"
             />
           </div>
           <label for="floatingInputcouleur" class="d-flex justify-content-center" >Choisissez une couleur</label>
@@ -27,6 +28,7 @@
               name="lastName"
               formControlName="lastNameFc"
               value="{{membreInfos.nom}}"
+              [(ngModel)]="membreInfos.nom"
               />
             <label for="floatingInputlastName">Nom</label>
           </div>
@@ -39,6 +41,7 @@
               name="firstName"
               formControlName="firstNameFc"
               value="{{membreInfos.prenom}}"
+              [(ngModel)]="membreInfos.prenom"
             />
             <label for="floatingInputfirstName">Prénom</label>
           </div>
@@ -51,6 +54,7 @@
               name="dateNaissance"
               formControlName="dateNaissanceFc"
               value="{{membreInfos.dateNaissance}}"
+              [(ngModel)]="membreInfos.dateNaissance"
             />
             <label for="floatingInputdateNaissance"
               >Date de naissance</label
@@ -65,6 +69,7 @@
               name="email"
               formControlName="emailFc"
               value="{{membreInfos.email}}"
+              [(ngModel)]="membreInfos.email"
             />
             <label for="floatingInputemail">Email</label>
           </div>
@@ -76,17 +81,28 @@
               name="Role"
               formControlName="roleFc"
               value="{{membreInfos.roleList}}"
+              [(ngModel)]="membreInfos.roleList"
             >
               <option value="ROLE_PARENT">Adulte</option>
               <option value="ROLE_ENFANT">Enfant</option>
             </select>
             <label value="ROLE_PARENT">Sélectionnez un profil</label>
           </div>
-
+          <div class="form-floating">
+            <input hidden
+              type="password"
+              class="form-control"
+              id="floatingPassword"
+              placeholder=""
+              name="password"
+              formControlName="passwordFc"
+              value="{{membreInfos.password}}"
+              [(ngModel)]="membreInfos.password"
+            />
+          </div>
           <button
             class="w-100 btn btn-lg btn-outline-success"
             type="submit"
-
           >Valider
           </button>
         </form>
