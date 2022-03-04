@@ -3,18 +3,14 @@
   height: 60px;
   margin: 0 auto;
   background: black;
-
 }
 
-.card {
-  min-height: 8px;
-  border: none;
-  overflow: hidden;
-  border-radius: 8px;
-  justify-content: center;
+.card-title{
+  text-align: center;
 }
 
-
-h3 {
-  font-size: small;
+.avatar{
+  width: 150px;
+  height: 170px;
+  border-radius: 20px;
 }

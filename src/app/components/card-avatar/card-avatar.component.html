@@ -1,13 +1,12 @@
-<div class="container mt-5 membre">
-  <div class="row d-flex justify-content-center">
-      <div class="col-md-auto">
-          <div class="card p-3 py-4 align-items">
-            <!-- récuperer couleur du back-->
-            <div class="text-center"><div class="rounded-circle"id="couleur"[style.background-color]="membre.couleur"></div></div>
-            <div class="text-center mt-3">
-              <h3 class="mt-2 mb-0">{{membre.prenom }}  {{membre.nom }}</h3>
-              </div>
-            </div>
-          </div>
+<div class="card m-1 p-1 avatar bg-light">
+
+  <div class="card-img-top">
+    <div class="rounded-circle"id="couleur"[style.background-color]="membre.couleur">
+    </div>
   </div>
+
+  <div class="card-body">
+    <h6 class="card-title flex-wrap d-flex flex-column border">{{membre.prenom }}  {{membre.nom }}</h6>
+  </div>
+
 </div>
