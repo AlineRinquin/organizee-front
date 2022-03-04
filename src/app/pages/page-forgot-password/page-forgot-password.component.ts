@@ -63,7 +63,7 @@ export class PageForgotPasswordComponent implements OnInit {
           })
         },
         error: err => {
-          this.alert={"type":"danger", "content":"Le mail a merdé, ou il n'y a personne ds la bdd !"};
+          this.alert={"type":"danger", "content":"Votre email est erroné"};
           this.isShow = true;
         },
         complete: () => console.log('DONE!')
