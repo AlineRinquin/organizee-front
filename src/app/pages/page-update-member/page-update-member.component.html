@@ -1,11 +1,112 @@
 <app-header></app-header>
-
-<div class="row">
-  <div class="col-md-auto">
-    <app-side-bar></app-side-bar>
-  </div>
-  <div class="col compte text-center">
-    <h1>Modifier ce membre</h1>
-    <main class="contenu-compte"></main>
+<app-side-bar></app-side-bar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-9 offset-2" id="main">
+      <h1 class="d-flex justify-content-center">Modifier profil</h1>
+      <div class="form-updateMember">
+        <form (ngSubmit)="onSubmit()" [formGroup]="updateMembreForm">
+          <div class="form-floating input">
+            <input
+              type="color"
+              class="form-control"
+              id="floatingInputcouleur"
+              placeholder=""
+              name="couleur"
+              formControlName="couleurFc"
+              value="{{membreInfos.couleur}}"
+              [(ngModel)]="membreInfos.couleur"
+            />
+          </div>
+          <label for="floatingInputcouleur" class="d-flex justify-content-center" >Choisissez une couleur</label>
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInputlastName"
+              placeholder=""
+              name="lastName"
+              formControlName="lastNameFc"
+              value="{{membreInfos.nom}}"
+              [(ngModel)]="membreInfos.nom"
+              />
+            <label for="floatingInputlastName">Nom</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInputfirstName"
+              placeholder=""
+              name="firstName"
+              formControlName="firstNameFc"
+              value="{{membreInfos.prenom}}"
+              [(ngModel)]="membreInfos.prenom"
+            />
+            <label for="floatingInputfirstName">Prénom</label>
+          </div>
+          <div class="form-floating ">
+            <input
+              type="date"
+              class="form-control"
+              id="floatingInputdateNaissance"
+              placeholder=""
+              name="dateNaissance"
+              formControlName="dateNaissanceFc"
+              value="{{membreInfos.dateNaissance}}"
+              [(ngModel)]="membreInfos.dateNaissance"
+            />
+            <label for="floatingInputdateNaissance"
+              >Date de naissance</label
+            >
+          </div>
+          <div class="form-floating">
+            <input
+              type="email"
+              class="form-control"
+              id="floatingInputemail"
+              placeholder=""
+              name="email"
+              formControlName="emailFc"
+              value="{{membreInfos.email}}"
+              [(ngModel)]="membreInfos.email"
+            />
+            <label for="floatingInputemail">Email</label>
+          </div>
+          <div class="form-floating select">
+            <select
+              class="form-control"
+              id="floatingInputRole"
+              placeholder=""
+              name="Role"
+              formControlName="roleFc"
+              value="{{membreInfos.roleList}}"
+              [(ngModel)]="membreInfos.roleList"
+            >
+              <option value="ROLE_PARENT">Adulte</option>
+              <option value="ROLE_ENFANT">Enfant</option>
+            </select>
+            <label value="ROLE_PARENT">Sélectionnez un profil</label>
+          </div>
+          <div class="form-floating">
+            <input hidden
+              type="password"
+              class="form-control"
+              id="floatingPassword"
+              placeholder=""
+              name="password"
+              formControlName="passwordFc"
+              value="{{membreInfos.password}}"
+              [(ngModel)]="membreInfos.password"
+            />
+          </div>
+          <button
+            class="w-100 btn btn-lg btn-outline-success"
+            type="submit"
+          >Valider
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

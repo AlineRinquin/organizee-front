@@ -3,9 +3,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Mail } from 'src/app/models/mail';
 import { Membre } from 'src/app/models/membre';
-import { AuthService } from 'src/app/services/auth.service';
 import { MailService } from 'src/app/services/mail.service';
 import { MembreService } from 'src/app/services/membre.service';
+import { TeamService } from 'src/app/services/team.service';
 
 @Component({
   selector: 'app-page-add-member',
@@ -13,12 +13,17 @@ import { MembreService } from 'src/app/services/membre.service';
   styleUrls: ['./page-add-member.component.scss']
 })
 export class PageAddMemberComponent implements OnInit {
-
   public addMemberForm: FormGroup;
+  alert: any;
+  isShow!: boolean;
+  currentTeam: any;
+
+
+
   constructor(
     private membreService: MembreService,
+    private teamService: TeamService,
     private mailService: MailService,
-    private authService: AuthService,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -26,7 +31,11 @@ export class PageAddMemberComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // *********************************pensser a changer group car déprécié********************************
+    /** Récuperer la team du membre connecté **/
+    this.teamService.getTeamById()?.subscribe((team) => {
+      this.currentTeam = team;
+    });
+    /** group est déprécié mais pas d'autres solutions sinon revoir la fonction confirmeValidator **/
     this.addMemberForm = this.fb.group(
       {
         firstNameFc: new FormControl('', [Validators.required]),
@@ -38,7 +47,7 @@ export class PageAddMemberComponent implements OnInit {
           Validators.email,
           Validators.required,
           Validators.pattern(/^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}/gim),
-        ]), // chercher une meilleure regex
+        ]),
         passwordFc: new FormControl('', [
           Validators.minLength(8),
           Validators.required,
@@ -55,8 +64,7 @@ export class PageAddMemberComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    console.log('value : ', this.addMemberForm.value);
-    console.log('form : ', this.addMemberForm);
+    const idValue = this.addMemberForm.value[''];
     const lastNameValue = this.addMemberForm.value['lastNameFc'];
     const firstNameValue = this.addMemberForm.value['firstNameFc'];
     const emailValue = this.addMemberForm.value['emailFc'];
@@ -68,6 +76,7 @@ export class PageAddMemberComponent implements OnInit {
 
 
     const membre: Membre = {
+      id: idValue,
       nom: lastNameValue,
       prenom: firstNameValue,
       email: emailValue,
@@ -89,17 +98,19 @@ export class PageAddMemberComponent implements OnInit {
 
 
     if (membre.email !== '' && membre.password !== '') {
-      this.membreService.addMembre(membre)?.subscribe((resp) => {
+      this.membreService.addMembre(membre)?.subscribe((_resp) => {
         this.mailService.envoiMailText(mail)?.subscribe((respMail) =>{
-          console.log("Mail envoyé");
+          return respMail
         })
         this.router.navigate(['compte']);
       });
     } else {
-      // affichage erreur
+      this.alert={"type":"danger", "content":"Le membre n'a pas été rajouté"};
+      this.isShow = true;
     }
   }
 
+  /** Méthode pour compare le mot de passe et la confirmation de mot de passe **/
   ConfirmedValidator(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];

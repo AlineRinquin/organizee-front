@@ -1,12 +1,12 @@
 <app-header></app-header>
-
+<app-side-bar></app-side-bar>
 <div class="container-fluid">
   <div class="row">
-    <app-side-bar></app-side-bar>
     <div class="col-9 offset-2" id="main">
+      <h1 class="d-flex justify-content-center">Ajouter un nouveau membre à {{currentTeam.nom}}</h1>
       <div class="form-addMember">
         <form (ngSubmit)="onSubmit()" [formGroup]="addMemberForm">
-          <div class="form-floating">
+          <div class="form-floating input">
             <input
               type="color"
               class="form-control"
@@ -16,6 +16,7 @@
               formControlName="couleurFc"
             />
           </div>
+          <label for="floatingInputcouleur" class="d-flex justify-content-center" >Choisissez une couleur</label>
           <div class="form-floating">
             <input
               type="text"
@@ -33,7 +34,7 @@
                   !addMemberForm.controls['lastNameFc'].valid
               }"
             />
-            <label for="floatingInputlastName">VOTRE NOM</label>
+            <label for="floatingInputlastName">Nom</label>
           </div>
           <div class="form-floating">
             <input
@@ -52,9 +53,9 @@
                   !addMemberForm.controls['firstNameFc'].valid
               }"
             />
-            <label for="floatingInputfirstName">VOTRE PRENOM</label>
+            <label for="floatingInputfirstName">Prénom</label>
           </div>
-          <div class="form-floating">
+          <div class="form-floating ">
             <input
               type="date"
               class="form-control"
@@ -72,7 +73,7 @@
               }"
             />
             <label for="floatingInputdateNaissance"
-              >VOTRE DATE DE NAISSANCE</label
+              >Date de naissance</label
             >
           </div>
           <div class="form-floating">
@@ -92,20 +93,7 @@
                   !addMemberForm.controls['emailFc'].valid
               }"
             />
-            <label for="floatingInputemail">Votre Email</label>
-          </div>
-          <div class="form-floating">
-            <select
-              class="form-control"
-              id="floatingInputRole"
-              placeholder=""
-              name="Role"
-              formControlName="roleFc"
-            >
-              <option value="ROLE_PARENT">Adulte</option>
-              <option value="ROLE_ENFANT">Enfant</option>
-            </select>
-            <label value="ROLE_PARENT">Sélectionner un profil</label>
+            <label for="floatingInputemail">Email</label>
           </div>
           <div class="form-floating">
             <input
@@ -124,7 +112,7 @@
                   !addMemberForm.controls['passwordFc'].valid
               }"
             />
-            <label for="floatingPassword">MOT DE PASSE</label>
+            <label for="floatingPassword">Mot de passe</label>
           </div>
           <div class="form-floating">
             <input
@@ -144,8 +132,21 @@
               }"
             />
             <label for="floatingPasswordConfirm"
-              >CONFIRMEZ VOTRE MOT DE PASSE</label
+              >Confirmez le mot de passe</label
             >
+          </div>
+          <div class="form-floating select">
+            <select
+              class="form-control"
+              id="floatingInputRole"
+              placeholder=""
+              name="Role"
+              formControlName="roleFc"
+            >
+              <option value="ROLE_PARENT">Adulte</option>
+              <option value="ROLE_ENFANT">Enfant</option>
+            </select>
+            <label value="ROLE_PARENT">Sélectionnez un profil</label>
           </div>
 
           <button
