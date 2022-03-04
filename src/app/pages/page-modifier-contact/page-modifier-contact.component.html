@@ -20,9 +20,9 @@
                         id="floatingInputlastName" 
                         placeholder="" 
                         name="lastName" 
-                        formControlName="lastNameFc" value= "{{ listContactInfo.nom }}">
+                        formControlName="lastNameFc" value= "{{ listContactInfo.nom }}"
+                        [(ngModel)]="listContactInfo.nom">
                 <label for="floatingInputlastName">Nom</label>
-
 
             </div>
             <div class="form-floating">
@@ -31,9 +31,9 @@
                         id="floatingInputfirstName" 
                         placeholder="" 
                         name="firstName" 
-                        formControlName="firstNameFc" value= "{{ listContactInfo.prenom }}">
+                        formControlName="firstNameFc" value= "{{ listContactInfo.prenom }}"
+                        [(ngModel)]="listContactInfo.prenom">
                 <label for="floatingInputfirstName">Prénom</label>
-
 
             </div>
             <div class="form-floating">
@@ -42,9 +42,9 @@
                         id="floatingInputTelephone" 
                         placeholder="" 
                         name="telephone" 
-                        formControlName="telephoneFc" value= "{{ listContactInfo.telephone }}">
+                        formControlName="telephoneFc" value= "{{ listContactInfo.telephone }}"
+                        [(ngModel)]="listContactInfo.telephone">
                 <label for="floatingInputfirstName">Téléphone</label>
-
 
             </div>
             <div class="form-floating">
@@ -53,10 +53,10 @@
                         id="floatingInput" 
                         placeholder="" 
                         name="email" 
-                        formControlName="emailFc" value= "{{ listContactInfo.email }}">
+                        formControlName="emailFc" value= "{{ listContactInfo.email }}"
+                        [(ngModel)]="listContactInfo.email">
                 <label for="floatingInput">Adresse email</label>
             </div>
-
 
             <div class="form-floating">
                 <input type="date" 
@@ -64,10 +64,11 @@
                         id="floatingInputdateNaissance" 
                         placeholder="" 
                         name="dateNaissance" 
-                        formControlName="dateNaissanceFc" value= "{{ listContactInfo.dateNaissance }}">
+                        formControlName="dateNaissanceFc" 
+                        value= "{{ listContactInfo.dateNaissance }}"
+                        [(ngModel)]="listContactInfo.dateNaissance">
                 <label for="floatingInputfirstName">Date de naissance</label>
             </div>
-
 
             <div class="form-floating">
                 <input type="text" 
@@ -75,7 +76,8 @@
                         id="floatingInputAdresse" 
                         placeholder="" 
                         name="adresse" 
-                        formControlName="adresseFc" value= "{{ listContactInfo.adresse }}">
+                        formControlName="adresseFc" value= "{{ listContactInfo.adresse }}"
+                        [(ngModel)]="listContactInfo.adresse">
                 <label for="floatingInputfirstName">Adresse</label>
             </div>
 
