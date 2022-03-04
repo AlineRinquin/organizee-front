@@ -3,7 +3,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-9 offset-2" id="main">
-      <h1 class="col-md-auto">{{currentTeam.nom}}</h1>
+      <h1 class="col-md-auto">{{ currentTeam.nom }}</h1>
       <div>
         <!-- Pour récupérer le membre connecté-->
         <div class="d-flex justify-content-center">
@@ -11,12 +11,13 @@
         </div>
         <div class="d-flex justify-content-center">
           <button
-            id = "bouton-ajout"
+            id="bouton-ajout"
             type="button"
             class="btn btn-primary btn-lg"
             routerLink="../ajout-membre"
             routerLinkActive="active-custom"
-          >Ajouter un membre
+          >
+            Ajouter un membre
           </button>
         </div>
       </div>
@@ -26,7 +27,7 @@
         <!-- cf. : https://angular.io/guide/built-in-directives#hosting-a-directive-without-a-dom-element-->
         <ng-container *ngFor="let membreData of listMembres">
           <!-- Condition dans ngIf mais une div à la place du ng-container pour le style-->
-          <div class="col"  *ngIf= "membreData.id != currentUser.id" >
+          <div class="col" *ngIf="membreData.id != currentUser.id">
             <app-card-member [membre]="membreData"> </app-card-member>
           </div>
         </ng-container>
