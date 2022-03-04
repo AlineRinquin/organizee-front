@@ -23,7 +23,7 @@ export class PageAgendaComponent implements AfterViewInit {
   constructor(private evenementService:EvenementService, private tokenService: TokenService) {
     this.isShow = false;
     this.alert = "";
-    this.debug = environment.debug;
+    this.debug = environment.debug; // Pour afficher ou pas les infos du token
   }
 
   get date(): DayPilot.Date {
@@ -34,6 +34,7 @@ export class PageAgendaComponent implements AfterViewInit {
     this.config.startDate = value;
   }
 
+  // config pour les option d'affichage du mini calendrier de navigation
   navigatorConfig: DayPilot.NavigatorConfig = {
     showMonths: 1,
     skipMonths: 1,
@@ -45,10 +46,11 @@ export class PageAgendaComponent implements AfterViewInit {
     titleHeight: 30
   };
 
+  // intialisation de events, pour accueillir les evenements
   events: DayPilot.EventData[] = [];
 
+  // methode pour fermer l'alert de message
   onClickCloseAlert(){
-    console.log('fermeture');
     this.isShow = ! this.isShow;
   }
 
@@ -62,12 +64,15 @@ export class PageAgendaComponent implements AfterViewInit {
   }
 
   // petite triche pour eviter la repetition du nom dans le RDV
+  // on split sur un retour chariot pour ne conserver que la premiere partie
+  // qui est le titre de l'evenement
   rdvSplit(rdv:any){
     let titleRDV = rdv.split('\r');
     console.log(titleRDV[0]);
     return titleRDV[0];
   }
 
+  // config des options du calendrier
   config: DayPilot.CalendarConfig = {
     startDate: DayPilot.Date.today(),
     locale: "fr-fr",
@@ -126,18 +131,7 @@ export class PageAgendaComponent implements AfterViewInit {
       Object.assign(event, {id: ""});
       Object.assign(event, {membre: {id:this.userId}});
       Object.assign(event, {team: {id:this.teamId}});
-      console.log("Event added: " + event);
-      // let data = dp.events;
-      // Object.keys(data).map(function(key, index) {
-      //   data[key] = {
-      //     barColor:data[key].membre.couleur,
-      //     //backColor:data[key].membre.couleur,
-      //     "id": data[key].id,
-      //     "start": data[key].start,
-      //     "end": data[key].end,
-      //     "text": data[key].text
-      //   };
-      // });
+      //console.log("Event added: " + event);
       this.evenementService.addEvenements(event).subscribe({
         next: result => {
           this.viewChange();
@@ -211,6 +205,7 @@ export class PageAgendaComponent implements AfterViewInit {
     }
   }
 
+  // petite fonction pour eclaircir la couleur du membre a l'affichage de son evenement
   adjust(color:string, amount:number) {
     return '#' + color.replace(/^#/, '').replace(/../g, color =>
       ('0' + Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
@@ -220,37 +215,23 @@ export class PageAgendaComponent implements AfterViewInit {
     var from = this.calendar.control.visibleStart();
     var to = this.calendar.control.visibleEnd();
 
-    console.log("viewChange(): " + from + " " + to);
-
-    // this.ds.getEvents(from, to).subscribe(result => {
-       //this.events = this.evenements;
-       this.evenementService.getEvenementsByIdTeam(this.teamId).subscribe((data: any) => {
-        // this.events = [{
-        //       "id": data[0].id,
-        //       "start": data[0].eventDebut,
-        //       "end": data[0].eventFin,
-        //       "text": data[0].libelle,
-        //       barColor: data[0].membre.couleur,
-        //       //cssClass: "toto"
-        //     }];
-        Object.keys(data).map((key, index) => {
-          data[key] = {
-            barColor:data[key].membre.couleur,
-            backColor: this.adjust(data[key].membre.couleur, 90),
-            id: data[key].id,
-            start: data[key].start,
-            end: data[key].end,
-            text: data[key].text.toUpperCase()+'\r('+data[key].membre.prenom+')',
-            tags : {
-              membre: data[key].membre.id
-            }
-          };
-        });
-        this.events = data;
-        console.log(data);
-        console.log(this.events);
+    // Récuperation des evenements d'une team
+    this.evenementService.getEvenementsByIdTeam(this.teamId).subscribe((data: any) => {
+      Object.keys(data).map((key, index) => {
+        data[key] = {
+          barColor:data[key].membre.couleur,
+          backColor: this.adjust(data[key].membre.couleur, 90),
+          id: data[key].id,
+          start: data[key].start,
+          end: data[key].end,
+          text: data[key].text.toUpperCase()+'\r('+data[key].membre.prenom+')',
+          tags : {membre: data[key].membre.id}
+        };
       });
-    // });
+      this.events = data;
+      console.log(data);
+      console.log(this.events);
+    });
   }
 
   navigatePrevious(event: MouseEvent): void {
