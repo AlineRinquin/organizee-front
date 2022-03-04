@@ -22,6 +22,7 @@ import { PageUpdateMemberComponent } from './pages/page-update-member/page-updat
 import { PageSupportComponent } from './pages/page-support/page-support.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthGuard } from './auth.guard';
+import { PageAjoutEvenementsComponent } from './pages/page-ajout-evenements/page-ajout-evenements.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'ajouter-contact', canActivate: [AuthGuard], component: PageAjoutContactComponent },
   { path: 'creation-team', canActivate: [AuthGuard], component: PageCreationTeamComponent },
   { path: 'footer', component: FooterComponent},
+  { path: 'ajout-evenement', canActivate: [AuthGuard], component: PageAjoutEvenementsComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
