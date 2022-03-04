@@ -44,6 +44,7 @@ import { CardAvatarComponent } from './components/card-avatar/card-avatar.compon
 import { HumeurComponent } from './components/humeur/humeur.component';
 import { DeconnexionComponent } from './components/deconnexion/deconnexion.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { PageAjoutEvenementsComponent } from './pages/page-ajout-evenements/page-ajout-evenements.component';
 registerLocaleData(localeFr)
 
 @NgModule({
@@ -84,7 +85,8 @@ registerLocaleData(localeFr)
     CardAvatarComponent,
     DeconnexionComponent,
     HumeurComponent,
-    AlertComponent
+    AlertComponent,
+    PageAjoutEvenementsComponent
   ],
   imports: [
     BrowserModule,
