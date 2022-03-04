@@ -5,7 +5,28 @@
     <app-side-bar></app-side-bar>
   </div>
   <div class="col compte text-center">
-    <h1>Supprimer ce membre</h1>
-    <main class="contenu-compte"></main>
+    <main class="contenu-compte">
+      <p class="d-flex justify-content-center">Êtes-vous sur de vouloir Supprimer ce compte ?</p>
+      <div class="d-flex justify-content-center">
+        <button
+            id = "bouton-ajout"
+            type="button"
+            class="btn btn-primary btn-lg bouton-non"
+            routerLink="../compte"
+            routerLinkActive="active-custom"
+          >Non, je ne souhaite pas supprimer ce compte
+        </button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button
+            id = "bouton-ajout"
+            type="button"
+            class="btn btn-primary btn-lg bouton-oui"
+
+
+          >Oui, je souhaite supprimer ce compte
+        </button>
+      </div>
+    </main>
   </div>
 </div>
