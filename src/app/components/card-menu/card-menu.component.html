@@ -99,6 +99,7 @@
                     class="form-control"
                     formControlName="dateMenuFc"
                     value="{{ menu.dateMenu }}"
+                    [(ngModel)]="menu.dateMenu"
                     placeholder="Date"
                     name="date"
                   />
@@ -107,6 +108,7 @@
                     class="form-control"
                     formControlName="repasMidiFc"
                     value="{{ menu.repasMidi }}"
+                    [(ngModel)]="menu.repasMidi"
                     placeholder="Repas du midi"
                     name="repasMidi"
                   />
@@ -115,6 +117,7 @@
                     class="form-control"
                     formControlName="repasSoirFc"
                     value="{{ menu.repasSoir }}"
+                    [(ngModel)]="menu.repasSoir"
                     placeholder="Repas du soir"
                     name="repasSoir"
                   />
