@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="row">
   <div class="col-md-auto">
-    <app-side-bar></app-side-bar>
+    <app-side-bar [backgroundColor]="'#5a1e63'"></app-side-bar>
   </div>
   <div class="ajoutContact-form text-center">
     <h3>Ajouter un contact</h3>
@@ -40,53 +40,6 @@
           />
           <label for="floatingInputfirstName">Prénom</label>
         </div>
-        <div class="form-floating">
-          <input
-            type="text"
-            class="form-control"
-            id="floatingInputTelephone"
-            placeholder=""
-            name="telephone"
-            formControlName="telephoneFc"
-          />
-          <label for="floatingInputfirstName">Téléphone</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder=""
-            name="email"
-            formControlName="emailFc"
-          />
-          <label for="floatingInput">Adresse email</label>
-        </div>
-
-        <div class="form-floating">
-          <input
-            type="date"
-            class="form-control"
-            id="floatingInputdateNaissance"
-            placeholder=""
-            name="dateNaissance"
-            formControlName="dateNaissanceFc"
-          />
-          <label for="floatingInputfirstName">Date de naissance</label>
-        </div>
-
-        <div class="form-floating">
-          <input
-            type="text"
-            class="form-control"
-            id="floatingInputAdresse"
-            placeholder=""
-            name="adresse"
-            formControlName="adresseFc"
-          />
-          <label for="floatingInputfirstName">Adresse</label>
-        </div>
-
         <div class="form-floating">
           <input
             type="text"

@@ -2,8 +2,14 @@
 
 <div class="row">
   <div class="col-md-auto">
-    <app-side-bar></app-side-bar>
+    <app-side-bar [backgroundColor]="'#5a1e63'"></app-side-bar>
   </div>
+
+  <app-alert
+  *ngIf="isShow"
+  [alert]="alert"
+  (eventClose)="onClickCloseAlert()"
+></app-alert>
 
   <div class="col compte text-center py-3 border">
     <div>
@@ -34,7 +40,7 @@
       <div class="row justify-content-evenly">
         <div class="col-4">
           <div
-            class="row my-3 d-flex justify-content-center flex-row"
+            class="row my-3 d-flex justify-content-center flex-row pointer"
             *ngFor="let personne of listContact"
             (click)="onClick(personne)"
           >
