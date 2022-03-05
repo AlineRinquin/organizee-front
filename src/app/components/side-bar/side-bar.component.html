@@ -1,9 +1,14 @@
-<nav class="wrapper  md-auto position-fixed ">
+<nav class="wrapper  md-auto position-fixed" [ngStyle]="{'background-color':backgroundColor}">
   <ul class="nav flex-column" id="sticky-sidebar">
     <li class="nav-item" ngbNavItem="maTeam" >
-      <a routerLink="../compte" routerLinkActive="active-custom" class="nav-link">
+      <a routerLink="/compte" routerLinkActive="active-custom" class="nav-link">
         <i class="bi bi-people-fill"></i>
         Ma Team</a>
+    </li>
+    <li class="nav-item" ngbNavItem="maTeam" >
+      <a routerLink="/tableau-de-bord" routerLinkActive="active-custom" class="nav-link">
+        <i class="bi bi-clipboard-data"></i>
+        Dashboard</a>
     </li>
     <li class="nav-item">
       <a routerLink="/repertoire" routerLinkActive="active-custom" class="nav-link">
@@ -11,17 +16,17 @@
         Répertoire</a>
     </li>
     <li class="nav-item">
-      <a routerLink="../to-do-list" routerLinkActive="active-custom" class="nav-link">
+      <a routerLink="/to-do-list" routerLinkActive="active-custom" class="nav-link">
         <i class="bi bi-check2-square"></i>
         To-Do-List</a>
     </li>
     <li class="nav-item">
-      <a routerLink="../menu" routerLinkActive="active-custom" class="nav-link">
+      <a routerLink="/menu" routerLinkActive="active-custom" class="nav-link">
         <i class='fas fa-pizza-slice'></i>
         Menus</a>
     </li>
     <li class="nav-item">
-      <a routerLink="../agenda" routerLinkActive="active-custom" class="nav-link">
+      <a routerLink="/agenda" routerLinkActive="active-custom" class="nav-link">
         <i class="bi bi-calendar-event"></i>
         Agenda</a>
     </li>

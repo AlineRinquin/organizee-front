@@ -19,6 +19,8 @@ import {
 })
 export class CardMenuComponent implements OnInit {
 closeResult = '';
+alert : any;
+isShow : boolean;
 public listMenus:any[];
 public menuId : any;
 public menuForm : FormGroup;
@@ -35,30 +37,21 @@ public upMenuForm : FormGroup;
     this.listMenus=[];
     this.menuForm = new FormGroup({});
     this.upMenuForm = new FormGroup({});
-    this.upMenuForm = this.initForm();
-     }
-
-//Méthode qui initialise les champs du formulaire avec les infos de la BDD
-  private initForm(menu?: Menu): FormGroup {
-    return this.fb.group({
-      dateMenu: [menu ? menu.dateMenu : ''],
-      repasMidi: [menu ? menu.repasMidi : ''],
-      repasSoir: [menu ? menu.repasSoir : ''],
-
-    });
+    this.isShow = false;
   }
 
-  //delete d'un menu
+
+  //delete d'un menu - fait appel au service dédié MenuService qui gère les observables
   deleteMenu(id_menu : number): void {
-  // window.alert("Le menu a bien été supprimé!")
-this.menusService.deleteMenu(id_menu)?.subscribe((resp) => {
- // this.router.navigate(['menu']);
-  window.location.reload();
+    this.alert={"type":"danger", "content":"Le menu a bien été supprimé"};
+    this.isShow = true;
+    this.menusService.deleteMenu(id_menu)?.subscribe((resp) => {
+    window.location.reload();
 });
 
 }
 
-//updateMenu
+//updateMenu - fait appel au service dédié MenuService qui gère les observables
 updateMenu(id_menu : number): void {
 
     const dateValue = this.upMenuForm.value['dateMenuFc'];
@@ -83,14 +76,14 @@ updateMenu(id_menu : number): void {
 
 
 
-//ajout d'un menu
+//ajout d'un menu - fait appel au service dédié MenuService qui gère les observables
 saveMenu(): void {
 
     const dateValue = this.menuForm.value['dateMenuFc'];
     const repasMidiValue = this.menuForm.value['repasMidiFc'];
     const repasSoirValue = this.menuForm.value['repasSoirFc'];
 
-
+//permet de construire l'objet à passer en base
     const menu: Menu = {
       dateMenu: dateValue,
       repasMidi: repasMidiValue,
@@ -102,7 +95,7 @@ saveMenu(): void {
 
     console.log(menu.dateMenu);
       this.menusService.addMenu(menu)?.subscribe((resp) => {
-        window.location.reload();
+        window.location.reload(); //rechargement de la page pour affichage des modifications
 
       });
     } else {
@@ -113,10 +106,10 @@ saveMenu(): void {
 
 
   ngOnInit(): void {
-//affichage des menus d'une team
+//affichage des menus d'une team - fait appel au service dédié MenuService qui gère les observables
 this.menusService.getMenu()?.subscribe((listMenus: any[])=>{
   console.log(listMenus);
-  this.listMenus=listMenus;
+  this.listMenus=listMenus; //socke les objets récupérés de la base
 
 });
 
@@ -129,7 +122,6 @@ this.menusService.getMenu()?.subscribe((listMenus: any[])=>{
   }
 );
 
-
   this.upMenuForm = this.fb.group(
   {
     dateMenuFc: new FormControl('',[Validators.required]),
@@ -141,7 +133,7 @@ this.menusService.getMenu()?.subscribe((listMenus: any[])=>{
 
 
   }
-
+//gestion de la fenêtre modale, open au click
 open(content: any) {
     this.modalService.open(content,
 {ariaLabelledBy: 'menu'}).result.then((result)=> {
@@ -152,6 +144,7 @@ open(content: any) {
     });
   }
 
+  //gestion de la fenêtre modale, mode de fermeture
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -160,6 +153,11 @@ open(content: any) {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+  //fermeture du message d'alerte quand un menu est supprimé
+    onClickCloseAlert(){
+    this.isShow = ! this.isShow;
   }
 }
 

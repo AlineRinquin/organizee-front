@@ -1,15 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
 import { Membre } from 'src/app/models/membre';
 import { MailService } from 'src/app/services/mail.service';
 import { Mail } from 'src/app/models/mail';
+
 
 @Component({
   selector: 'app-page-forgot-password',
@@ -20,7 +15,7 @@ export class PageForgotPasswordComponent implements OnInit {
 
   alert : any;
   isShow : boolean;
-  
+
   constructor(private authService: AuthService, private router: Router, private mailService: MailService,) {
     this.alert = "";
     this.isShow = false;
@@ -30,6 +25,7 @@ export class PageForgotPasswordComponent implements OnInit {
 
     public onSubmit(submittedForm: any): void {
       const membre: Membre = {
+        id: "",
         nom: "",
         prenom: "",
         dateNaissance: new Date(),
@@ -41,9 +37,7 @@ export class PageForgotPasswordComponent implements OnInit {
       };
 
     console.log(membre);
-    // this.authService.forgotPassword(membre).subscribe((resp) => {
-    //   console.log('----'+resp)
-    // });
+
 
     this.authService.forgotPassword(membre).subscribe(
       {
@@ -65,12 +59,12 @@ export class PageForgotPasswordComponent implements OnInit {
           })
         },
         error: err => {
-          this.alert={"type":"danger", "content":"Le mail a merdé, ou il n'y a personne ds la bdd !"};
+          this.alert={"type":"danger", "content":"Votre email est erroné"};
           this.isShow = true;
         },
         complete: () => console.log('DONE!')
       }
-    ); 
+    );
 
 
 

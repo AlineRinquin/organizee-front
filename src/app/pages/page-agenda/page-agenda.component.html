@@ -1,7 +1,11 @@
 <app-header></app-header>
 <app-side-bar></app-side-bar>
 
-<app-alert *ngIf="isShow" [alert]="alert" (eventClose)="onClickCloseAlert();"></app-alert>
+<app-alert
+  *ngIf="isShow"
+  [alert]="alert"
+  (eventClose)="onClickCloseAlert()"
+></app-alert>
 
 <!-- <div
   class="alert alert-{{ alert.type }}"
@@ -59,14 +63,16 @@
             (click)="navigateNext($event)"
             >Next</a
           >
-          
+
           <!-- DEBUT : Pour le debugage -->
-          <span *ngIf="debug">team : {{ teamId }} - user: {{ userId }} - role: {{ role }}</span>
+          <span *ngIf="debug"
+            >team : {{ teamId }} - user: {{ userId }} - role: {{ role }}</span
+          >
           <!-- FIN : Pour le debugage -->
 
           <span style="float: right"
             ><a
-              href="#"
+              routerLink="/ajout-evenement"
               class="btn btn-sm btn-primary"
               style="margin-right: 5px"
               >Ajouter un évènement</a

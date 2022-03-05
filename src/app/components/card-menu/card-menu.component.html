@@ -58,6 +58,11 @@
 </button>
 
 <div class="container mt-5 menu">
+  <app-alert
+    *ngIf="isShow"
+    [alert]="alert"
+    (eventClose)="onClickCloseAlert()"
+  ></app-alert>
   <div class="row d-flex justify-content-center">
     <div class="col-md-auto" *ngFor="let menu of listMenus">
       <div class="card p-3 py-4 align-items" style="width: 14rem">
@@ -94,6 +99,7 @@
                     class="form-control"
                     formControlName="dateMenuFc"
                     value="{{ menu.dateMenu }}"
+                    [(ngModel)]="menu.dateMenu"
                     placeholder="Date"
                     name="date"
                   />
@@ -102,6 +108,7 @@
                     class="form-control"
                     formControlName="repasMidiFc"
                     value="{{ menu.repasMidi }}"
+                    [(ngModel)]="menu.repasMidi"
                     placeholder="Repas du midi"
                     name="repasMidi"
                   />
@@ -110,6 +117,7 @@
                     class="form-control"
                     formControlName="repasSoirFc"
                     value="{{ menu.repasSoir }}"
+                    [(ngModel)]="menu.repasSoir"
                     placeholder="Repas du soir"
                     name="repasSoir"
                   />

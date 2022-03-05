@@ -19,7 +19,7 @@ apiUrl: string;
     this.apiUrl = environment.apiUrl;
   }
 
-    //on affiche les menus d'une team
+    //on affiche les menus d'une team - on récupère l'id de la team dans le token
   getMenu(): Observable<any> | void {
     const teamId = this.tokenService.getCurrentTeamId();
     if (teamId){
@@ -33,6 +33,7 @@ apiUrl: string;
     return this.http.get(`${this.apiUrl}/menus/` + id);
   }
 
+  //permet d'ajouter un menu et de lui attribuer l'id de la bonne team
   addMenu(menu: Menu): Observable<any> | void {
     console.log(menu);
     const teamId = this.tokenService.getCurrentTeamId();
@@ -44,11 +45,12 @@ apiUrl: string;
 
   }
 
+  //suppression d'un menu
   deleteMenu(id:number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/menus/delete/${id}`, {responseType:"text"});
   }
 
-
+//modification d'un menu - avec id du menu et id de la team
   updateMenu(menu: Menu, id:number): Observable<any> | void {
     const teamId = this.tokenService.getCurrentTeamId();
     if (teamId){

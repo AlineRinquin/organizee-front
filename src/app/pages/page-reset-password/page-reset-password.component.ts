@@ -36,16 +36,6 @@ export class PageResetPasswordComponent implements OnInit {
     );
   }
 
-  // public onSubmit(submittedForm: any): void {
-  //   console.log(submittedForm.form.value);
-  //   const password = submittedForm.form.value['password'];
-  //   console.log(email);
-  //   this.authService.resetPassword(email, password).subscribe((resp: any) => {
-  //     window.alert("Votre mot de passe est bien ré-initialisé !")
-  //     this.router.navigate(['accueil']);
-
-  //   });
-  // }
 
   public onSubmit(): void {
     console.log('value : ', this.resetForm.value);
@@ -54,6 +44,7 @@ export class PageResetPasswordComponent implements OnInit {
     const passwordConfirmValue = this.resetForm.value['passwordConfirmFc'];
 
     const membre: Membre = {
+      id: "",
       nom: "",
       prenom: "",
       dateNaissance: new Date(),

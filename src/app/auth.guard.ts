@@ -19,6 +19,7 @@ export class AuthGuard implements CanActivate {
     this.tokenKey = environment.tokenKey;
   }
 
+  //s'il n'y a pas de token, le user ne peut pas naviguer sur les url où cette option est activée
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -35,20 +36,17 @@ export class AuthGuard implements CanActivate {
       console.log('decodedToken : ', decodedToken);
 
       if (decodedToken.exp) {
-        console.log("Date d'exp decodedToken : ", decodedToken.exp);
         const dateExp = new Date(decodedToken.exp * 1000);
         if (new Date() >= dateExp) {
-          // le token a expiré, je n'autorise pas l'accès
+          // le token a expiré, je n'autorise pas l'accès et je redirige pour connexion
           this.router.navigate(['accueil']);
           return false;
         }
       }
-
-      console.log("C'est ok ! ");
       return true;
     } else {
       console.log('You shall not pass !!!!');
-      this.router.navigate(['accueil']); // redirection de notre utilisateur vers une url de notre application (dans notre code TS)
+      this.router.navigate(['accueil']);
       return false;
     }
   }

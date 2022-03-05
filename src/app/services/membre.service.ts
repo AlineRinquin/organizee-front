@@ -49,7 +49,12 @@ export class MembreService {
     return this.http.delete(`${this.apiUrl}/membres/delete/1`);
   }
 
-  updateMembre(membre: Membre): Observable<any> {
-    return this.http.put(`${this.apiUrl}/membres/update/1`, membre);
-  }
+  updateMembre(membre: Membre): Observable<any> | void {
+    const teamId = this.tokenService.getCurrentTeamId();
+    if (teamId){
+    return this.http.put(`${this.apiUrl}/membres/update/${teamId}/${membre.id}`, membre);
+  }else {
+      this.router.navigate(['accueil']);
+    }
+}
 }

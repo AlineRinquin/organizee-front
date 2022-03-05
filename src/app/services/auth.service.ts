@@ -19,6 +19,7 @@ export class AuthService {
     this.tokenKey = environment.tokenKey;
   }
 
+  //methode pour s'inscrire - on passe l'objet en entier
   signup(membre: Membre): Observable<any> {
     console.log(membre);
 
@@ -26,17 +27,15 @@ export class AuthService {
 
   }
 
-
+//methode pour se connecter - on passe id et pwd
   signin(email: string, password: string): Observable<any> {
     const body = {
       email: email,
       password: password,
     };
 
-    console.log('Mon body : ', body);
     return this.http.post(`${this.apiUrl}/membres/sign-in`, body).pipe(
       map((x: any) => {
-        console.log('Service : ', x.token);
         localStorage.setItem(this.tokenKey, x.token);
         return x; // permet de renvoyer la réponse à l'initiateur (page Signin) après le traitement du map
       })
@@ -44,10 +43,12 @@ export class AuthService {
 
   }
 
+  //permet d'envoyer un mail à l'utilisateur pour qu'il change son pwd
   forgotPassword(membre: Membre): Observable<any> {
      return this.http.post(`${this.apiUrl}/membres/forgot-password`, membre, {responseType: "text"});
   }
 
+  //permet à l'utilisateur de changer son pwd
   resetPassword(membre: Membre, uuid:string): Observable<any> {
     console.log('--'+uuid+' / '+membre);
    return this.http.put(`${this.apiUrl}/membres/reset-password/${uuid}`, membre);

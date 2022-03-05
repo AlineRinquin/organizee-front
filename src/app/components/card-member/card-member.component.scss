@@ -7,7 +7,7 @@
 }
 
 .card {
-  min-height: 22rem;
+  min-height: 14rem;
   border: none;
   position: relative;
   overflow: hidden;
@@ -22,6 +22,7 @@
 
 .buttons button:nth-child(1) {
   margin-top: 5px;
+  margin-right: 5px;
   border: 1px solid #7879F1 !important;
   color: #7879F1;
   height: 40px;
@@ -30,6 +31,7 @@
 
 .buttons button:nth-child(1):hover {
   margin-top: 5px;
+  margin-right: 5px;
   border: 1px solid #7879F1 !important;
   color: #fff;
   height: 40px;

@@ -40,14 +40,15 @@ export class ToDoListComponent implements OnInit {
     this.idTodo = 4;
     this.todoTitle = '';
   }
-  //supprimer la todoList
+  //supprimer la todoList en fonction de son id
   deleteTodo(id: number): void {
+    window.alert('La to-do-List a bien été supprimé!');
     this.TodoService.deleteTodoById(id).subscribe((resp) => {
       window.location.reload();
     });
   }
-  //ajouter tache
 
+  //ajouter tache par l'id de son parent todoList
   addTache(idTodoList: number) {
     //idTodoList id que la todoList que l'on récupère
     console.log(idTodoList);
@@ -58,9 +59,13 @@ export class ToDoListComponent implements OnInit {
       editing: false,
     };
     console.log(this.tache);
-    this.TodoService.addTache(tache, idTodoList).subscribe((resp) => {
-      window.location.reload();
-    });
+    if (this.todoTitle != '') {
+      this.TodoService.addTache(tache, idTodoList).subscribe((resp) => {
+        window.location.reload();
+      });
+    } else {
+      window.alert('Il faut saisir du texte'); // sinon msg d'erreur
+    }
   }
 
   //modifier le titre de la to-do-list
@@ -70,13 +75,13 @@ export class ToDoListComponent implements OnInit {
     });
   }
 
-  //modifier par l'input
+  //modifier la tâche par l'input
   modifier(tache: Tache): void {
     this.beforeEditCache = tache.texte;
     tache.editing = true;
   }
 
-  // ajouter la modification dans la liste
+  // modifier une tâche validation de l'input
   doneEdit(tache: Tache): void {
     if (tache.texte.trim().length === 0) {
       tache.texte = this.beforeEditCache;
@@ -110,12 +115,6 @@ export class ToDoListComponent implements OnInit {
   //Cocher toutes les tâches de la liste
   listComplete(): boolean {
     return this.todo.taches.filter((tache: Tache) => tache).length > 0;
-  }
-
-  //Effacer la to do list
-
-  effacerList(): void {
-    //this.todo = [];
   }
 
   //cocher toutes les cases de la todoList

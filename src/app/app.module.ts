@@ -23,10 +23,8 @@ import { MeteoComponent } from './components/meteo/meteo.component';
 import { CalendrierComponent } from './components/calendrier/calendrier.component';
 import { CardMemberComponent } from './components/card-member/card-member.component';
 import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
-import { TacheComponent } from './components/tache/tache.component';
 import { CardMenuComponent } from './components/card-menu/card-menu.component';
 import { FicheContactComponent } from './components/fiche-contact/fiche-contact.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
 import { CreneauComponent } from './components/creneau/creneau.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -35,8 +33,6 @@ import { PageModifierContactComponent } from './pages/page-modifier-contact/page
 import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
 import { FooterComponent } from './components/footer/footer.component';
-import { PageDeleteAccountComponent } from './pages/page-delete-account/page-delete-account.component';
-import { PageUpdateAccountComponent } from './pages/page-update-account/page-update-account.component';
 import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
@@ -44,6 +40,7 @@ import { CardAvatarComponent } from './components/card-avatar/card-avatar.compon
 import { HumeurComponent } from './components/humeur/humeur.component';
 import { DeconnexionComponent } from './components/deconnexion/deconnexion.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { PageAjoutEvenementsComponent } from './pages/page-ajout-evenements/page-ajout-evenements.component';
 registerLocaleData(localeFr)
 
 @NgModule({
@@ -70,21 +67,18 @@ registerLocaleData(localeFr)
     CalendrierComponent,
     CardMemberComponent,
     ToDoListComponent,
-    TacheComponent,
     CardMenuComponent,
     FicheContactComponent,
-    PaginationComponent,
     CreneauComponent,
     PageAjoutContactComponent,
     PageModifierContactComponent,
     PageCreationTeamComponent,
     FooterComponent,
-    PageDeleteAccountComponent,
-    PageUpdateAccountComponent,
     CardAvatarComponent,
     DeconnexionComponent,
     HumeurComponent,
-    AlertComponent
+    AlertComponent,
+    PageAjoutEvenementsComponent
   ],
   imports: [
     BrowserModule,

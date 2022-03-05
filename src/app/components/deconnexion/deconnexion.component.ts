@@ -16,7 +16,7 @@ export class DeconnexionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+//au click on fait appel au ServiceToken pour supprimer le token et on redirige l'utilisateur
   onClickDeco(){
     this.tokenService.eraseToken();
     this.router.navigate(['accueil']);
