@@ -24,6 +24,7 @@ export class FicheContactComponent implements OnInit {
     }
   }
 
+  // supprime le contact
   onClickDelete(numPerson: number){
     window.alert("Le contact à bien été supprimé!")
     this.clickDelete.emit(numPerson);

@@ -63,7 +63,7 @@ export class PageAjoutContactComponent implements OnInit {
       email: emailValue,
       dateNaissance: dateNaissanceValue,
       adresse: adresseValue,
-      team: { id: teamId }, // changer l'id quand la personne est logé => recuperer l'id de la team du membre
+      team: { id: teamId }, 
     };
 
     if (contact.nom !== '') {

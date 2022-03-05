@@ -11,7 +11,8 @@
             
             <div class="form-floating">
             <input type="color" class="form-control" id="floatingInputcouleur" placeholder="" name="couleur"
-            formControlName="couleurFc" value= "{{ listContactInfo.couleur }}">
+            formControlName="couleurFc" value= "{{ listContactInfo.couleur }}"
+            [(ngModel)]="listContactInfo.couleur">
             </div>
 
             <div class="form-floating">
@@ -83,7 +84,7 @@
 
             <button class="w-100 btn btn-lg btn-secondary" 
                     type="submit" 
-                    [disabled]="modifContactForm.invalid">Valider</button>
+                    >Valider</button>
 
         </form>
     </main>
