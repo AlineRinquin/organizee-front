@@ -27,20 +27,24 @@ export class PageAjoutEvenementsComponent implements OnInit {
     this.teamId = this.tokenService.getCurrentTeamId();
     
     this.eventForm = new FormGroup({
-      startFc : new FormControl(''),
-      endFc : new FormControl(''),
+      startDateFc : new FormControl(''),
+      startHourFc : new FormControl(''),
+      endDateFc : new FormControl(''),
+      endHourFc : new FormControl(''),
       textFc : new FormControl('', [ Validators.required])
     })
   }
 
   public onSubmit(): void {
-    const startValue = this.eventForm.value['startFc'];
-    const endValue = this.eventForm.value['endFc'];
+    const startDateValue = this.eventForm.value['startDateFc'];
+    const startHourValue = this.eventForm.value['startHourFc'];
+    const endDateValue = this.eventForm.value['endDateFc'];
+    const endHourValue = this.eventForm.value['endHourFc'];
     const textValue = this.eventForm.value['textFc'];
 
     const event = {
-      start: startValue,
-      end: endValue,
+      start: startDateValue+'T'+startHourValue+':00',
+      end: endDateValue+'T'+endHourValue+':00',
       text: textValue,
       id:"",
       membre: {id:this.userId},
