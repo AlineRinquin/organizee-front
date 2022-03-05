@@ -5,13 +5,7 @@
     <app-side-bar [backgroundColor]="'#5a1e63'"></app-side-bar>
   </div>
 
-  <app-alert
-  *ngIf="isShow"
-  [alert]="alert"
-  (eventClose)="onClickCloseAlert()"
-></app-alert>
-
-  <div class="col compte text-center py-3 border">
+  <div class="col compte text-center py-3">
     <div>
       <button
         *ngIf="parent" 
@@ -64,4 +58,6 @@
       </div>
     </div>
   </div>
+
+  <app-footer></app-footer>
 </div>
