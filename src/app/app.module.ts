@@ -41,6 +41,7 @@ import { HumeurComponent } from './components/humeur/humeur.component';
 import { DeconnexionComponent } from './components/deconnexion/deconnexion.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { PageAjoutEvenementsComponent } from './pages/page-ajout-evenements/page-ajout-evenements.component';
+import { PageSupportComponent } from './pages/page-support/page-support.component';
 registerLocaleData(localeFr)
 
 @NgModule({
@@ -78,7 +79,8 @@ registerLocaleData(localeFr)
     DeconnexionComponent,
     HumeurComponent,
     AlertComponent,
-    PageAjoutEvenementsComponent
+    PageAjoutEvenementsComponent, 
+    PageSupportComponent
   ],
   imports: [
     BrowserModule,
