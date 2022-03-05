@@ -10,14 +10,10 @@ export class FicheContactComponent implements OnInit {
   @Input() personne: any;
   @Output() clickDelete = new EventEmitter();
   parent: boolean;
-  isShow: boolean;
-  alert:any;
 
 
   constructor(private tokenService: TokenService) {
     this.parent = false;
-    this.isShow = false;
-    this.alert = "";
   }
 
   ngOnInit(): void {
@@ -30,8 +26,7 @@ export class FicheContactComponent implements OnInit {
 
   // supprime le contact
   onClickDelete(numPerson: number){
-    this.alert={"type":"succes", "content":"le contact a été supprimé mother fucker!!!!!!!!!"};
-    this.isShow = true;
+    window.alert("Le contact à bien été supprimé!")
     this.clickDelete.emit(numPerson);
   }
 }

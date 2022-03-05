@@ -17,9 +17,6 @@ export class PageRepertoireComponent implements OnInit {
   keyword: any;
   openDetails: any;
   parent: boolean;
-  isShow: boolean;
-  alert:any;
-  
 
   constructor(
     private repertoireService: RepertoireService,
@@ -31,8 +28,6 @@ export class PageRepertoireComponent implements OnInit {
     this.listFull = [];
     this.listContactInfo = '';
     this.parent = false;
-    this.isShow = false;
-    this.alert = "";
   }
 
   ngOnInit(): void {
@@ -50,7 +45,7 @@ export class PageRepertoireComponent implements OnInit {
     });
   }
 
-  // Méthode pour récuper ce qui est saisi dans l'input pour effectuer une recherche
+  // Méthode pour récuper ce qui est saisi dans l'input
   onSearchChange(prenom: string): void {
     this.keyword = prenom;
     if (prenom == '') {
@@ -78,20 +73,12 @@ export class PageRepertoireComponent implements OnInit {
   onClickDelete(contactId: number){
     this.repertoireService.deleteContact(contactId).subscribe((resp) => {
       if(contactId) {
-        this.alert={"type":"succes", "content":"le contact a été supprimé mother fucker!!!!!!!!!"};
-        this.isShow = true;
         this.listContact.forEach(contactId => console.log(contactId))
       }else{
-        this.alert={"type":"danger", "content":"le contact n'a pas été supprimé"};
-        this.isShow = true;
+        window.alert("Le contact ne peut pas être supprimé!")
       }
       this.router.navigate(['repertoire/']);
     });
     window.location.reload();
   }
-
-    // methode pour fermer l'alert de message
-    onClickCloseAlert(){
-      this.isShow = ! this.isShow;
-    }
 }
