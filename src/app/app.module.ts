@@ -23,7 +23,6 @@ import { MeteoComponent } from './components/meteo/meteo.component';
 import { CalendrierComponent } from './components/calendrier/calendrier.component';
 import { CardMemberComponent } from './components/card-member/card-member.component';
 import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
-import { TacheComponent } from './components/tache/tache.component';
 import { CardMenuComponent } from './components/card-menu/card-menu.component';
 import { FicheContactComponent } from './components/fiche-contact/fiche-contact.component';
 import { CreneauComponent } from './components/creneau/creneau.component';
@@ -68,7 +67,6 @@ registerLocaleData(localeFr)
     CalendrierComponent,
     CardMemberComponent,
     ToDoListComponent,
-    TacheComponent,
     CardMenuComponent,
     FicheContactComponent,
     CreneauComponent,
