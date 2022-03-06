@@ -58,7 +58,7 @@ export class MembreService {
     }
 }
 
-updateHumeur(numero : number) : Observable<any> | void {
+updateHumeur(numero : any) : Observable<any> | void {
   const userId = this.tokenService.getCurrentMembreId();
   if (userId){
   return this.http.put(`${this.apiUrl}/membres/update/smiley/${userId}`, numero);

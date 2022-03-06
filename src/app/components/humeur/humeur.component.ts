@@ -31,18 +31,18 @@ alert: any;
     const userId = this.tokenService.getCurrentMembreId();
     this.membreService.getMembreId(userId).subscribe({
       next: result => {
-    this.monHumeurTitle= [this.tabHumeur[result.smiley].title];
-    this.monHumeurLien= [this.tabHumeur[result.smiley].lien];
+    //this.monHumeurTitle= [this.tabHumeur[result.smiley].title];
+    this.monHumeurLien= result.smiley;
      //  console.log("resultat smiley ", result.smiley);
       }
     })
    }
 
-onChoixHumeur(numero: number){
+onChoixHumeur(numero: any){
  this.monHumeurTitle= [this.tabHumeur[numero].title];
  this.monHumeurLien= [this.tabHumeur[numero].lien];
 
- this.membreService.updateHumeur(numero)?.subscribe(
+ this.membreService.updateHumeur(this.tabHumeur[numero].lien)?.subscribe(
   {
     next: result => {
       this.alert={"type":"success", "content":"L'humeur a bien été modifiée"};
