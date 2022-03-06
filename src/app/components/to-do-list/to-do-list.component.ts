@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Tache } from 'src/app/models/tache';
 import { ToDoList } from 'src/app/models/to-do-list';
 import { TodoService } from 'src/app/services/todo.service';
-import { TodoList } from 'src/app/todo-list';
+
 
 @Component({
   selector: 'app-to-do-list',
@@ -13,7 +13,6 @@ import { TodoList } from 'src/app/todo-list';
 export class ToDoListComponent implements OnInit {
   @Input() todo!: ToDoList;
   public beforeEditCache: string;
-  //public todos: ToDoList[];
   public todoTitle: string;
   public idTodo: number;
   public filter: string;
@@ -24,7 +23,6 @@ export class ToDoListComponent implements OnInit {
 
   constructor(private TodoService: TodoService, private router: Router) {
     this.beforeEditCache = '';
-    //this.todos = [];
     this.todoTitle = '';
     this.idTodo = 0;
     this.filter = '';
@@ -37,8 +35,10 @@ export class ToDoListComponent implements OnInit {
     this.beforeEditCache = '';
     this.casesRestantes = true;
     this.filter = 'tous';
-    this.idTodo = 4;
     this.todoTitle = '';
+    if (this.toDoRest()===0){
+      this.masterSelected=true;
+    }
   }
   //supprimer la todoList en fonction de son id
   deleteTodo(id: number): void {
@@ -81,7 +81,7 @@ export class ToDoListComponent implements OnInit {
     tache.editing = true;
   }
 
-  // modifier une tâche validation de l'input
+  // modifier une tâche validation de l'input + update check
   doneEdit(tache: Tache): void {
     if (tache.texte.trim().length === 0) {
       tache.texte = this.beforeEditCache;
@@ -112,17 +112,21 @@ export class ToDoListComponent implements OnInit {
     return this.todo.taches.filter((tache: Tache) => !tache.etat).length;
   }
 
-  //Cocher toutes les tâches de la liste
+  //Vérifie si toutes les tâches de la liste sont cochées
   listComplete(): boolean {
     return this.todo.taches.filter((tache: Tache) => tache).length > 0;
   }
 
-  //cocher toutes les cases de la todoList
+  //cocher/décoche les éléments à partir de la case checkAll
   cocherAllTodoList(): void {
     for (var i = 0; i < this.todo.taches.length; i++) {
       this.todo.taches[i].etat = this.masterSelected;
+      this.TodoService.updateTache(this.todo.taches[i]).subscribe((resp) => {
+        console.log(this.todo.taches[i]);
+
+      });
     }
-    this.cocherAllTodoList();
+    //this.cocherAllTodoList();
   }
 
   casesQuiRestes(): boolean {
