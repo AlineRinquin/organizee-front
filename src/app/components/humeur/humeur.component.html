@@ -2,7 +2,12 @@
 <div>
 
     <h2>Mon humeur :</h2>
-    
+
+  <app-alert
+  *ngIf="isShow"
+  [alert]="alert"
+  (eventClose)="onClickCloseAlert()"
+></app-alert>
     
     
     
