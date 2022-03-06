@@ -4,7 +4,6 @@ import { Tache } from 'src/app/models/tache';
 import { ToDoList } from 'src/app/models/to-do-list';
 import { TodoService } from 'src/app/services/todo.service';
 
-
 @Component({
   selector: 'app-to-do-list',
   templateUrl: './to-do-list.component.html',
@@ -36,8 +35,8 @@ export class ToDoListComponent implements OnInit {
     this.casesRestantes = true;
     this.filter = 'tous';
     this.todoTitle = '';
-    if (this.toDoRest()===0){
-      this.masterSelected=true;
+    if (this.toDoRest() === 0) {
+      this.masterSelected = true;
     }
   }
   //supprimer la todoList en fonction de son id
@@ -52,6 +51,7 @@ export class ToDoListComponent implements OnInit {
   addTache(idTodoList: number) {
     //idTodoList id que la todoList que l'on récupère
     console.log(idTodoList);
+    //permet de construire l'objet à passer en base
     const tache: Tache = {
       id: 0,
       texte: this.todoTitle,
@@ -70,9 +70,19 @@ export class ToDoListComponent implements OnInit {
 
   //modifier le titre de la to-do-list
   updateTodo(todoList: ToDoList): void {
-    this.TodoService.updateTodo(todoList)?.subscribe((resp) => {
-      window.location.reload();
-    });
+    let nouvelleTodolist = {
+      id: todoList.id,
+      nom: todoList.nom,
+      team: todoList.team,
+    };
+    console.log(todoList.team);
+    if (nouvelleTodolist.nom != '') {
+      this.TodoService.updateTodo(nouvelleTodolist)?.subscribe((resp) => {
+        window.location.reload();
+      });
+    } else {
+      window.alert('Il faut saisir du texte'); // sinon msg d'erreur}
+    }
   }
 
   //modifier la tâche par l'input
@@ -94,11 +104,13 @@ export class ToDoListComponent implements OnInit {
     });
   }
 
-  // annuler la modification
+  // annuler la modification de la tâche
   cancelEdit(tache: Tache): void {
     tache.texte = this.beforeEditCache;
     tache.editing = false;
   }
+
+
 
   //supprimer la tache
   deleteTache(id: number) {
@@ -123,7 +135,6 @@ export class ToDoListComponent implements OnInit {
       this.todo.taches[i].etat = this.masterSelected;
       this.TodoService.updateTache(this.todo.taches[i]).subscribe((resp) => {
         console.log(this.todo.taches[i]);
-
       });
     }
     //this.cocherAllTodoList();
