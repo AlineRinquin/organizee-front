@@ -15,12 +15,14 @@ export class PageAccountComponent implements OnInit {
   public listMembres: any[];
   currentUser: any;
   currentTeam: any;
+  parent: boolean;
 
   constructor(private membreService: MembreService,
     private teamService: TeamService,
     private tokenService: TokenService,
     private router: Router) {
     this.listMembres = [];
+    this.parent = false;
    }
 
   ngOnInit(): void {
@@ -36,5 +38,24 @@ export class PageAccountComponent implements OnInit {
     this.membreService.getMembresByTeamId()?.subscribe((membres: any[]) => {
       this.listMembres = membres;
     });
+
+    /***Gestion des limatations en fonction du role (parent ou enfant) */
+    const roleUser = this.tokenService.getRole();
+    if(roleUser == "ROLE_PARENT"){
+      this.parent = true;
+    }
+  }
+
+  /** Méthode qui au click va supprimer un contact en faisant appel au service dédié dans Membre Service **/
+  onClickDelete(membreId: number){
+    this.membreService.deleteMembre(membreId).subscribe((resp) => {
+      if(membreId) {
+        this.listMembres.forEach(membreId => console.log(membreId))
+      }else{
+        window.alert("Le profil ne peut pas être supprimé!")
+      }
+      this.router.navigate(['compte/']);
+    });
+    window.location.reload();
   }
 }
