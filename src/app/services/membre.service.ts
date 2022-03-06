@@ -45,8 +45,8 @@ export class MembreService {
     }
   }
 
-  deleteMembre(membreId: number): Observable<any>{
-    return this.http.delete(`${this.apiUrl}/membres/delete/${membreId}`);
+  deleteMembre(membre: Membre): Observable<any>{
+    return this.http.delete(`${this.apiUrl}/membres/delete/${membre.id}`);
   }
 
   updateMembre(membre: Membre): Observable<any> | void {

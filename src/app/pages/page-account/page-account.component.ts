@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { MembreService } from 'src/app/services/membre.service';
 import { TeamService } from 'src/app/services/team.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -19,8 +18,7 @@ export class PageAccountComponent implements OnInit {
 
   constructor(private membreService: MembreService,
     private teamService: TeamService,
-    private tokenService: TokenService,
-    private router: Router) {
+    private tokenService: TokenService) {
     this.listMembres = [];
     this.parent = false;
    }
@@ -46,16 +44,4 @@ export class PageAccountComponent implements OnInit {
     }
   }
 
-  /** Méthode qui au click va supprimer un contact en faisant appel au service dédié dans Membre Service **/
-  onClickDelete(membreId: number){
-    this.membreService.deleteMembre(membreId).subscribe((resp) => {
-      if(membreId) {
-        this.listMembres.forEach(membreId => console.log(membreId))
-      }else{
-        window.alert("Le profil ne peut pas être supprimé!")
-      }
-      this.router.navigate(['compte/']);
-    });
-    window.location.reload();
-  }
 }

@@ -12,7 +12,7 @@
             id = "bouton-ajout"
             type="button"
             class="btn btn-primary btn-lg bouton-non"
-            routerLink="../compte"
+            routerLink="/compte"
             routerLinkActive="active-custom"
           >Non, je ne souhaite pas supprimer ce compte
         </button>
@@ -22,7 +22,7 @@
             id = "bouton-ajout"
             type="button"
             class="btn btn-primary btn-lg bouton-oui"
-            (clickDelete)="onClickDelete($event)"
+            (clickDelete)="onClickDelete()"
           >Oui, je souhaite supprimer ce compte
         </button>
       </div>

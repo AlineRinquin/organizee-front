@@ -103,7 +103,7 @@ export class PageUpdateMemberComponent implements OnInit {
     console.log(membre);
 
     this.membreService.updateMembre(membre)?.subscribe((resp) => {
-      //this.router.navigate(['compte']);
+      this.router.navigate(['compte']);
     });
   }
 

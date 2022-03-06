@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'ajout-membre', canActivate: [AuthGuard], component: PageAddMemberComponent },
   { path: 'agenda', canActivate: [AuthGuard], component: PageAgendaComponent },
   { path: 'tableau-de-bord', canActivate: [AuthGuard], component: PageDashboardComponent },
-  { path: 'supprimer-membre', canActivate: [AuthGuard], component: PageDeleteMemberComponent },
+  { path: 'supprimer-membre/:id', canActivate: [AuthGuard], component: PageDeleteMemberComponent },
   { path: 'password-oublie', component: PageForgotPasswordComponent },
   { path: 'menu', canActivate: [AuthGuard], component: PageMenuSemaineComponent },
   { path: 'repertoire', canActivate: [AuthGuard], component: PageRepertoireComponent },
