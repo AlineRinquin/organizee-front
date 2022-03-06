@@ -31,7 +31,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
-import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
 import { FooterComponent } from './components/footer/footer.component';
 import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
@@ -74,7 +73,6 @@ registerLocaleData(localeFr)
     CreneauComponent,
     PageAjoutContactComponent,
     PageModifierContactComponent,
-    PageCreationTeamComponent,
     FooterComponent,
     CardAvatarComponent,
     DeconnexionComponent,

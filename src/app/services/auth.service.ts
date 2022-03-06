@@ -22,9 +22,7 @@ export class AuthService {
   //methode pour s'inscrire - on passe l'objet en entier
   signup(membre: Membre): Observable<any> {
     console.log(membre);
-
     return this.http.post(`${this.apiUrl}/membres/sign-up`, membre);
-
   }
 
 //methode pour se connecter - on passe id et pwd
@@ -59,8 +57,6 @@ export class AuthService {
 
     return this.http.post(`${this.apiUrl}/teams/add`, team);
   }
-
-
 
   addMember(membre: Membre): Observable<any> {
     console.log(membre);

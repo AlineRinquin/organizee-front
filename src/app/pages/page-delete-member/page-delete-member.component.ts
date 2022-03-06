@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Membre } from 'src/app/models/membre';
 import { MembreService } from 'src/app/services/membre.service';
 import { TokenService } from 'src/app/services/token.service';
 
@@ -45,7 +44,7 @@ export class PageDeleteMemberComponent implements OnInit {
 
   }
 
-  /** Suppresion d'un membre au clik */
+  /********************** Suppresion d'un membre au click ********************/
   onClickDelete(): void {
     console.log(this.membreInfos);
     this.membreService.deleteMembre(this.membreInfos.id).subscribe((resp) => {
