@@ -1,18 +1,19 @@
-<nav
-  class="navbar sticky-top navbar-expand-lg navbar-light bg-light shadow py-0"
->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
   <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <img
-          id="img"
-          routerLink="accueil"
-          routerLinkActive="active-custom"
-          src="../../../assets/images/logo-organizee.png"
-        />
-      </div>
+    <a class="navbar-brand" routerLink="/accueil">
+      <img id="img" src="../../../assets/images/logo-organizee.png" />
+      Organizee
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"></li>
+      </ul>
+      <span class="navbar-text">
+        <app-deconnexion *ngIf="isLogged"></app-deconnexion>
+      </span>
     </div>
-    <a class="navbar-brand" href="#">Organizee</a>
   </div>
-  <app-deconnexion *ngIf="isLogged"></app-deconnexion>
 </nav>
