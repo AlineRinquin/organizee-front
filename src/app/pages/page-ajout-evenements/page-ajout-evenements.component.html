@@ -6,26 +6,56 @@
   </div>
   <div class="col-md-4 offset-md-4 text-center">
     <h2>Ajouter un évènement à l'agenda</h2>
-    <div class="text-center col-md-6 offset-md-3">
-        <main class="form-signup">
+    <div class="text-center col-md-7 offset-md-3">
+        <main class="form-ajout-evenement">
             <form  (ngSubmit)="onSubmit()" [formGroup]="eventForm">
-                <div class="form-floating">
-                    <input type="datetime-local" 
-                            class="form-control" 
-                            id="floatingInputDebut" 
-                            placeholder="" 
-                            name="start" 
-                            formControlName="startFc">
-                    <label for="floatingInputfirstName">Début</label>
+                <div class="row g-2">
+                  <div class="col-md">
+                    <div class="form-floating">
+                      <input type="date" 
+                              class="form-control" 
+                              id="floatingInputDebut" 
+                              placeholder="" 
+                              name="startDate" 
+                              formControlName="startDateFc">
+                      <label for="floatingInputfirstName">Date de début</label>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="form-floating">
+                      <input type="time" 
+                              class="form-control" 
+                              id="floatingInputDebut" 
+                              placeholder="" 
+                              name="startHour" 
+                              formControlName="startHourFc">
+                      <label for="floatingInputfirstName">Heure de début</label>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-floating">
-                    <input type="datetime-local" 
-                            class="form-control" 
-                            id="floatingInputFin" 
-                            placeholder="" 
-                            name="end" 
-                            formControlName="endFc">
-                    <label for="floatingInputlastName">Fin</label>
+                <div class="row g-2">
+                  <div class="col-md">
+                    <div class="form-floating">
+                      <input type="date" 
+                              class="form-control" 
+                              id="floatingInputFin" 
+                              placeholder="" 
+                              name="endDate" 
+                              formControlName="endDateFc">
+                      <label for="floatingInputlastName">Date de fin</label>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="form-floating">
+                      <input type="time" 
+                              class="form-control" 
+                              id="floatingInputFin" 
+                              placeholder="" 
+                              name="endHour" 
+                              formControlName="endHourFc">
+                      <label for="floatingInputlastName">Heure de fin</label>
+                    </div>
+                  </div>
                 </div>
                 <div class="form-floating">
                     <input type="text" 
@@ -36,10 +66,10 @@
                             formControlName="textFc">
                     <label for="floatingInputlastName">Libelle</label>
                 </div>    
-                <button class="w-100 btn btn-lg btn-primary" 
+                <button class="btn btn-lg btn-primary" 
                         type="submit" 
-                        [disabled]="eventForm.invalid">Validation</button>
-    
+                        [disabled]="eventForm.invalid">Ajouter</button>
+                <a routerLink="../agenda" class="btn btn-lg btn-primary">Annuler</a>
             </form>
         </main>
     </div>

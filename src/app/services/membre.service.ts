@@ -57,4 +57,16 @@ export class MembreService {
       this.router.navigate(['accueil']);
     }
 }
+
+updateHumeur(numero : number) : Observable<any> | void {
+  const userId = this.tokenService.getCurrentMembreId();
+  if (userId){
+  return this.http.put(`${this.apiUrl}/membres/update/smiley/${userId}`, numero);
+}else {
+    this.router.navigate(['accueil']);
+  }
 }
+
+}
+
+

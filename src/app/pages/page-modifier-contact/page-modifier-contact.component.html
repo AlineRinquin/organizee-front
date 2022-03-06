@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="row">
     <div class="col-md-auto">
-        <app-side-bar></app-side-bar>
+        <app-side-bar [backgroundColor]="'#5a1e63'"></app-side-bar>
     </div>
 
 <div class="modifContact-form text-center">
@@ -11,7 +11,8 @@
             
             <div class="form-floating">
             <input type="color" class="form-control" id="floatingInputcouleur" placeholder="" name="couleur"
-            formControlName="couleurFc" value= "{{ listContactInfo.couleur }}">
+            formControlName="couleurFc" value= "{{ listContactInfo.couleur }}"
+            [(ngModel)]="listContactInfo.couleur">
             </div>
 
             <div class="form-floating">
@@ -83,9 +84,10 @@
 
             <button class="w-100 btn btn-lg btn-secondary" 
                     type="submit" 
-                    [disabled]="modifContactForm.invalid">Valider</button>
+                    >Valider</button>
 
         </form>
     </main>
 </div>
+<app-footer></app-footer>
 </div> 

@@ -5,4 +5,5 @@ export interface ToDoList {
   nom: string;
   taches: Tache[];
   id: number;
+  team? : Team;
 }

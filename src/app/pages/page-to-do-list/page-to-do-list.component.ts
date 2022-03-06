@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDoList } from 'src/app/models/to-do-list';
 import { TodoService } from 'src/app/services/todo.service';
-import { Team } from 'src/app/models/team';
+
 
 @Component({
   selector: 'app-page-to-do-list',
@@ -21,6 +21,7 @@ export class PageToDoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //récupère les todoLists existantes en fonctoin de l'id de la team en utilisant le service
     this.TodoService.getToDoListByTeamId()?.subscribe((listTodos: any) => {
       console.log(listTodos);
       this.listTodos = listTodos;
@@ -28,23 +29,21 @@ export class PageToDoListComponent implements OnInit {
       this.idTodo = 0;
     });
   }
-  //Ajouter une todo List
+
+  //Ajouter une todo List si l'input contient un texte
   addTodoByTeamId() {
     const todoList: ToDoList = {
       nom: this.todoListTitle,
       taches: [],
       id: 0,
     };
-    this.TodoService.addTodoByTeamId(todoList)?.subscribe((resp) => {
-      console.log(todoList);
-      window.location.reload();
-    });
-  }
-
-  deleteTodo(id: number): void {
-    window.alert('La to-do-List a bien été supprimé!');
-    this.TodoService.deleteTodoById(id).subscribe((resp) => {
-      window.location.reload();
-    });
+    if (this.todoListTitle != '') {
+      this.TodoService.addTodoByTeamId(todoList)?.subscribe((resp) => {
+        console.log(todoList);
+        window.location.reload(); //rafraîchit l'aperçu
+      });
+    }else{
+    window.alert('Il faut saisir du texte'); // sinon msg d'erreur
+    }
   }
 }
