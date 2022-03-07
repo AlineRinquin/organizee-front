@@ -24,7 +24,7 @@
       </div>
       <div class="row">
         <!-- Pour exclure le membre connecté de la liste car il est récupéré plus haut-->
-        <!-- ng-container pour gérer l'espace vide que laissé le membre exclu à cause du dom -->
+        <!-- ng-container pour gérer l'espace vide que laisse le membre exclu à cause du dom -->
         <!-- cf. : https://angular.io/guide/built-in-directives#hosting-a-directive-without-a-dom-element-->
         <ng-container *ngFor="let membreData of listMembres">
           <!-- Condition dans ngIf mais une div à la place du ng-container pour le style-->

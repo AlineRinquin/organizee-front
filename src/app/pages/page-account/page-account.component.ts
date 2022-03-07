@@ -42,11 +42,9 @@ export class PageAccountComponent implements OnInit {
     const userRole = this.tokenService.getRole();
     if(userRole == "ROLE_PARENT"){
       this.parent = true;
-      console.log('Rôle : ' + userRole);
     }
     else if(userRole== "ROLE_ENFANT"){
       this.parent = false;
-      console.log('Rôle : ' + userRole);
     }
   }
 

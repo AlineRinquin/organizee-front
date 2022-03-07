@@ -100,8 +100,6 @@ export class PageUpdateMemberComponent implements OnInit {
       roleList: [roleValue]
     };
 
-    console.log(membre);
-
     this.membreService.updateMembre(membre)?.subscribe((resp) => {
       this.router.navigate(['compte']);
     });

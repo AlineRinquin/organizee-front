@@ -1,5 +1,3 @@
-import { Team } from "./team";
-
 export interface Membre {
   id: string;
   nom: string;
@@ -9,6 +7,5 @@ export interface Membre {
   dateNaissance: Date;
   couleur: string;
   passwordConfirm: string;
-  //team: Team;
   roleList: string[];
 }
