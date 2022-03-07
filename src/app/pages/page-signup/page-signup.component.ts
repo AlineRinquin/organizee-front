@@ -59,6 +59,7 @@ export class PageSignupComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    const teamIdValue = this.signupForm.value[''];
     const teamNameValue = this.signupForm.value['teamNameFc'];
     const idValue = this.signupForm.value[''];
     const prenomValue = this.signupForm.value['firstNameFc'];
@@ -71,6 +72,7 @@ export class PageSignupComponent implements OnInit {
     const roleValue = ['ROLE_PARENT'];
 
     const team: Team = {
+      id : teamIdValue,
       nom : teamNameValue,
     };
 
@@ -83,6 +85,7 @@ export class PageSignupComponent implements OnInit {
       couleur: couleurValue,
       dateNaissance: dateNaissanceValue,
       passwordConfirm: passwordConfirmValue,
+      //team: teamIdValue,
       roleList: roleValue,
     };
 

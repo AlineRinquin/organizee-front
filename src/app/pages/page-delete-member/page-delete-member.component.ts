@@ -9,10 +9,9 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./page-delete-member.component.scss']
 })
 export class PageDeleteMemberComponent implements OnInit {
-  @Output() clickDelete = new EventEmitter();
-  parent: boolean;
   public membreId: any;
   public membreInfos: any;
+  parent: boolean;
 
 
   constructor(private membreService: MembreService,
@@ -36,12 +35,17 @@ export class PageDeleteMemberComponent implements OnInit {
        console.log(membreInfos.id);
      });
 
-    const roleUser = this.tokenService.getRole();
-
-    if(roleUser == "ROLE_PARENT"){
+     /** Récupérer le rôle de l'uilisateur connecté pour lui imposer des limitations s'il a un ROLE_ENFANT **/
+    /** Il s'agit de cacher les boutons qui permettent de modifier et supprimer les profils (html)**/
+    const userRole = this.tokenService.getRole();
+    if(userRole == "ROLE_PARENT"){
       this.parent = true;
+      console.log('Rôle : ' + userRole);
     }
-
+    else if(userRole== "ROLE_ENFANT"){
+      this.parent = false;
+      console.log('Rôle : ' + userRole);
+    }
   }
 
   /********************** Suppresion d'un membre au click ********************/
