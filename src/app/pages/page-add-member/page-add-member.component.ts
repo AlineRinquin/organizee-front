@@ -92,7 +92,10 @@ export class PageAddMemberComponent implements OnInit {
       subject: "Votre mot de passe Organizee",
       message: `Bonjour ${firstNameValue}!\n Voici vos identifiants de connexion : \n
       Identifiant : ${emailValue}
-      Mot de passe : ${passwordValue}`
+      Mot de passe : ${passwordValue}
+      Veuillez modifier votre mot de passe à la première connexion :
+      http://localhost:4200/password-oublie
+      `
     };
 
 

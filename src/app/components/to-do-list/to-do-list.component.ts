@@ -56,7 +56,7 @@ export class ToDoListComponent implements OnInit {
       id: 0,
       texte: this.todoTitle,
       etat: false,
-      editing: false,
+      editing: false, //flag permettant de passer le texte en input pour update
     };
     console.log(this.tache);
     if (this.todoTitle != '') {
