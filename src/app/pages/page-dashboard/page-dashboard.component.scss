@@ -2,7 +2,15 @@
   display: inline-flex;
   margin-left: 20px;
   text-align: center;
-  font-weight: bold;
+  color: #5d5fef;
+  font-size: 30px;
+}
+
+h3{
+  display: inline-flex;
+  margin-left: 20px;
+  text-align: center;
+  font-size: 25px;
 }
 
 .meteo {
@@ -11,7 +19,8 @@
 }
 
 .container {
-margin-left:200px;
+  margin-left:200px;
+  margin-top: 20px;
 }
 
 .avatar{
