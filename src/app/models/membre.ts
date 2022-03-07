@@ -8,4 +8,5 @@ export interface Membre {
   couleur: string;
   passwordConfirm: string;
   roleList: string[];
+  teamId?: string;
 }

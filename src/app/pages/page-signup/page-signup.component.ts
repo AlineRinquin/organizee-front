@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router} from '@angular/router';
 import { Team } from 'src/app/models/team';
 import { TeamService } from 'src/app/services/team.service';
 import { Membre } from '../../models/membre';
@@ -59,7 +59,7 @@ export class PageSignupComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const teamIdValue = this.signupForm.value[''];
+    let teamIdValue = '';
     const teamNameValue = this.signupForm.value['teamNameFc'];
     const idValue = this.signupForm.value[''];
     const prenomValue = this.signupForm.value['firstNameFc'];
@@ -85,16 +85,20 @@ export class PageSignupComponent implements OnInit {
       couleur: couleurValue,
       dateNaissance: dateNaissanceValue,
       passwordConfirm: passwordConfirmValue,
-      //team: teamIdValue,
+      teamId: teamIdValue,
       roleList: roleValue,
     };
 
     if (membre.email !== '' && membre.password !== '' && team.nom!== '') {
-      this.teamService.addTeam(team).subscribe((resp) => {
-        return resp
-      });
-      this.authService.signup(membre).subscribe((resp) => {
-        this.router.navigate(['accueil']);
+      this.teamService.addTeam(team).subscribe((respTeam) => {
+        teamIdValue = respTeam.id;
+        console.log(teamIdValue);
+        this.authService.signup(membre).subscribe((respMembre) => {
+          this.router.navigate(['accueil']);
+          console.log(teamIdValue);
+          return respMembre
+        });
+
       });
     } else {
       // affichage erreur
