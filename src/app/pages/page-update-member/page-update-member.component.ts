@@ -23,7 +23,7 @@ export class PageUpdateMemberComponent implements OnInit {
     this.updateMembreForm = new FormGroup({});
     this.membreData = this.initForm();
     this.membreInfos = '';
-   }
+  }
 
   ngOnInit(): void {
     /** Pour récuperer l'id du membre à modifier **/
