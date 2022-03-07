@@ -85,7 +85,7 @@ export class PageSignupComponent implements OnInit {
       couleur: couleurValue,
       dateNaissance: dateNaissanceValue,
       passwordConfirm: passwordConfirmValue,
-      teamId: teamIdValue,
+      team:[teamIdValue, teamNameValue],
       roleList: roleValue,
     };
 

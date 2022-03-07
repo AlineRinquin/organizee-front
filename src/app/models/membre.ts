@@ -1,3 +1,5 @@
+import { Team } from "./team";
+
 export interface Membre {
   id: string;
   nom: string;
@@ -8,5 +10,5 @@ export interface Membre {
   couleur: string;
   passwordConfirm: string;
   roleList: string[];
-  teamId?: string;
+  team?: Team[];
 }
