@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { Team } from 'src/app/models/team';
+import { TeamService } from 'src/app/services/team.service';
 import { Membre } from '../../models/membre';
 import { AuthService } from '../../services/auth.service';
 
@@ -19,6 +21,7 @@ export class PageSignupComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private teamService: TeamService,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -29,6 +32,7 @@ export class PageSignupComponent implements OnInit {
     // *********************************pensser a changer group car déprécié********************************
     this.signupForm = this.fb.group(
       {
+        teamNameFc: new FormControl('', [Validators.required]),
         firstNameFc: new FormControl('', [Validators.required]),
         lastNameFc: new FormControl('', [Validators.required]),
         dateNaissanceFc: new FormControl('', [Validators.required]),
@@ -55,6 +59,8 @@ export class PageSignupComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    const teamIdValue = this.signupForm.value[''];
+    const teamNameValue = this.signupForm.value['teamNameFc'];
     const idValue = this.signupForm.value[''];
     const prenomValue = this.signupForm.value['firstNameFc'];
     const nomValue = this.signupForm.value['lastNameFc'];
@@ -65,6 +71,11 @@ export class PageSignupComponent implements OnInit {
     const couleurValue = this.signupForm.value['couleurFc'];
     const roleValue = ['ROLE_PARENT'];
 
+    const team: Team = {
+      id : teamIdValue,
+      nom : teamNameValue,
+    };
+
     const membre: Membre = {
       id: idValue,
       nom: nomValue,
@@ -74,10 +85,14 @@ export class PageSignupComponent implements OnInit {
       couleur: couleurValue,
       dateNaissance: dateNaissanceValue,
       passwordConfirm: passwordConfirmValue,
+      //team: teamIdValue,
       roleList: roleValue,
     };
 
-    if (membre.email !== '' && membre.password !== '') {
+    if (membre.email !== '' && membre.password !== '' && team.nom!== '') {
+      this.teamService.addTeam(team).subscribe((resp) => {
+        return resp
+      });
       this.authService.signup(membre).subscribe((resp) => {
         this.router.navigate(['accueil']);
       });

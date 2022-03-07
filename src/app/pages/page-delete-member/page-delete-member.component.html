@@ -2,10 +2,33 @@
 
 <div class="row">
   <div class="col-md-auto">
-    <app-side-bar></app-side-bar>
+    <app-side-bar [backgroundColor]="'#7879F1'"></app-side-bar>
   </div>
-  <div class="col compte text-center">
-    <h1>Supprimer ce membre</h1>
-    <main class="contenu-compte"></main>
+  <div class="col text-center">
+    <main class="contenu">
+      <p class="d-flex justify-content-center">Êtes-vous sur de vouloir Supprimer ce compte ?</p>
+      <div class="d-flex justify-content-center">
+        <button
+            id = "bouton-ajout"
+            type="button"
+            class="btn btn-primary btn-lg bouton-non"
+            routerLink="/compte"
+            routerLinkActive="active-custom"
+            [hidden]="parent == false"
+          >Non, je ne souhaite pas supprimer ce compte
+        </button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button
+            id = "bouton-ajout"
+            type="button"
+            class="btn btn-primary btn-lg bouton-oui"
+            (clickDelete)="onClickDelete()"
+            [hidden]="parent == false"
+          >Oui, je souhaite supprimer ce compte
+        </button>
+      </div>
+    </main>
   </div>
 </div>
+<app-footer></app-footer>

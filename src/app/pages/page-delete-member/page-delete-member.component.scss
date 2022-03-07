@@ -1,0 +1,53 @@
+.contenu{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+p{
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+button{
+  margin-top: 10px;
+}
+
+.bouton-non {
+  margin-top: 5px;
+  margin-right: 5px;
+  border: 1px solid #7879F1 !important;
+  background-color: #7879F1;
+  height: 40px;
+  width: 450px;
+  text-align: center;
+}
+
+.bouton-non:hover {
+  margin-top: 5px;
+  margin-right: 5px;
+  border: 1px solid #68d182 !important;
+  background-color: #68d182;
+  color: #fff;
+  height: 40px;
+  width: 450px;
+  text-align: center;
+}
+
+.bouton-oui {
+  margin-top: 5px;
+  border: 1px solid #7879F1 !important;
+  background-color: #7879F1;
+  color: #fff;
+  height: 40px;
+  width: 450px;
+  text-align: center;
+}
+
+.bouton-oui:hover {
+  margin-top: 5px;
+  border: 1px solid #bd4646 !important;
+  background-color: #bd4646;
+  color: #fff;
+  height: 40px;
+  width: 450px;
+  text-align: center;
+}
