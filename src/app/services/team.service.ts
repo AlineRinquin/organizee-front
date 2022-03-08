@@ -32,8 +32,6 @@ export class TeamService {
   }
 
   addTeam(team: Team): Observable<any> {
-    console.log(team);
-
     return this.http.post(`${this.apiUrl}/teams/add`, team);
   }
 

@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router} from '@angular/router';
 import { Team } from 'src/app/models/team';
 import { TeamService } from 'src/app/services/team.service';
 import { Membre } from '../../models/membre';
@@ -59,7 +59,6 @@ export class PageSignupComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const teamIdValue = this.signupForm.value[''];
     const teamNameValue = this.signupForm.value['teamNameFc'];
     const idValue = this.signupForm.value[''];
     const prenomValue = this.signupForm.value['firstNameFc'];
@@ -72,29 +71,34 @@ export class PageSignupComponent implements OnInit {
     const roleValue = ['ROLE_PARENT'];
 
     const team: Team = {
-      id : teamIdValue,
+      id : "",
       nom : teamNameValue,
     };
 
-    const membre: Membre = {
-      id: idValue,
-      nom: nomValue,
-      prenom: prenomValue,
-      email: emailValue,
-      password: passwordValue,
-      couleur: couleurValue,
-      dateNaissance: dateNaissanceValue,
-      passwordConfirm: passwordConfirmValue,
-      //team: teamIdValue,
-      roleList: roleValue,
-    };
+    if (emailValue !== '' && passwordValue !== '' && team.nom!== '') {
+        //création Team
+      this.teamService.addTeam(team).subscribe((respTeam) => {
+        //récupération de l'id auto-généré (respTeam.id) dans l'id team (team.id)
+        team.id = respTeam.id;
+         //création objet membre avec l'objet team crée
+        const membre: Membre = {
+          id: idValue,
+          nom: nomValue,
+          prenom: prenomValue,
+          email: emailValue,
+          password: passwordValue,
+          couleur: couleurValue,
+          dateNaissance: dateNaissanceValue,
+          passwordConfirm: passwordConfirmValue,
+          team: team,
+          roleList: roleValue,
+        };
+        //création du membre en bdd avec l'objet membre
+        this.authService.signup(membre).subscribe((respMembre) => {
+          this.router.navigate(['accueil']);
+          return respMembre
+        });
 
-    if (membre.email !== '' && membre.password !== '' && team.nom!== '') {
-      this.teamService.addTeam(team).subscribe((resp) => {
-        return resp
-      });
-      this.authService.signup(membre).subscribe((resp) => {
-        this.router.navigate(['accueil']);
       });
     } else {
       // affichage erreur

@@ -9,6 +9,6 @@ export interface Membre {
   dateNaissance: Date;
   couleur: string;
   passwordConfirm: string;
-  //team: Team;
   roleList: string[];
+  team?: Team;
 }

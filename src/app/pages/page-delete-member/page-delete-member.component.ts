@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MembreService } from 'src/app/services/membre.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -32,7 +32,6 @@ export class PageDeleteMemberComponent implements OnInit {
      .getMembreId(this.membreId)
      .subscribe((membreInfos: any) => {
        this.membreInfos = membreInfos;
-       console.log(membreInfos.id);
      });
 
      /** Récupérer le rôle de l'uilisateur connecté pour lui imposer des limitations s'il a un ROLE_ENFANT **/
@@ -40,19 +39,17 @@ export class PageDeleteMemberComponent implements OnInit {
     const userRole = this.tokenService.getRole();
     if(userRole == "ROLE_PARENT"){
       this.parent = true;
-      console.log('Rôle : ' + userRole);
     }
     else if(userRole== "ROLE_ENFANT"){
       this.parent = false;
-      console.log('Rôle : ' + userRole);
     }
   }
 
   /********************** Suppresion d'un membre au click ********************/
   onClickDelete(): void {
-    console.log(this.membreInfos);
-    this.membreService.deleteMembre(this.membreInfos.id).subscribe((resp) => {
-      return resp
+    console.log("coucou");
+    this.membreService.deleteMembre(this.membreInfos).subscribe((resp) => {
+      this.router.navigate(['compte']);
     });
   }
 }

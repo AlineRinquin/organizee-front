@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:8088',
   tokenKey: 'TOKEN-ORGANIZEE',
-  debug: true,
+  // pour afficher des infos en mode debug
+  debug: false,
 };
 
 /*
