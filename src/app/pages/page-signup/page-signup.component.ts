@@ -59,7 +59,6 @@ export class PageSignupComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    let teamIdValue = '';
     const teamNameValue = this.signupForm.value['teamNameFc'];
     const idValue = this.signupForm.value[''];
     const prenomValue = this.signupForm.value['firstNameFc'];
@@ -72,30 +71,31 @@ export class PageSignupComponent implements OnInit {
     const roleValue = ['ROLE_PARENT'];
 
     const team: Team = {
-      id : teamIdValue,
+      id : "",
       nom : teamNameValue,
     };
 
-    const membre: Membre = {
-      id: idValue,
-      nom: nomValue,
-      prenom: prenomValue,
-      email: emailValue,
-      password: passwordValue,
-      couleur: couleurValue,
-      dateNaissance: dateNaissanceValue,
-      passwordConfirm: passwordConfirmValue,
-      team:[teamIdValue, teamNameValue],
-      roleList: roleValue,
-    };
-
-    if (membre.email !== '' && membre.password !== '' && team.nom!== '') {
+    if (emailValue !== '' && passwordValue !== '' && team.nom!== '') {
+        //création Team
       this.teamService.addTeam(team).subscribe((respTeam) => {
-        teamIdValue = respTeam.id;
-        console.log(teamIdValue);
+        //récupération de l'id auto-généré (respTeam.id) dans l'id team (team.id)
+        team.id = respTeam.id;
+         //création objet membre avec l'objet team crée
+        const membre: Membre = {
+          id: idValue,
+          nom: nomValue,
+          prenom: prenomValue,
+          email: emailValue,
+          password: passwordValue,
+          couleur: couleurValue,
+          dateNaissance: dateNaissanceValue,
+          passwordConfirm: passwordConfirmValue,
+          team: team,
+          roleList: roleValue,
+        };
+        //création du membre en bdd avec l'objet membre
         this.authService.signup(membre).subscribe((respMembre) => {
           this.router.navigate(['accueil']);
-          console.log(teamIdValue);
           return respMembre
         });
 

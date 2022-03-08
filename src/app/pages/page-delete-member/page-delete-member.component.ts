@@ -16,6 +16,7 @@ export class PageDeleteMemberComponent implements OnInit {
 
   constructor(private membreService: MembreService,
     private tokenService: TokenService,
+    private router: Router,
     private route: ActivatedRoute) {
       this.membreInfos = '';
       this.parent = false;
@@ -46,8 +47,9 @@ export class PageDeleteMemberComponent implements OnInit {
 
   /********************** Suppresion d'un membre au click ********************/
   onClickDelete(): void {
-    this.membreService.deleteMembre(this.membreInfos.id).subscribe((resp) => {
-      return resp
+    console.log("coucou");
+    this.membreService.deleteMembre(this.membreInfos).subscribe((resp) => {
+      this.router.navigate(['compte']);
     });
   }
 }

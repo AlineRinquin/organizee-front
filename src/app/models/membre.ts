@@ -10,5 +10,5 @@ export interface Membre {
   couleur: string;
   passwordConfirm: string;
   roleList: string[];
-  team?: Team[];
+  team?: Team;
 }
