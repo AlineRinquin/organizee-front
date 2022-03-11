@@ -1,5 +1,5 @@
 .titre{
-  color: #5d5fef;
+  color : rgb(241,120,182);
   font-size: 30px;
   margin-left: 240px;
   margin-top: 20px;
@@ -50,4 +50,11 @@
 
 .fullscreen {
   position: absolute; top:90px; left: 0px; right: 0px; bottom: 0px;
+}
+
+.btn {
+  background-color: rgb(241,120,182);
+  color : white;
+  border-radius: 12px;
+  border-color: white;
 }
