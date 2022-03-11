@@ -89,11 +89,13 @@ export class PageAddMemberComponent implements OnInit {
 
     const mail: Mail = {
       recipient: emailValue,
-      subject: "Votre mot de passe Organizee",
-      //message: 'Votre mot de passe'
+      subject: "Votre mot de passe provisoire Organizee",
       message: `Bonjour ${firstNameValue}!\n Voici vos identifiants de connexion : \n
       Identifiant : ${emailValue}
-      Mot de passe : ${passwordValue}`
+      Mot de passe provisoire : ${passwordValue}
+      Veuillez modifier votre mot de passe dès la première connexion :
+      http://localhost:4200/password-oublie
+      `
     };
 
 

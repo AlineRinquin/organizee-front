@@ -30,7 +30,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PageAjoutContactComponent } from './pages/page-ajout-contact/page-ajout-contact.component';
 import { PageModifierContactComponent } from './pages/page-modifier-contact/page-modifier-contact.component';
-import { PageCreationTeamComponent } from './pages/page-creation-team/page-creation-team.component';
 import { AutofocusFixModule  } from 'ngx-autofocus-fix';
 import { FooterComponent } from './components/footer/footer.component';
 import { DayPilot, DayPilotModule } from "@daypilot/daypilot-lite-angular";
@@ -41,6 +40,7 @@ import { HumeurComponent } from './components/humeur/humeur.component';
 import { DeconnexionComponent } from './components/deconnexion/deconnexion.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { PageAjoutEvenementsComponent } from './pages/page-ajout-evenements/page-ajout-evenements.component';
+import { PageSupportComponent } from './pages/page-support/page-support.component';
 registerLocaleData(localeFr)
 
 @NgModule({
@@ -72,13 +72,13 @@ registerLocaleData(localeFr)
     CreneauComponent,
     PageAjoutContactComponent,
     PageModifierContactComponent,
-    PageCreationTeamComponent,
     FooterComponent,
     CardAvatarComponent,
     DeconnexionComponent,
     HumeurComponent,
     AlertComponent,
-    PageAjoutEvenementsComponent
+    PageAjoutEvenementsComponent, 
+    PageSupportComponent
   ],
   imports: [
     BrowserModule,

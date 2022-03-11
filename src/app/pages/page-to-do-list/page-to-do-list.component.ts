@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDoList } from 'src/app/models/to-do-list';
 import { TodoService } from 'src/app/services/todo.service';
-import { Team } from 'src/app/models/team';
+
 
 @Component({
   selector: 'app-page-to-do-list',
@@ -30,7 +30,7 @@ export class PageToDoListComponent implements OnInit {
     });
   }
 
-  //Ajouter une todo List si l'input n'est pas vide
+  //Ajouter une todo List si l'input contient un texte
   addTodoByTeamId() {
     const todoList: ToDoList = {
       nom: this.todoListTitle,

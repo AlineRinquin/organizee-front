@@ -1,3 +1,5 @@
+import { Team } from "./team";
+
 export interface Membre {
   id: string;
   nom: string;
@@ -7,6 +9,6 @@ export interface Membre {
   dateNaissance: Date;
   couleur: string;
   passwordConfirm: string;
- // smiley: string;
   roleList: string[];
+  team?: Team;
 }

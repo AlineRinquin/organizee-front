@@ -5,7 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router} from '@angular/router';
+import { Team } from 'src/app/models/team';
+import { TeamService } from 'src/app/services/team.service';
 import { Membre } from '../../models/membre';
 import { AuthService } from '../../services/auth.service';
 
@@ -19,6 +21,7 @@ export class PageSignupComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private teamService: TeamService,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -29,6 +32,7 @@ export class PageSignupComponent implements OnInit {
     // *********************************pensser a changer group car déprécié********************************
     this.signupForm = this.fb.group(
       {
+        teamNameFc: new FormControl('', [Validators.required]),
         firstNameFc: new FormControl('', [Validators.required]),
         lastNameFc: new FormControl('', [Validators.required]),
         dateNaissanceFc: new FormControl('', [Validators.required]),
@@ -55,6 +59,7 @@ export class PageSignupComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    const teamNameValue = this.signupForm.value['teamNameFc'];
     const idValue = this.signupForm.value[''];
     const prenomValue = this.signupForm.value['firstNameFc'];
     const nomValue = this.signupForm.value['lastNameFc'];
@@ -65,21 +70,35 @@ export class PageSignupComponent implements OnInit {
     const couleurValue = this.signupForm.value['couleurFc'];
     const roleValue = ['ROLE_PARENT'];
 
-    const membre: Membre = {
-      id: idValue,
-      nom: nomValue,
-      prenom: prenomValue,
-      email: emailValue,
-      password: passwordValue,
-      couleur: couleurValue,
-      dateNaissance: dateNaissanceValue,
-      passwordConfirm: passwordConfirmValue,
-      roleList: roleValue,
+    const team: Team = {
+      id : "",
+      nom : teamNameValue,
     };
 
-    if (membre.email !== '' && membre.password !== '') {
-      this.authService.signup(membre).subscribe((resp) => {
-        this.router.navigate(['accueil']);
+    if (emailValue !== '' && passwordValue !== '' && team.nom!== '') {
+        //création Team
+      this.teamService.addTeam(team).subscribe((respTeam) => {
+        //récupération de l'id auto-généré (respTeam.id) dans l'id team (team.id)
+        team.id = respTeam.id;
+         //création objet membre avec l'objet team crée
+        const membre: Membre = {
+          id: idValue,
+          nom: nomValue,
+          prenom: prenomValue,
+          email: emailValue,
+          password: passwordValue,
+          couleur: couleurValue,
+          dateNaissance: dateNaissanceValue,
+          passwordConfirm: passwordConfirmValue,
+          team: team,
+          roleList: roleValue,
+        };
+        //création du membre en bdd avec l'objet membre
+        this.authService.signup(membre).subscribe((respMembre) => {
+          this.router.navigate(['accueil']);
+          return respMembre
+        });
+
       });
     } else {
       // affichage erreur

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { MembreService } from 'src/app/services/membre.service';
 import { TeamService } from 'src/app/services/team.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -15,12 +14,13 @@ export class PageAccountComponent implements OnInit {
   public listMembres: any[];
   currentUser: any;
   currentTeam: any;
+  parent: boolean;
 
   constructor(private membreService: MembreService,
     private teamService: TeamService,
-    private tokenService: TokenService,
-    private router: Router) {
+    private tokenService: TokenService) {
     this.listMembres = [];
+    this.parent = false;
    }
 
   ngOnInit(): void {
@@ -36,5 +36,16 @@ export class PageAccountComponent implements OnInit {
     this.membreService.getMembresByTeamId()?.subscribe((membres: any[]) => {
       this.listMembres = membres;
     });
+
+    /** Récupérer le rôle de l'uilisateur connecté pour lui imposer des limitations s'il a un ROLE_ENFANT **/
+    /** Il s'agit de cacher les boutons qui permettent de modifier et supprimer les profils (html)**/
+    const userRole = this.tokenService.getRole();
+    if(userRole == "ROLE_PARENT"){
+      this.parent = true;
+    }
+    else if(userRole== "ROLE_ENFANT"){
+      this.parent = false;
+    }
   }
+
 }

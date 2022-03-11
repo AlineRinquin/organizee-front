@@ -1,12 +1,3 @@
-<app-header></app-header>
-<app-side-bar></app-side-bar>
-
-<app-alert
-  *ngIf="isShow"
-  [alert]="alert"
-  (eventClose)="onClickCloseAlert()"
-></app-alert>
-
 <!-- <div
   class="alert alert-{{ alert.type }}"
   role="alert"
@@ -25,13 +16,16 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div> -->
-
+<app-header></app-header>
+<app-side-bar [backgroundColor]="'#F178B6'"></app-side-bar>
+<h2 class="titre">Agenda</h2>
+<app-alert
+  *ngIf="isShow"
+  [alert]="alert"
+  (eventClose)="onClickCloseAlert()"
+></app-alert>
 <div style="display: flex">
-  <div style="width: 150px">
-    <app-side-bar></app-side-bar>
-  </div>
-
-  <div style="width: 100%">
+  <div style="width: 100%" id="daypilot">
     <div class="wrap">
       <div class="left">
         <daypilot-navigator
@@ -90,3 +84,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

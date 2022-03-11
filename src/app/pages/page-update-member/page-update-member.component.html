@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-side-bar></app-side-bar>
+<app-side-bar [backgroundColor]="'#7879F1'"></app-side-bar>
 <div class="container-fluid">
   <div class="row">
     <div class="col-9 offset-2" id="main">
@@ -80,8 +80,7 @@
               placeholder=""
               name="Role"
               formControlName="roleFc"
-              value="{{membreInfos.roleList}}"
-              [(ngModel)]="membreInfos.roleList"
+              value=""
             >
               <option value="ROLE_PARENT">Adulte</option>
               <option value="ROLE_ENFANT">Enfant</option>
@@ -110,3 +109,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

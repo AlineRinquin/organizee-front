@@ -1,10 +1,8 @@
 <app-header></app-header>
-<div class="row">
-  <div class="col-md-auto">
-    <app-side-bar></app-side-bar>
-  </div>
+<app-side-bar [backgroundColor]="'#4E9E7B'"></app-side-bar>
+<h2 class="titre">To-Do-List</h2>
+<div class="row ">
   <div class="col menu text-center">
-    <h2>To-Do-List</h2>
     <div class="d-flex align-items-stretch"></div>
     <input
       type="text"
@@ -13,7 +11,6 @@
       [(ngModel)]="todoListTitle"
       (keyup.enter)="addTodoByTeamId()"
     />
-
     <div class="d-flex align-items-stretch">
       <div class="custom-main container p-3">
         <div class="row">

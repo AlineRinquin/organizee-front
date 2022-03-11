@@ -1,3 +1,43 @@
+/** Header accueil **/
+
+#img {
+  height:45px;
+}
+
+.navbar{
+  height: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #5d5fef;
+}
+
+a:visited {
+  color: #5d5fef;
+}
+
+a:focus {
+  border-bottom: 1px solid;
+  background: #a5a6f6;
+}
+
+a:hover {
+  color: #7879f1;
+}
+
+a:active {
+  color: #5d5fef;
+}
+
+.container-fluid{
+  width:90%;
+}
+
+/** Contenu de la page **/
 .container {
   display: flex;
 }
@@ -40,7 +80,7 @@ p {
   justify-content: space-between;
 }
 
-img {
+.imgAcc {
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   box-shadow: 6px 6px #d3d3d3;

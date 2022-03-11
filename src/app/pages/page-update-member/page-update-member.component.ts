@@ -23,7 +23,7 @@ export class PageUpdateMemberComponent implements OnInit {
     this.updateMembreForm = new FormGroup({});
     this.membreData = this.initForm();
     this.membreInfos = '';
-   }
+  }
 
   ngOnInit(): void {
     /** Pour récuperer l'id du membre à modifier **/
@@ -100,10 +100,8 @@ export class PageUpdateMemberComponent implements OnInit {
       roleList: [roleValue]
     };
 
-    console.log(membre);
-
     this.membreService.updateMembre(membre)?.subscribe((resp) => {
-      //this.router.navigate(['compte']);
+      this.router.navigate(['compte']);
     });
   }
 

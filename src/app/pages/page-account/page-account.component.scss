@@ -2,6 +2,14 @@ button{
   margin-bottom: 5px;
 }
 
+.titre{
+  display: inline-flex;
+  margin-left: 20px;
+  text-align: center;
+  color: #5d5fef;
+  font-size: 30px;
+}
+
 #main{
   margin-top: 20px;
 }
@@ -12,6 +20,7 @@ ng-container{
 
 #bouton-ajout {
   margin-top: 5px;
+  margin-bottom: 20px;
   border: 1px solid #7879F1 !important;
   background-color: #7879F1;
   color: #fff;

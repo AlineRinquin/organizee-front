@@ -45,8 +45,8 @@ export class MembreService {
     }
   }
 
-  deleteMembre(membre: Membre): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/membres/delete/1`);
+  deleteMembre(membre: Membre): Observable<any>{
+    return this.http.delete(`${this.apiUrl}/membres/delete/${membre.id}`, {responseType: "text"});
   }
 
   updateMembre(membre: Membre): Observable<any> | void {
@@ -57,4 +57,16 @@ export class MembreService {
       this.router.navigate(['accueil']);
     }
 }
+
+updateHumeur(numero : any) : Observable<any> | void {
+  const userId = this.tokenService.getCurrentMembreId();
+  if (userId){
+  return this.http.put(`${this.apiUrl}/membres/update/smiley/${userId}`, numero);
+}else {
+    this.router.navigate(['accueil']);
+  }
 }
+
+}
+
+

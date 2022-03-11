@@ -5,7 +5,8 @@
   width: auto;
   height: 100%;
   position: absolute;
-  //background-color: #c3c3e7;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .nav{
   margin-top: 20px;
@@ -19,5 +20,9 @@ li {
 
 a{
   color: black;
+  background-color: white;
   font-weight: bold;
+  padding: none;
+  margin-bottom: 10px;
+  border-radius: 15px;
 }
