@@ -28,6 +28,7 @@ export class PageAddMemberComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.addMemberForm = new FormGroup({});
+    this.isShow = false;
   }
 
   ngOnInit(): void {
@@ -129,5 +130,11 @@ export class PageAddMemberComponent implements OnInit {
         matchingControl.setErrors(null);
       }
     };
+  }
+
+   //fermeture du message d'alerte
+   onClickCloseAlert(){
+    console.log('fermeture');
+    this.isShow = ! this.isShow;
   }
 }

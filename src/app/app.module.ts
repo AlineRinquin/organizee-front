@@ -77,7 +77,7 @@ registerLocaleData(localeFr)
     DeconnexionComponent,
     HumeurComponent,
     AlertComponent,
-    PageAjoutEvenementsComponent, 
+    PageAjoutEvenementsComponent,
     PageSupportComponent
   ],
   imports: [

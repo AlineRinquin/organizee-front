@@ -18,6 +18,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class PageSignupComponent implements OnInit {
   public signupForm: FormGroup;
+  alert: any;
+  isShow!: boolean;
 
   constructor(
     private authService: AuthService,
@@ -26,10 +28,11 @@ export class PageSignupComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.signupForm = new FormGroup({});
+    this.isShow = false;
   }
 
   ngOnInit(): void {
-    // *********************************pensser a changer group car déprécié********************************
+    // ********************************* Pour V2 : changer group car déprécié********************************
     this.signupForm = this.fb.group(
       {
         teamNameFc: new FormControl('', [Validators.required]),
@@ -101,7 +104,8 @@ export class PageSignupComponent implements OnInit {
 
       });
     } else {
-      // affichage erreur
+      this.alert={"type":"danger", "content":"Votre profil n'a pas été créé"};
+      this.isShow = true;
     }
   }
   /** Méthode pour compare le mot de passe et la confirmation de mot de passe **/
@@ -121,5 +125,11 @@ export class PageSignupComponent implements OnInit {
         matchingControl.setErrors(null);
       }
     };
+  }
+
+   //fermeture du message d'alerte
+   onClickCloseAlert(){
+    console.log('fermeture');
+    this.isShow = ! this.isShow;
   }
 }
