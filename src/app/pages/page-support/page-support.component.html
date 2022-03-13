@@ -1,32 +1,36 @@
-<!--  <div>
-<app-header></app-header>
-<app-side-bar></app-side-bar>
-</div>   -->
+<div>
+    <app-header></app-header>
+    <app-side-bar></app-side-bar>
+</div>
+<app-side-bar [backgroundColor]="'rgb(184, 202, 235)'"></app-side-bar>
+
 
 
 <div>
-    <h2>Demande support</h2>
-    <form action="/demande_support" method="post">
+    <h2>Nous contacter</h2>
+    <form action="demande_support" method="post">
 
         <label for="name">Nom :</label>
         <div>
-            <input type="text" id="name" value="Votre nom" name="user_name">
+            <input type="text" id="name" value={{memberName.nom}} name="user_name">
         </div>
+
 
         <label for="mail">E-mail :</label>
         <div>
-            <input type="email" id="mail" name="user_mail" value="Votre adresse mail">
+            <input type="email" id="mail" name="user_mail" value={{memberName.email}} >
         </div>
-        <label for="msg">Message :</label>
-        <div>
 
-            <textarea id="msg" name="user_message">Formulez votre demande ici</textarea>
-        </div>
+        <label for="msg">Message :</label>
+       
+        <textarea id="message" name="message" placeholder="Formulez votre demande ici" required></textarea>
+
         <div class="button">
-            
-            <button class="btn btn-primary">Envoyez votre message</button>
-            <button type="button" class="btn btn-danger">Effacer</button>
+            <button class="btn btn-primary" (click)="onSendMail()">Envoyez votre message</button>
+            <button type="button" class="btn btn-danger" (click)="onDeleteMail()">Effacer</button>
         </div>
+        
     </form>
 </div>
+
 <app-footer></app-footer>

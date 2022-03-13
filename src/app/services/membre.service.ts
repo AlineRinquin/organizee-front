@@ -58,6 +58,8 @@ export class MembreService {
     }
 }
 
+//récupère l'identifiant du membre, ainsi que le lien de son humeur
+//"numero" est l'indice de l'humeur dans le tableau des humeurs
 updateHumeur(numero : any) : Observable<any> | void {
   const userId = this.tokenService.getCurrentMembreId();
   if (userId){
@@ -66,6 +68,10 @@ updateHumeur(numero : any) : Observable<any> | void {
     this.router.navigate(['accueil']);
   }
 }
+
+
+
+
 
 }
 
