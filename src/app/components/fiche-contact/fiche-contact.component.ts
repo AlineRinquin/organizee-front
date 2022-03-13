@@ -19,6 +19,7 @@ export class FicheContactComponent implements OnInit {
   ngOnInit(): void {
     const roleUser = this.tokenService.getRole();
 
+    //gestion du role parent ou non pour mettre en "disable" les boutons pour les roles enfants
     if(roleUser == "ROLE_PARENT"){
       this.parent = true;
     }
