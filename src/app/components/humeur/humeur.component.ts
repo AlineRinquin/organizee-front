@@ -27,8 +27,7 @@ alert: any;
     this.alert="";
      }
 
-// récupère le getCurrentMembreId (stocké dans token.service), 
-// qui est l'identifiant du membre et qui stocké dans le token
+// récupère l'id du membre connecté (stocké dans token.service), 
   ngOnInit(): void { 
     const userId = this.tokenService.getCurrentMembreId();
     this.membreService.getMembreId(userId).subscribe({

@@ -5,31 +5,33 @@
 <app-side-bar [backgroundColor]="'rgb(184, 202, 235)'"></app-side-bar>
 
 
-
 <div>
+
+    <app-alert *ngIf="isShow" [alert]="alert" (eventClose)="onClickCloseAlert()"></app-alert>
     <h2>Nous contacter</h2>
-    <form action="demande_support" method="post">
+    <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+
 
         <label for="name">Nom :</label>
         <div>
-            <input type="text" id="name" value={{memberName.nom}} name="user_name">
+            <input type="text" id="floatingInputlastName" [(ngModel)]="expName" placeholder="{{expName}}"   name="lastName" formControlName="lastNameFc" />
         </div>
-
 
         <label for="mail">E-mail :</label>
         <div>
-            <input type="email" id="mail" name="user_mail" value={{memberName.email}} >
+            <input type="email" id="floatingInputemail" placeholder="{{expMail}}" [(ngModel)]="expMail" name="email" formControlName="emailFc" />
         </div>
 
         <label for="msg">Message :</label>
-       
-        <textarea id="message" name="message" placeholder="Formulez votre demande ici" required></textarea>
+        <textarea formControlName="messageFc" id="msg" name="message" placeholder="Formulez votre demande ici"
+            required></textarea>
 
         <div class="button">
-            <button class="btn btn-primary" (click)="onSendMail()">Envoyez votre message</button>
+            <button type="submit" [disabled]="contactForm.invalid" class="btn btn-primary">Envoyez votre
+                message</button>
             <button type="button" class="btn btn-danger" (click)="onDeleteMail()">Effacer</button>
         </div>
-        
+
     </form>
 </div>
 
