@@ -6,6 +6,7 @@
             <div class="text-center"><div class="rounded-circle"id="couleur"[style.background-color]="membre.couleur"></div></div>
             <div class="text-center mt-3">
               <h3 class="mt-2 mb-0">{{membre.prenom }}  {{membre.nom }}</h3>
+               <!-- [hidden] pour cacher le bouton si le membre a un profil enfant-->
               <div class="buttons text-center"><button button type="button" class="btn btn-outline-primary px-4"
                         routerLink="../modifier-membre/{{membre.id}}"
                         routerLinkActive="active-custom"

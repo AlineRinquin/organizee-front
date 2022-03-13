@@ -16,15 +16,13 @@ export class CardMemberComponent implements OnInit {
 
   ngOnInit(): void {
     /** Récupérer le rôle de l'uilisateur connecté pour lui imposer des limitations s'il a un ROLE_ENFANT **/
-    /** Il s'agit de cacher les boutons qui permettent de modifier et supprimer les profils (html)**/
+    /** Il s'agit de cacher les boutons qui permettent de modifier et supprimer les profils ([hidden] dans html)**/
     const userRole = this.tokenService.getRole();
     if(userRole == "ROLE_PARENT"){
       this.parent = true;
-      console.log('Rôle : ' + userRole);
     }
     else if(userRole== "ROLE_ENFANT"){
       this.parent = false;
-      console.log('Rôle : ' + userRole);
     }
   }
 
