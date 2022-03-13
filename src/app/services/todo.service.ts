@@ -47,7 +47,7 @@ export class TodoService {
   addTodoByTeamId(newtodoList: TodoList): Observable<any> {
     const teamId = this.tokenService.getCurrentTeamId();
     console.log(newtodoList);
-    return this.http.post(`${this.apiUrl}/ad/todolistd/${teamId}`, newtodoList);
+    return this.http.post(`${this.apiUrl}/todolist/add/${teamId}`, newtodoList);
   }
 
   //suprime une todoList en fonction de son id
