@@ -1,7 +1,8 @@
 <div class="card m-1 p-1 avatar bg-light">
 
   <div class="card-img-top">
-    <div class="rounded-circle"id="couleur"[style.background-color]="membre.couleur">
+    <div class="rounded-circle" id="couleur" [style.background-color]="membre.couleur">
+      <img *ngIf="membre.smiley" class="rounded-circle humeur" src="{{membre.smiley}}">
     </div>
   </div>
 
