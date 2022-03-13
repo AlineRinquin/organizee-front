@@ -51,7 +51,7 @@ export class PageForgotPasswordComponent implements OnInit {
             Bonjour!\n
             Vous avez fait une demande de ré-initialisation de mot de passe. \n
             Cliquez sur le lien pour définir un nouveau mot de passe: \n
-            Lien  : http://192.168.1.16:4200/reinitialisation-password/${result}`
+            Lien  : http://localhost:4200/reinitialisation-password/${result}`
           };
           this.isLoading = true;
           this.mailService.envoiMailText(mail).subscribe(
