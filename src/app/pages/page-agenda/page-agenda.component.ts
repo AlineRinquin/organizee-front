@@ -234,16 +234,19 @@ export class PageAgendaComponent implements AfterViewInit {
     });
   }
 
+  // bouton pour afficher la semaine precedente
   navigatePrevious(event: MouseEvent): void {
     event.preventDefault();
     this.config.startDate = (this.config.startDate as DayPilot.Date).addDays(-7);
   }
 
+  // bouton pour afficher la semaine suivante
   navigateNext(event: MouseEvent): void {
     event.preventDefault();
     this.config.startDate = (this.config.startDate as DayPilot.Date).addDays(7);
   }
 
+  // bouton pour afficher la semaine en cours
   navigateToday(event: MouseEvent): void {
     event.preventDefault();
     this.config.startDate = DayPilot.Date.today();
