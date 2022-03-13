@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ToDoList } from 'src/app/models/to-do-list';
 import { TodoService } from 'src/app/services/todo.service';
 
-
 @Component({
   selector: 'app-page-to-do-list',
   templateUrl: './page-to-do-list.component.html',
@@ -42,8 +41,8 @@ export class PageToDoListComponent implements OnInit {
         console.log(todoList);
         window.location.reload(); //rafraîchit l'aperçu
       });
-    }else{
-    window.alert('Il faut saisir du texte'); // sinon msg d'erreur
+    } else {
+      window.alert('Il faut saisir du texte'); // sinon msg d'erreur
     }
   }
 }
