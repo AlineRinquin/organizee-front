@@ -15,10 +15,12 @@ export class PageForgotPasswordComponent implements OnInit {
 
   alert : any;
   isShow : boolean;
+  isLoading : boolean;
 
   constructor(private authService: AuthService, private router: Router, private mailService: MailService,) {
     this.alert = "";
     this.isShow = false;
+    this.isLoading = false;
   }
 
   ngOnInit(): void {}
@@ -36,26 +38,36 @@ export class PageForgotPasswordComponent implements OnInit {
         passwordConfirm: ""
       };
 
-    console.log(membre);
+    //console.log(membre);
 
 
     this.authService.forgotPassword(membre).subscribe(
       {
         next: result => {
-          this.alert={"type":"success", "content":"Un mail à été envoyé !"};
-          this.isShow = true;
           const mail: Mail = {
             recipient: submittedForm.form.value.email,
             subject: "Votre mot de passe Organizee",
-            //message: 'Votre mot de passe'
             message: `
             Bonjour!\n
             Vous avez fait une demande de ré-initialisation de mot de passe. \n
             Cliquez sur le lien pour définir un nouveau mot de passe: \n
-            Lien  : http://192.168.1.16:4200/reinitialisation-password/${result}`
+            Lien  : http://localhost:4200/reinitialisation-password/${result}`
           };
-          this.mailService.envoiMailText(mail)?.subscribe((respMail) =>{
-            console.log("Mail envoyé");
+          this.isLoading = true;
+          this.mailService.envoiMailText(mail).subscribe(
+            {
+              next: respMail => {
+                //console.log("Mail envoyé");
+                this.alert={"type":"success", "content":"Le mail à été envoyé !"};
+                this.isShow = true;  
+                this.isLoading = false;            
+              },
+              error: err => {
+                this.alert={"type":"danger", "content":"Echec lors de l'envoi de mail"};
+                this.isShow = true;
+                this.isLoading = false;            
+              },
+              complete: () => console.log('DONE!')
           })
         },
         error: err => {

@@ -3,6 +3,7 @@
 
     <h2>Mon humeur :</h2>
 
+  <!-- envoie une alerte sur le header au clic du changement d'humeur-->
   <app-alert
   *ngIf="isShow"
   [alert]="alert"
@@ -10,12 +11,13 @@
 ></app-alert>
     
     
-    
+    <!--affichage de l'humeur sur laquelle on a cliqué-->
     <p><img src="{{monHumeurLien}}"  alt="{{monHumeurTitle}}" *ngIf="monHumeurLien" ></p> 
     
     <p>Je modifie mon avatar :</p>
     
-    
+    <!--Directive structurelle *ngFor pour afficher tous les éléments du tableau-->
+    <!-- puis récupération au click de l'indice de l'humeur choisie-->
     <div class="humeur" *ngFor="let humor of tabHumeur; let i=index">
         <img src="{{humor.lien}}" alt="{{humor.title}}"  (click)="onChoixHumeur(i)">
     </div> 

@@ -18,7 +18,7 @@ export class MailService {
     this.tokenKey = environment.tokenKey;
   }
 
-  envoiMailText(mail: Mail): Observable<any> | void{
+  envoiMailText(mail: Mail): Observable<any>{
     return this.http.post(`${this.apiUrl}/sendmail/text`, mail, {
       responseType: "text"
     });

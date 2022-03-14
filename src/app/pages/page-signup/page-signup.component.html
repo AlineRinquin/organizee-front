@@ -83,7 +83,7 @@
               !signupForm.controls['dateNaissanceFc'].valid
           }"
         />
-        <label for="floatingInputdateNaissance">Votr date de naissance</label>
+        <label for="floatingInputdateNaissance">Votre date de naissance</label>
       </div>
       <div class="form-floating">
         <input
@@ -149,7 +149,7 @@
         [disabled]="signupForm.invalid">
         CREER MON COMPTE
       </button>
-
     </form>
+    <app-alert *ngIf="isShow" [alert]="alert" (eventClose)="onClickCloseAlert();"></app-alert>
   </main>
 </div>

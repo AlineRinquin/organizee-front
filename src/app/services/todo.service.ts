@@ -43,10 +43,10 @@ export class TodoService {
     return this.http.put(`${this.apiUrl}/taches/update/1`, tache);
   }
 
-  //ajoute ne todoList sur une team (par son id) via le token
+  //ajoute une todoList sur une team (par son id) via le token
   addTodoByTeamId(newtodoList: TodoList): Observable<any> {
     const teamId = this.tokenService.getCurrentTeamId();
-    console.log(newtodoList + 'newtodoList');
+    console.log(newtodoList);
     return this.http.post(`${this.apiUrl}/todolist/add/${teamId}`, newtodoList);
   }
 

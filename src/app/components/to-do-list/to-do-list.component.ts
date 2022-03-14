@@ -110,8 +110,6 @@ export class ToDoListComponent implements OnInit {
     tache.editing = false;
   }
 
-
-
   //supprimer la tache
   deleteTache(id: number) {
     this.TodoService.deleteTacheById(id).subscribe((resp) => {
